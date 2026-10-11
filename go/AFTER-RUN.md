@@ -11,6 +11,7 @@ GO-BOT is locked, so this amendment is logged as a `deviation` row in [logs/bot/
 | after the count | – | The box nodes are restarted (with `--uacomment=Grok`) **only after the count is done and saved**. |
 | ~14:00 | ~16:00 | **Build's result file wanted**, so the 15:30Z push is not held up. |
 | **by 15:30** | by 17:30 | Raw logs + xlsx pushed to [logs/bot/](../logs/bot/README.md); tn ops2 adds `logs/COMBINED.md` and `logs/WRITE-UP.md`. |
+| after 15:30 | after 17:30 | Repo renames, pattern `tn10-storm-<date>` (not `tn10-run-<date>`). |
 
 ## Headline
 
@@ -22,7 +23,7 @@ GO-BOT is locked, so this amendment is logged as a `deviation` row in [logs/bot/
 ## Kaspa Pulse's counter
 
 - Live mirror of Kaspa Pulse's method on the bot side since **10:48Z (12:48 CEST)**: [logs/bot/pulse-method-minute.csv](../logs/bot/pulse-method-minute.csv) (accepted in blocks, two independent nodes, per UTC minute, by block time). Earlier minutes come from the chain count after END.
-- **tn-master `METRICS.md`** gets Kaspa Pulse's counter and the note that every network count includes TN10 base load of about 56 tx/s. **Lines quoting Kaspa Pulse are held until he has read them.**
+- **tn-master** (built after today's run) **`METRICS.md`** gets Kaspa Pulse's counter and the note that every network count includes TN10 base load of about 56 tx/s. **Lines quoting Kaspa Pulse are held until he has read them.**
 
 ## After-run mining
 
