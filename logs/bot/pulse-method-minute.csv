@@ -1,0 +1,9 @@
+# Kaspa Pulse method, live mirror (bot side, TN10 storm Sun 11 Oct 2026). All minutes are UTC. Monitoring started 10:48Z (12:48 CEST); miner columns added 10:48Z (12:48 CEST); first full minute below = 10:49Z.
+# Earlier minutes of the run (07:30Z onward) come from the post-END chain count, not from this file.
+# Network block columns: blocks merged by the selected chain (blue = accepted, red = not accepted), bucketed by accepting chain block time, as seen on node_a.
+# Miner columns (bot's one miner, feeding n2): our_blocks = blocks whose coinbase pays the bot's own miner (tagged coinbase), as n2 received them in that UTC minute (n2 sees blocks within ~1 s of block time);
+# our_found / hashrate = the miner's own log for that UTC minute. Bot payout address is never written here.
+# Method: transactions accepted in blocks, per UTC minute, bucketed by the timestamp of the accepting chain block, counted on two independent nodes:
+# node_a = n2 (bot's own pruned TN10 node), node_b = muon-10.kaspa.blue (public TN10 node). Unique tx ids counted once per node per minute, minus one coinbase per chain block.
+# Every network count includes TN10 base load of about 56 tx/s (figure from Kaspa Pulse). Counts only.
+utc_minute,cest_minute,node_a_accepted,node_b_accepted,node_a_tx_s,node_b_tx_s,diff,node_a_chain_blocks,node_b_chain_blocks,net_blocks_blue,net_blocks_red,our_blocks,our_share,our_found,our_hashrate,note
