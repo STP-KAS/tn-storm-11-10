@@ -68,9 +68,9 @@ A sender never fires at your node when: RPC fails for 5 s, the node is not synce
 
 Exactly **one** miner, one thread, on your own node only, paying Build's own address (kept out of git). On at 09:20, off at END.
 
-## One paste, separate PowerShell windows
+## One paste, 3 PowerShell windows
 
-If stp has to paste anything, give him **one** PowerShell block and nothing more. That block opens **separate PowerShell windows**, one job each, so a crash in one never takes down the others: (1) desk node and its watcher, (2) desk-node senders (75%), (3) public-node senders (25%), (4) the monitor that raises, lowers and restarts, (5) the loggers. Each window has a clear title. The monitor window restarts any other window whose job dies. Everything under `%USERPROFILE%\grok-build\tn-storm-11-10\`. Senders start at 07:30:00Z and stop at 12:30:00Z by the clock, whatever time it is pasted.
+If stp has to paste anything, give him **one** PowerShell block and nothing more. That block opens **3 separate PowerShell windows**, one job each, so a crash in one never takes down the others: (1) **NODE**: desk node, its watcher and the miner; (2) **SENDERS**: desk-node senders (75%) and public-node senders (25%); (3) **MONITOR**: watches, raises, lowers, restarts anything that dies, and runs the loggers. Each window has a clear title. Everything under `%USERPROFILE%\grok-build\tn-storm-11-10\`. Senders start at 07:30:00Z and stop at 12:30:00Z by the clock, whatever time it is pasted.
 
 ## Log everything
 
