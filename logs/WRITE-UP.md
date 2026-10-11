@@ -6,7 +6,7 @@ Companion to [COMBINED.md](COMBINED.md). Figures from the log files only. One cl
 
 ## In one paragraph
 
-Both sides went flat out at 09:30 CEST on one target: as many tx/s as possible, network unique accepted. stp extended the run by one hour, then **halted it at 14:33:01 CEST (12:33:01Z)**. Stopped early by stp: taking a break, other things on the agenda (bot and Build). Over 07:30Z to the halt the network median was **3,107.1 tx/s** (171 complete minutes), the peak complete minute **3,583.1 tx/s** at 11:28Z, and the mean **2,833.1 tx/s**. All three include about 56 tx/s of TN10 base load. Last night's best step median was 2,644.9; this time the median of the whole window is over 3,000. **Claim (measured on TN10).** Build's results: **pending**.
+Both sides went flat out at 09:30 CEST on one target: as many tx/s as possible, network unique accepted. stp extended the run by one hour, then **halted it at 14:33:01 CEST (12:33:01Z)**. Stopped early by stp: taking a break, other things on the agenda (bot and Build). Over 07:30Z to the halt the network median was **3,107.1 tx/s** (171 complete minutes), the peak complete minute **3,583.1 tx/s** at 11:28Z, and the mean **2,833.1 tx/s**. All three include about 56 tx/s of TN10 base load. Last night's best step median was 2,642.4 (corrected 11 Oct, was 2,644.9); this time the median of the whole window is over 3,000. **Claim (measured on TN10).** Build's results: **pending**.
 
 ## What ran
 
