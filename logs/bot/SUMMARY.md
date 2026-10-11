@@ -1,6 +1,6 @@
 # Bot side, live summary (TN10 storm, Sun 11 Oct 2026, flat out 09:30-14:30 CEST)
 
-Updated **09:00:04 CEST / 07:00:04 UTC**, about every 10 minutes from G1 to END. Counts only, written on the box by `live-summary.py` (read-only, sends nothing). Column meanings: [go/LOGGING.md](../../go/LOGGING.md). Plan and times: [go/README.md](../../go/README.md).
+Updated **09:15:12 CEST / 07:15:12 UTC**, about every 10 minutes from G1 to END. Counts only, written on the box by `live-summary.py` (read-only, sends nothing). Column meanings: [go/LOGGING.md](../../go/LOGGING.md). Plan and times: [go/README.md](../../go/README.md).
 
 ## Now
 
@@ -30,10 +30,10 @@ Updated **09:00:04 CEST / 07:00:04 UTC**, about every 10 minutes from G1 to END.
 |---|---|
 | n2 synced / UTXO index | True / False |
 | n2 sink age (lag) | 0.5 s |
-| n2 virtual DAA score | 593,674,412 |
+| n2 virtual DAA score | 593,682,716 |
 | Miner processes | 0 |
 | Lane tips at last sender boots | 0 tKAS in 0 lanes (read from a public UTXO index; no wallet buffer needed) |
-| Disk free / RAM available | 34 GB / 5,915 MB |
+| Disk free / RAM available | 34 GB / 6,075 MB |
 
 ## Rate checks (every 15 min over the full last 15 min: +10% if clean, -10% if not)
 
