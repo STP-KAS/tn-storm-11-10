@@ -23,4 +23,6 @@ Pushed by **TN10 ops** after END (raw logs: same files and columns as [tn10-stor
 | `steps.csv` | after END | `window` plus `window-h1` … `window-h5` |
 | `SUMMARY.md` | after END; live every 15 min during the run | Peak minute, 5-hour mean and median, what broke, what was done |
 
+Method sidecars (what is counted, which node, bucketing, UTC): [chain-count](chain-count.csv.METHOD.md), [chain-recount-1m](chain-recount-1m.csv.METHOD.md), [minute](minute.csv.METHOD.md), [pulse-method-minute](pulse-method-minute.csv.METHOD.md).
+
 Columns: [go/LOGGING.md](../../go/LOGGING.md). Counts only; per-transaction logs and ids stay local.

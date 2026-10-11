@@ -4,7 +4,7 @@
 >
 > ← previous storm: [tn10-storm-2026-10-10-public-nodes](https://github.com/STP-KAS/tn10-storm-2026-10-10-public-nodes) | latest storm →
 
-# tn10-storm-2026-10-11: one target, one window
+# tn10-storm-2026-10-11 · Sun 11 Oct, 07:30-12:33 UTC (09:30-14:33 CEST): one target, one window
 
 **History of every storm: [MASTER.md](https://github.com/STP-KAS/tn-master/blob/main/history/MASTER.md)** (in tn-master).
 
@@ -59,7 +59,9 @@ Window **07:30Z to the halt (303 minutes)**. Network counts are counted once fro
 | Network unique accepted, median / mean (tx/s) | **3,107.1** (171 complete minutes) / **2,833.1** | [logs/COMBINED.md](logs/COMBINED.md) |
 | Bot mean submit-OK / accepted on n2 (tx/s, all 303 minutes) | 1,101.5 / 1,100.6 (steps.csv logged-second mean 1,212.97 / 1,211.87) | [logs/COMBINED.md](logs/COMBINED.md#bot-vs-build) |
 | Build mean submitted / accepted (tx/s) | pending | [logs/build/](logs/build/README.md) |
-| Kaspa Pulse's outside count | pending | |
+| Kaspa Pulse's outside count | (Kaspa Pulse's independent count: pending his review) | [credits/](credits/README.md) |
+
+**Dips have two shapes:** a big miner dropping out (block rate and throughput fall together) vs senders slowing (block rate holds, tx per block falls). Our evidence: [logs/COMBINED.md, Dips](logs/COMBINED.md#dips-two-shapes-from-our-logs). How each per-minute CSV was counted: [logs/README.md, Method per file](logs/README.md#method-per-file).
 
 Submit-OK (taken into a node's mempool) is not the same as accepted on chain. Kaspa Testnet-10 only; tKAS has no value.
 
