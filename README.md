@@ -46,6 +46,8 @@ Once stp sends a GO it is locked; sending means **be ready at 09:30 CEST**. Bot:
 
 Filled after END and the chain count.
 
+**Status during the run:** 11:28 CEST: stp asked both sides to increase effort. Bot raised 1,011 -> 1,300 tx/s (new floor 1,100, senders 15 -> 18); Build is increasing as well. Details: [logs/bot/CHANGES-DURING-RUN.md](logs/bot/CHANGES-DURING-RUN.md).
+
 | Key number | Value |
 |---|---|
 | Network unique accepted, peak complete minute (tx/s) | pending |

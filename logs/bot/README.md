@@ -13,6 +13,7 @@ Pushed by **TN10 ops** after END (raw logs: same files and columns as [tn10-stor
 | `miner.csv` | 10 s | The one miner |
 | `host.csv` | 10 s | The machine: CPU, RAM, disk |
 | `node.csv` | 10 s | The side's own node |
+| [`CHANGES-DURING-RUN.md`](CHANGES-DURING-RUN.md) | each change | Changes after the GO lock (11:28 CEST: stp asked both sides to increase effort) |
 | `events.csv` | each event | Everything in order: rate changes, fixes, restarts, deviations |
 | `gates.csv` | R1, R2 | Ready reads |
 | `ntp.csv` | start and end | Clock offset |

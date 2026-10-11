@@ -1,6 +1,6 @@
 # Bot side, live summary (TN10 storm, Sun 11 Oct 2026, flat out 09:30-14:30 CEST)
 
-Updated **11:30:19 CEST / 09:30:19 UTC**, about every 10 minutes from G1 to END. Counts only, written on the box by `live-summary.py` (read-only, sends nothing). Column meanings: [go/LOGGING.md](../../go/LOGGING.md). Plan and times: [go/README.md](../../go/README.md).
+Updated **11:35:04 CEST / 09:35:04 UTC**, about every 10 minutes from G1 to END. Counts only, written on the box by `live-summary.py` (read-only, sends nothing). Column meanings: [go/LOGGING.md](../../go/LOGGING.md). Plan and times: [go/README.md](../../go/README.md).
 
 ## Now
 
@@ -8,37 +8,46 @@ Updated **11:30:19 CEST / 09:30:19 UTC**, about every 10 minutes from G1 to END.
 |---|---|
 | Step | **window**, until 14:30 CEST / 12:30 UTC |
 | Bot target now (ramp) | 1,300 tx/s; last clean level 1,112 |
-| Network unique accepted, last complete minute (n2 count) | 1,336.7 tx/s (11:29 CEST) |
-| Network best minute so far / mean since START | 3,421.3 (10:44 CEST) / 2,581.4 tx/s (106 valid minutes) |
-| Bot submitted, last 10 min | 1,021.7 tx/s (613,022 tx) |
-| Bot accepted on n2, last 10 min | 1,020.0 tx/s (612,009 tx) |
+| Network unique accepted, last complete minute (n2 count) | 3,122.8 tx/s (11:34 CEST) |
+| Network best minute so far / mean since START | 3,421.3 (10:44 CEST) / 2,600.7 tx/s (111 valid minutes) |
+| Bot submitted, last 10 min | 1,157.9 tx/s (694,743 tx) |
+| Bot accepted on n2, last 10 min | 1,155.9 tx/s (693,557 tx) |
 | Rejects, last 10 min | 0 consensus/mempool; 0 public-node transport errors |
-| Senders writing rows | 15 (processes up: 16) |
-| Scheduler / watchdog | NOT running / running |
+| Senders writing rows | 18 (processes up: 18) |
+| Scheduler / watchdog | running / running |
 | Stall relaunches (auto) | 30 |
 | HALT | no |
+
+## Changes during the run
+
+| CEST | Change |
+|---|---|
+| 11:28 | **stp asked both sides to increase effort.** Bot raised 1,011 -> 1,300 tx/s at 11:29 (rate-change). New rate rule for the rest of the run: floor 1,100; +10% after every clean 15 min up to 2,400; a not-clean window lowers by 5% only on real overload (accepted < 95% of submitted or rejects >= 2%), otherwise the rate holds. |
+| 11:30-11:34 | Senders 15 -> 18 (staggered, each on 4 of the 5 public nodes; extra senders launch only while box RAM >= 2.5 GB, never under 1.5 GB). Deviation from GO-BOT (max 15 senders for box RAM): 'stp 11:28 increase effort'. |
+| 11:28 | Build is increasing effort as well (Build's side, see Build's logs). |
 
 ## Public nodes, last 10 min
 
 | Node | Submits ok | Rejects | Errors | Down (s) |
 |---|---:|---:|---:|---:|
-| boson-10.kaspa.red | 153,256 | 0 | 0 | 0 |
-| electron-10.kaspa.blue | 153,256 | 0 | 0 | 0 |
-| muon-10.kaspa.blue | 153,256 | 0 | 0 | 0 |
-| vector-10.kaspa.green | 153,254 | 0 | 0 | 0 |
+| boson-10.kaspa.red | 169,444 | 0 | 0 | 0 |
+| electron-10.kaspa.blue | 174,944 | 0 | 0 | 0 |
+| muon-10.kaspa.blue | 169,896 | 0 | 0 | 0 |
+| neutrino-10.kaspa.stream | 7,003 | 0 | 0 | 0 |
+| vector-10.kaspa.green | 173,456 | 0 | 0 | 0 |
 
 ## n2 (bot's private reader node) and the box
 
 | What | Value |
 |---|---|
 | n2 synced / UTXO index | True / False |
-| n2 sink age (lag) | 0.2 s |
-| n2 virtual DAA score | 593,767,926 |
+| n2 sink age (lag) | 0.3 s |
+| n2 virtual DAA score | 593,770,712 |
 | Miner processes | 1 |
-| Lane tips at last sender boots | 147,230 tKAS in 3,000 lanes (read from a public UTXO index; no wallet buffer needed) |
-| Disk free / RAM available | 33 GB / 3,131 MB |
+| Lane tips at last sender boots | 176,320 tKAS in 3,600 lanes (read from a public UTXO index; no wallet buffer needed) |
+| Disk free / RAM available | 34 GB / 2,677 MB |
 
-## Rate checks (every 15 min over the full last 15 min: +10% if clean, -10% if not)
+## Rate checks (every 15 min over the full last 15 min: +10% if clean; until 11:28 CEST -10% if not; from 11:28 CEST floor 1,100 and -5% only on real overload, else hold)
 
 | Eval (CEST) | Level | Submitted tx/s | Accepted tx/s | Rejects % | RAM min GB | CPU avg % | Clean | Next |
 |---|---:|---:|---:|---:|---:|---:|---|---:|
@@ -54,17 +63,17 @@ Updated **11:30:19 CEST / 09:30:19 UTC**, about every 10 minutes from G1 to END.
 
 | CEST | Event | Step | Detail |
 |---|---|---|---|
-| 10:50:10 | sender-relaunch | window | S13 relaunch 2/200 |
-| 10:50:10 | sender-start | window | S13 mode=pub |
-| 10:50:13 | sender-relaunch | window | S14 relaunch 2/200 |
-| 10:50:13 | sender-start | window | S14 mode=pub |
-| 10:50:16 | sender-relaunch | window | S15 relaunch 2/200 |
-| 10:50:16 | sender-start | window | S15 mode=pub |
 | 10:51 | deviation | window | day-watch: mass stall all 15 senders at 10:49:33 CEST; scheduler auto SIGKILL+relaunch 2/200 with fresh picks + public-node stall-strike avoid (muon/boson/elect |
 | 11:00:01 | rate-change | window | RAMP EVAL 10:45-11:00 CEST at 1223 tx/s: sub/acc 884.1/882.1 tx/s, acc/sub 99.77%, rejects 0% (+2 transport), RAM min 2.21 GB, CPU avg 40.4% -> NOT clean (4 nod |
 | 11:15:01 | rate-change | window | RAMP EVAL 11:00-11:15 CEST at 1112 tx/s: sub/acc 0/0 tx/s, acc/sub -%, rejects 0% (+0 transport), RAM min 3.05 GB, CPU avg 42.3% -> NOT clean (accepted -% of su |
 | 11:29:52 | rate-change | - | stp 11:28 CEST: increase effort: rate 1011 -> 1300 tx/s; new rule: floor 1,100, +10% per clean 15 min up to 2400, -5% only on real overload (acc < 95% of sub or |
 | 11:30:17 | deviation | - | stp 11:28 increase effort: senders 15 -> 16 (GO-BOT said max 15 for box RAM; extra senders launch only while MemAvailable >= 2.5 GB, never under 1.5 GB) |
 | 11:30:17 | sender-start | - | S16 mode=pub |
+| 11:30:42 | deviation | - | stp 11:28 increase effort: senders 15 -> 16 (GO-BOT said max 15 for box RAM; extra senders launch only while MemAvailable >= 2.5 GB, never under 1.5 GB) |
+| 11:31:07 | deviation | - | stp 11:28 increase effort: senders 15 -> 16 (GO-BOT said max 15 for box RAM; extra senders launch only while MemAvailable >= 2.5 GB, never under 1.5 GB) |
+| 11:31:58 | deviation | window | stp 11:28 increase effort: senders 16 -> 17 (GO-BOT said max 15 for box RAM; extra senders launch only while MemAvailable >= 2.5 GB, never under 1.5 GB) |
+| 11:31:58 | sender-start | window | S17 mode=pub |
+| 11:33:38 | deviation | window | stp 11:28 increase effort: senders 17 -> 18 (GO-BOT said max 15 for box RAM; extra senders launch only while MemAvailable >= 2.5 GB, never under 1.5 GB) |
+| 11:33:38 | sender-start | window | S18 mode=pub |
 
 How to read: *Now* answers "is the bot sending what the plan says?"; *Public nodes* shows which node rejects or errors; *Rate steps* shows each 15-minute check (clean = at least 99% of submitted accepted, p90 at most 10 s, no node-dead event, submitted at least 90% of target, rejects under 2%, box RAM at least 1.5 GB, CPU under 95%). Label: no-signature hop, anyone-can-spend, not realistic payments. Final per-second files land here after END.
