@@ -74,7 +74,7 @@ If stp has to paste anything, give him **one** PowerShell block that does all of
 
 ## Log everything
 
-From R1 to END, as in [LOGGING.md](../LOGGING.md), `step` = `window`: `sec.csv`, `minute.csv`, `rejects.csv`, `miner.csv`, `host.csv`, `node.csv`, `events.csv` (every `rate-change`, `fix`, restart, `deviation`), `gates.csv`, `ntp.csv`; after END `chain-count.csv`, `confirm.csv`, `steps.csv` (`window` and `window-h1` … `window-h5`) and `SUMMARY.md`. Per-transaction logs and ids stay on the desk.
+From R1 to END, as in [LOGGING.md](../LOGGING.md), `step` = `window`: `sec.csv`, `minute.csv`, `public-nodes.csv`, `rejects.csv`, `miner.csv`, `host.csv`, `node.csv`, `events.csv` (every `rate-change`, `fix`, restart, `deviation`), `gates.csv`, `ntp.csv`; after END `chain-count.csv`, `confirm.csv`, `steps.csv` (`window` and `window-h1` … `window-h5`) and `SUMMARY.md`. Per-transaction logs and ids stay on the desk.
 
 ## Handoff files for the bot
 
