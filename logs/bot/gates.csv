@@ -1,0 +1,3 @@
+utc,side,gate,synced,utxoindex,sink_lag_s,result
+2026-10-11T07:00:00Z,bot,G1,True,False,0.4,fail
+2026-10-11T07:20:00Z,bot,G2,True,False,0.5,fail

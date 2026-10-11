@@ -1,111 +1,359 @@
-# Bot side, live summary (TN10 storm, Sun 11 Oct 2026, flat out 09:30-14:30 CEST)
+# Bot side, TN10 flat-out storm 11 Oct 2026 (5 public TN10 nodes; n2 miner + reads)
 
-Updated **14:30:06 CEST / 12:30:06 UTC**, about every 10 minutes from G1 to END. Counts only, written on the box by `live-summary.py` (read-only, sends nothing). Column meanings: [go/LOGGING.md](../../go/LOGGING.md). Plan and times: [go/README.md](../../go/README.md).
+Counts only. Generated on the box by repo-logs.py from the scheduler's raw logs. Columns: [go/LOGGING.md](../../go/LOGGING.md).
 
-## Now
+T0 2026-10-11T07:30:00Z. **HALT by stp 12:32Z: run halted at 12:33:01Z (14:33:01 CEST), ended early vs the extended END 13:30Z.** Effective END = 12:33:01Z; the log files run to 12:34:00Z so the halt minute (12:33, partial) is included.
 
-| What | Value |
-|---|---|
-| Step | **window**, until 15:30 CEST / 13:30 UTC |
-| Bot target now (ramp) | 1,730 tx/s; last clean level 1,573 |
-| Network unique accepted, last complete minute (n2 count) | 2,861.6 tx/s (14:29 CEST) |
-| Network best minute so far / mean since START | 3,606.2 (13:47 CEST) / 2,888.4 tx/s (260 valid minutes) |
-| Bot submitted, last 10 min | 1,412.2 tx/s (847,300 tx) |
-| Bot accepted on n2, last 10 min | 1,412.5 tx/s (847,486 tx) |
-| Rejects, last 10 min | 2 consensus/mempool; 2 public-node transport errors |
-| Senders writing rows | 18 (processes up: 18) |
-| Scheduler / watchdog | running / running |
-| Stall relaunches (auto) | 86 |
-| HALT | no |
+## Headline: network unique accepted tx/s, 07:30Z to the halt (counted once)
 
-## Changes during the run
+Chain count from n2 after the halt (before pruning), per UTC minute, window 06:30Z-12:34Z: [chain-count.csv](chain-count.csv). Every network count includes TN10 base load of about 56 tx/s. Build's results: pending (not included here).
 
-| CEST | Change |
-|---|---|
-| 11:28 | **stp asked both sides to increase effort.** Bot raised 1,011 -> 1,300 tx/s at 11:29 (rate-change). New rate rule for the rest of the run: floor 1,100; +10% after every clean 15 min up to 2,400; a not-clean window lowers by 5% only on real overload (accepted < 95% of submitted or rejects >= 2%), otherwise the rate holds. |
-| 11:30-11:34 | Senders 15 -> 18 (staggered, each on 4 of the 5 public nodes; extra senders launch only while box RAM >= 2.5 GB, never under 1.5 GB). Deviation from GO-BOT (max 15 senders for box RAM): 'stp 11:28 increase effort'. |
-| 11:28 | Build is increasing effort as well (Build's side, see Build's logs). |
-| 11:49 | **stp: bot fee +40% at the next rate climb**, 400/600 -> 560/840 sompi/gram, cap 840 for this run (above the GO cap 600: deviation). Node-quote-skip threshold stays 400. Fired at **12:31:10 CEST** with the rate climb 1,300 -> 1,430 (re-checked 12:14-12:29 window). |
-| 12:31 | Fix: the 15-minute rate check undercounted submitted tx (a non-integer read offset skipped sender files; the 11:15/11:44/12:14/12:29 checks read 0-209 tx/s while the bot sent ~1,060-1,300). Re-checked 12:14-12:29 with full data: 1,291.9 / 1,291.5 tx/s, 99.97%, 0 rejects -> clean -> 1,300 -> 1,430 tx/s, fees 560/840 from 12:31:10. |
-| 11:50 | stp: **Build asked to climb like the bot** (+10% per clean 15 min, -5% only on real overload, floor = its 11:50 rate) and to raise its fees +40% at its next climb (public share 200/300 -> 280/420; desk pair x1.4). Build's side, see Build's logs. |
+| Measure (07:30-12:33Z, 303 minutes) | tx/s |
+|---|---:|
+| Peak complete minute (11:28Z) | **3,583.1** |
+| Mean | **2,833.1** |
+| Median | **3,107.1** |
 
-## Public nodes, last 10 min
+- Mean = all unique accepted tx in 07:30-12:33Z (51,506,370) / 303 minutes. Rows that span several minutes do not change this total.
+- Peak and median use only one-minute rows (171 minutes, including 6 minutes from the live chain logger where the count had a gap). 47 rows span more than one minute (a boundary block missing or not on the final chain, including n2's freeze 11:08-11:25Z) and are left out of peak and median; chain-count.csv marks them `complete_minute = no`.
+- The peak minute matches the live per-minute logger exactly (3,583.1 tx/s). The Kaspa Pulse method mirror ([pulse-method-minute.csv](pulse-method-minute.csv), live from 10:48Z) buckets by the accepting chain block's timestamp, so its minutes differ slightly (11:28Z there: 3,645.9 tx/s; its highest minute: 11:28Z at 3,645.9 tx/s).
 
-| Node | Submits ok | Rejects | Errors | Down (s) |
-|---|---:|---:|---:|---:|
-| boson-10.kaspa.red | 191,534 | 0 | 0 | 0 |
-| electron-10.kaspa.blue | 133,794 | 2 | 2 | 0 |
-| muon-10.kaspa.blue | 180,211 | 0 | 0 | 0 |
-| neutrino-10.kaspa.stream | 135,318 | 0 | 0 | 0 |
-| vector-10.kaspa.green | 206,443 | 0 | 0 | 0 |
+Rehearsal: not run. B = 2588.4 (fixed). Last clean bot level: .
 
-Rejects by class: already_in_mempool 2, rpc 2
+| Step | Target | Mean sent | Mean submit-ok | Mean n2-accepted | Rejects | Clean | Reason |
+|---|---:|---:|---:|---:|---:|---|---|
+| window | 1261.4 | 1213.73 | 1212.97 | 1211.87 | 764 |  | not evaluated |
+| window-h1 | 921.5 | 910.02 | 909.51 | 908.52 | 3 |  | hour of the window (rate checks: rate-checks.csv) |
+| window-h2 | 1107.6 | 1098.27 | 1097.84 | 1097.49 | 12 |  | hour of the window (rate checks: rate-checks.csv) |
+| window-h3 | 1299.8 | 1263.0 | 1260.94 | 1258.07 | 33 |  | hour of the window (rate checks: rate-checks.csv) |
+| window-h4 | 1427.0 | 1363.74 | 1362.8 | 1361.87 | 701 |  | hour of the window (rate checks: rate-checks.csv) |
+| window-h5 | 1537.1 | 1423.0 | 1422.95 | 1422.01 | 15 |  | hour of the window (rate checks: rate-checks.csv) |
 
-## Kaspa Pulse method (live mirror)
+## What broke and what was done
 
-**Monitoring started 10:48Z (12:48 CEST)**, runs until END 13:30Z (15:30 CEST; extended +1h by stp 12:13Z). Kaspa Pulse's counter: transactions accepted in blocks, per UTC minute, by block time, on two independent nodes (n2 and the public node muon-10.kaspa.blue, side by side). Earlier minutes of the run (from 07:30Z) come from the post-END chain count. File: [pulse-method-minute.csv](pulse-method-minute.csv), with network blocks (blue/red) and our miner per UTC minute.
+- 2026-10-11T07:20:00Z  **deviation** build-confirmed: at G2
+- 2026-10-11T07:20:00Z  **deviation** build-confirmed: BUILD-OK
+- 2026-10-11T07:30:00Z window **deviation** Build ready file (FOR-TN10-OPS-ready-1110.txt) not passed to the bot by START 09:30 CEST; bot does not wait (GO-BOT)
+- 2026-10-11T07:31:42Z window **disk-guard** box disk 18.8 GB free (< 20)
+- 2026-10-11T07:31:42Z window **deviation** box disk 18.8 GB free (< 20): senders pause at 8 GB; n2 disk guard STOP at 5 GB, halt at 3 GB; pub submit fallback below 10 GB
+- 2026-10-11T07:43:11Z window **deviation** sender-stall: S1 stalled: 0 ok submits in 45 s (1 sec rows), 0 accepts in 60 s, erroring nodes [], main neutrino-10.kaspa.stream -> SIGKILL pid -, relaunch now with fresh picks
+- 2026-10-11T07:43:11Z window **deviation** sender-stall: S2 stalled: 0 ok submits in 45 s (2 sec rows), 0 accepts in 60 s, erroring nodes [], main vector-10.kaspa.green -> SIGKILL pid -, relaunch now with fresh picks
+- 2026-10-11T07:43:11Z window **deviation** sender-stall: S3 stalled: 0 ok submits in 45 s (2 sec rows), 0 accepts in 60 s, erroring nodes [], main boson-10.kaspa.red -> SIGKILL pid -, relaunch now with fresh picks
+- 2026-10-11T07:43:11Z window **deviation** sender-stall: S4 stalled: 0 ok submits in 45 s (2 sec rows), 0 accepts in 60 s, erroring nodes [], main muon-10.kaspa.blue -> SIGKILL pid -, relaunch now with fresh picks
+- 2026-10-11T07:43:11Z window **deviation** sender-stall: S5 stalled: 0 ok submits in 45 s (2 sec rows), 0 accepts in 60 s, erroring nodes [], main vector-10.kaspa.green -> SIGKILL pid -, relaunch now with fresh picks
+- 2026-10-11T07:43:11Z window **node-dead** vector-10.kaspa.green: 3 strikes in 10 min (S6 main: no accepts in 60 s); new picks avoid it
+- 2026-10-11T07:43:11Z window **deviation** sender-stall: S6 stalled: 0 ok submits in 45 s (2 sec rows), 0 accepts in 60 s, erroring nodes [], main vector-10.kaspa.green -> SIGKILL pid -, relaunch now with fresh picks
+- 2026-10-11T07:43:11Z window **deviation** sender-stall: S7 stalled: 0 ok submits in 45 s (2 sec rows), 0 accepts in 60 s, erroring nodes [], main vector-10.kaspa.green -> SIGKILL pid -, relaunch now with fresh picks
+- 2026-10-11T07:43:11Z window **deviation** sender-stall: S8 stalled: 0 ok submits in 45 s (2 sec rows), 0 accepts in 60 s, erroring nodes [], main electron-10.kaspa.blue -> SIGKILL pid -, relaunch now with fresh picks
+- 2026-10-11T07:43:11Z window **deviation** sender-stall: S9 stalled: 0 ok submits in 45 s (2 sec rows), 0 accepts in 60 s, erroring nodes [], main muon-10.kaspa.blue -> SIGKILL pid -, relaunch now with fresh picks
+- 2026-10-11T07:43:11Z window **deviation** sender-stall: S10 stalled: 0 ok submits in 45 s (2 sec rows), 0 accepts in 60 s, erroring nodes [], main vector-10.kaspa.green -> SIGKILL pid -, relaunch now with fresh picks
+- 2026-10-11T07:43:11Z window **deviation** sender-stall: S11 stalled: 0 ok submits in 45 s (2 sec rows), 0 accepts in 60 s, erroring nodes [], main boson-10.kaspa.red -> SIGKILL pid -, relaunch now with fresh picks
+- 2026-10-11T07:43:11Z window **deviation** sender-stall: S12 stalled: 0 ok submits in 45 s (3 sec rows), 0 accepts in 60 s, erroring nodes [], main neutrino-10.kaspa.stream -> SIGKILL pid -, relaunch now with fresh picks
+- 2026-10-11T07:43:11Z window **deviation** sender-stall: S13 stalled: 0 ok submits in 45 s (3 sec rows), 0 accepts in 60 s, erroring nodes [], main electron-10.kaspa.blue -> SIGKILL pid -, relaunch now with fresh picks
+- 2026-10-11T07:43:11Z window **deviation** sender-stall: S14 stalled: 0 ok submits in 45 s (2 sec rows), 0 accepts in 60 s, erroring nodes [], main vector-10.kaspa.green -> SIGKILL pid -, relaunch now with fresh picks
+- 2026-10-11T07:43:11Z window **node-dead** electron-10.kaspa.blue: 3 strikes in 10 min (S15 main: no accepts in 60 s); new picks avoid it
+- 2026-10-11T07:43:11Z window **deviation** sender-stall: S15 stalled: 0 ok submits in 45 s (2 sec rows), 0 accepts in 60 s, erroring nodes [], main electron-10.kaspa.blue -> SIGKILL pid -, relaunch now with fresh picks
+- 2026-10-11T07:43:12Z window **deviation** sender-relaunch: S1 relaunch 1/200
+- 2026-10-11T07:43:15Z window **deviation** sender-relaunch: S2 relaunch 1/200
+- 2026-10-11T07:43:18Z window **deviation** sender-relaunch: S3 relaunch 1/200
+- 2026-10-11T07:43:21Z window **deviation** sender-relaunch: S4 relaunch 1/200
+- 2026-10-11T07:43:24Z window **deviation** sender-relaunch: S5 relaunch 1/200
+- 2026-10-11T07:43:27Z window **deviation** sender-relaunch: S6 relaunch 1/200
+- 2026-10-11T07:43:30Z window **deviation** sender-relaunch: S7 relaunch 1/200
+- 2026-10-11T07:43:33Z window **deviation** sender-relaunch: S8 relaunch 1/200
+- 2026-10-11T07:43:36Z window **deviation** sender-relaunch: S9 relaunch 1/200
+- 2026-10-11T07:43:39Z window **deviation** sender-relaunch: S10 relaunch 1/200
+- 2026-10-11T07:43:42Z window **deviation** sender-relaunch: S11 relaunch 1/200
+- 2026-10-11T07:43:45Z window **deviation** sender-relaunch: S12 relaunch 1/200
+- 2026-10-11T07:43:48Z window **deviation** sender-relaunch: S13 relaunch 1/200
+- 2026-10-11T07:43:51Z window **deviation** sender-relaunch: S14 relaunch 1/200
+- 2026-10-11T07:43:54Z window **deviation** sender-relaunch: S15 relaunch 1/200
+- 2026-10-11T07:45:04Z window **deviation** rate-change: RAMP EVAL 09:30-09:45 CEST at 919 tx/s: sub/acc 587.9/587.1 tx/s, acc/sub 99.86%, rejects 0% (+0 transport), RAM min 2.98 GB, CPU avg 48% -> NOT clean (2 node-dead events; submitted 587.9 < 90% of 919); rate 919 -> 835
+- 2026-10-11T08:00:00Z window **deviation** rate-change: RAMP EVAL 09:45-10:00 CEST at 835 tx/s: sub/acc 833.5/834.1 tx/s, acc/sub 100%, rejects 0% (+0 transport), RAM min 2.48 GB, CPU avg 48.5% -> clean; rate 835 -> 919
+- 2026-10-11T08:15:00Z window **deviation** rate-change: RAMP EVAL 10:00-10:15 CEST at 919 tx/s: sub/acc 900/898.8 tx/s, acc/sub 99.87%, rejects 0% (+0 transport), RAM min 2.56 GB, CPU avg 37.2% -> clean; rate 919 -> 1011
+- 2026-10-11T08:28:55Z window **deviation** day-watch: 10:28 CEST check: healthy; target 1011; live sub/acc ~1010/1005; 15 senders; miner 1; disk 34G; MemAvail ~2.5G; no fix
+- 2026-10-11T08:30:01Z window **deviation** rate-change: RAMP EVAL 10:15-10:30 CEST at 1011 tx/s: sub/acc 1009.5/1009.6 tx/s, acc/sub 100%, rejects 0% (+2 transport), RAM min 2.46 GB, CPU avg 39.8% -> clean; rate 1011 -> 1112
+- 2026-10-11T08:45:01Z window **deviation** rate-change: RAMP EVAL 10:30-10:45 CEST at 1112 tx/s: sub/acc 1100.8/1100.6 tx/s, acc/sub 99.98%, rejects 0% (+4 transport), RAM min 2.32 GB, CPU avg 40% -> clean; rate 1112 -> 1223
+- 2026-10-11T08:49:33Z window **deviation** sender-stall: S1 stalled: 0 ok submits in 45 s (1 sec rows), 0 accepts in 60 s, erroring nodes [], main boson-10.kaspa.red -> SIGKILL pid -, relaunch now with fresh picks
+- 2026-10-11T08:49:33Z window **deviation** sender-stall: S2 stalled: 0 ok submits in 45 s (2 sec rows), 0 accepts in 60 s, erroring nodes [], main neutrino-10.kaspa.stream -> SIGKILL pid -, relaunch now with fresh picks
+- 2026-10-11T08:49:33Z window **deviation** sender-stall: S3 stalled: 0 ok submits in 45 s (1 sec rows), 0 accepts in 60 s, erroring nodes [], main muon-10.kaspa.blue -> SIGKILL pid -, relaunch now with fresh picks
+- 2026-10-11T08:49:33Z window **deviation** sender-stall: S4 stalled: 0 ok submits in 45 s (2 sec rows), 0 accepts in 60 s, erroring nodes [], main electron-10.kaspa.blue -> SIGKILL pid -, relaunch now with fresh picks
+- 2026-10-11T08:49:33Z window **deviation** sender-stall: S5 stalled: 0 ok submits in 45 s (1 sec rows), 0 accepts in 60 s, erroring nodes [], main muon-10.kaspa.blue -> SIGKILL pid -, relaunch now with fresh picks
+- 2026-10-11T08:49:33Z window **deviation** sender-stall: S6 stalled: 0 ok submits in 45 s (1 sec rows), 0 accepts in 60 s, erroring nodes [], main neutrino-10.kaspa.stream -> SIGKILL pid -, relaunch now with fresh picks
+- 2026-10-11T08:49:33Z window **deviation** sender-stall: S7 stalled: 0 ok submits in 45 s (1 sec rows), 0 accepts in 60 s, erroring nodes [], main boson-10.kaspa.red -> SIGKILL pid -, relaunch now with fresh picks
+- 2026-10-11T08:49:33Z window **deviation** sender-stall: S8 stalled: 0 ok submits in 45 s (2 sec rows), 0 accepts in 60 s, erroring nodes [], main electron-10.kaspa.blue -> SIGKILL pid -, relaunch now with fresh picks
+- 2026-10-11T08:49:33Z window **node-dead** neutrino-10.kaspa.stream: 3 strikes in 10 min (S9 main: no accepts in 60 s); new picks avoid it
+- 2026-10-11T08:49:33Z window **deviation** sender-stall: S9 stalled: 0 ok submits in 45 s (1 sec rows), 0 accepts in 60 s, erroring nodes [], main neutrino-10.kaspa.stream -> SIGKILL pid -, relaunch now with fresh picks
+- 2026-10-11T08:49:33Z window **node-dead** muon-10.kaspa.blue: 3 strikes in 10 min (S10 main: no accepts in 60 s); new picks avoid it
+- 2026-10-11T08:49:33Z window **deviation** sender-stall: S10 stalled: 0 ok submits in 45 s (2 sec rows), 0 accepts in 60 s, erroring nodes [], main muon-10.kaspa.blue -> SIGKILL pid -, relaunch now with fresh picks
+- 2026-10-11T08:49:33Z window **node-dead** boson-10.kaspa.red: 3 strikes in 10 min (S11 main: no accepts in 60 s); new picks avoid it
+- 2026-10-11T08:49:33Z window **deviation** sender-stall: S11 stalled: 0 ok submits in 45 s (2 sec rows), 0 accepts in 60 s, erroring nodes [], main boson-10.kaspa.red -> SIGKILL pid -, relaunch now with fresh picks
+- 2026-10-11T08:49:33Z window **node-dead** electron-10.kaspa.blue: 3 strikes in 10 min (S12 main: no accepts in 60 s); new picks avoid it
+- 2026-10-11T08:49:33Z window **deviation** sender-stall: S12 stalled: 0 ok submits in 45 s (1 sec rows), 0 accepts in 60 s, erroring nodes [], main electron-10.kaspa.blue -> SIGKILL pid -, relaunch now with fresh picks
+- 2026-10-11T08:49:33Z window **deviation** sender-stall: S13 stalled: 0 ok submits in 45 s (1 sec rows), 0 accepts in 60 s, erroring nodes [], main neutrino-10.kaspa.stream -> SIGKILL pid -, relaunch now with fresh picks
+- 2026-10-11T08:49:33Z window **deviation** sender-stall: S14 stalled: 0 ok submits in 45 s (1 sec rows), 0 accepts in 60 s, erroring nodes [], main neutrino-10.kaspa.stream -> SIGKILL pid -, relaunch now with fresh picks
+- 2026-10-11T08:49:33Z window **deviation** sender-stall: S15 stalled: 0 ok submits in 45 s (2 sec rows), 0 accepts in 60 s, erroring nodes [], main muon-10.kaspa.blue -> SIGKILL pid -, relaunch now with fresh picks
+- 2026-10-11T08:49:34Z window **deviation** sender-relaunch: S1 relaunch 2/200
+- 2026-10-11T08:49:37Z window **deviation** sender-relaunch: S2 relaunch 2/200
+- 2026-10-11T08:49:40Z window **deviation** sender-relaunch: S3 relaunch 2/200
+- 2026-10-11T08:49:43Z window **deviation** sender-relaunch: S4 relaunch 2/200
+- 2026-10-11T08:49:46Z window **deviation** sender-relaunch: S5 relaunch 2/200
+- 2026-10-11T08:49:49Z window **deviation** sender-relaunch: S6 relaunch 2/200
+- 2026-10-11T08:49:52Z window **deviation** sender-relaunch: S7 relaunch 2/200
+- 2026-10-11T08:49:55Z window **deviation** sender-relaunch: S8 relaunch 2/200
+- 2026-10-11T08:49:58Z window **deviation** sender-relaunch: S9 relaunch 2/200
+- 2026-10-11T08:50:01Z window **deviation** sender-relaunch: S10 relaunch 2/200
+- 2026-10-11T08:50:04Z window **deviation** sender-relaunch: S11 relaunch 2/200
+- 2026-10-11T08:50:07Z window **deviation** sender-relaunch: S12 relaunch 2/200
+- 2026-10-11T08:50:10Z window **deviation** sender-relaunch: S13 relaunch 2/200
+- 2026-10-11T08:50:13Z window **deviation** sender-relaunch: S14 relaunch 2/200
+- 2026-10-11T08:50:16Z window **deviation** sender-relaunch: S15 relaunch 2/200
+- 2026-10-11T08:51:45Z window **deviation** day-watch: mass stall all 15 senders at 10:49:33 CEST; scheduler auto SIGKILL+relaunch 2/200 with fresh picks + public-node stall-strike avoid (muon/boson/electron); all 15 up by 10:50:16; live ~1200/1223; no manual fix
+- 2026-10-11T09:00:01Z window **deviation** rate-change: RAMP EVAL 10:45-11:00 CEST at 1223 tx/s: sub/acc 884.1/882.1 tx/s, acc/sub 99.77%, rejects 0% (+2 transport), RAM min 2.21 GB, CPU avg 40.4% -> NOT clean (4 node-dead events; submitted 884.1 < 90% of 1223); rate 1223 -> 1112
+- 2026-10-11T09:15:01Z window **deviation** rate-change: RAMP EVAL 11:00-11:15 CEST at 1112 tx/s: sub/acc 0/0 tx/s, acc/sub -%, rejects 0% (+0 transport), RAM min 3.05 GB, CPU avg 42.3% -> NOT clean (accepted -% of submitted < 99%; p90 - s > 10; submitted 0 < 90% of 1112); rate 1112 -> 1011
+- 2026-10-11T09:29:52Z window **deviation** rate-change: stp 11:28 CEST: increase effort: rate 1011 -> 1300 tx/s; new rule: floor 1,100, +10% per clean 15 min up to 2400, -5% only on real overload (acc < 95% of sub or rejects >= 2%), else hold; next eval in 15 min
+- 2026-10-11T09:30:17Z window **deviation** stp 11:28 increase effort: senders 15 -> 16 (GO-BOT said max 15 for box RAM; extra senders launch only while MemAvailable >= 2.5 GB, never under 1.5 GB)
+- 2026-10-11T09:30:42Z window **deviation** stp 11:28 increase effort: senders 15 -> 16 (GO-BOT said max 15 for box RAM; extra senders launch only while MemAvailable >= 2.5 GB, never under 1.5 GB)
+- 2026-10-11T09:31:07Z window **deviation** stp 11:28 increase effort: senders 15 -> 16 (GO-BOT said max 15 for box RAM; extra senders launch only while MemAvailable >= 2.5 GB, never under 1.5 GB)
+- 2026-10-11T09:31:58Z window **deviation** stp 11:28 increase effort: senders 16 -> 17 (GO-BOT said max 15 for box RAM; extra senders launch only while MemAvailable >= 2.5 GB, never under 1.5 GB)
+- 2026-10-11T09:33:38Z window **deviation** stp 11:28 increase effort: senders 17 -> 18 (GO-BOT said max 15 for box RAM; extra senders launch only while MemAvailable >= 2.5 GB, never under 1.5 GB)
+- 2026-10-11T09:44:52Z window **deviation** rate-eval: RAMP EVAL 11:29-11:44 CEST at 1300 tx/s: sub/acc 187.3/186.9 tx/s, acc/sub 99.81%, rejects 0% (+0 transport), RAM min 2.44 GB, CPU avg 40.2% -> NOT clean (submitted 187.3 < 90% of 1300); rate stays 1300 (not clean but no overload (node-dead/stall noise): hold)
+- 2026-10-11T09:48:24Z window **deviation** sender-stall: S9 stalled: 0 ok submits in 45 s (44 sec rows), 2 accepts in 60 s, erroring nodes [], main vector-10.kaspa.green -> SIGKILL pid -, relaunch now with fresh picks
+- 2026-10-11T09:48:25Z window **deviation** sender-relaunch: S9 relaunch 3/200
+- 2026-10-11T09:50:52Z window **deviation** fee-armed: stp 11:49 CEST: 400/600 -> 560/840 at next rate climb
+- 2026-10-11T09:50:52Z window **deviation** stp 11:28 increase effort: senders 15 -> 18 (GO-BOT said max 15 for box RAM; extra senders launch only while MemAvailable >= 2.5 GB, never under 1.5 GB)
+- 2026-10-11T09:51:10Z window **deviation** sender-relaunch: S1 relaunch 3/200
+- 2026-10-11T09:51:19Z window **deviation** sender-relaunch: S2 relaunch 3/200
+- 2026-10-11T09:51:26Z window **deviation** sender-relaunch: S3 relaunch 3/200
+- 2026-10-11T09:51:33Z window **deviation** sender-relaunch: S4 relaunch 3/200
+- 2026-10-11T09:51:42Z window **deviation** sender-relaunch: S5 relaunch 3/200
+- 2026-10-11T09:51:51Z window **deviation** sender-relaunch: S6 relaunch 3/200
+- 2026-10-11T09:52:00Z window **deviation** sender-relaunch: S7 relaunch 3/200
+- 2026-10-11T09:52:09Z window **deviation** sender-relaunch: S8 relaunch 3/200
+- 2026-10-11T09:52:18Z window **deviation** sender-relaunch: S9 relaunch 4/200
+- 2026-10-11T09:52:27Z window **deviation** sender-relaunch: S10 relaunch 3/200
+- 2026-10-11T09:52:36Z window **deviation** sender-relaunch: S11 relaunch 3/200
+- 2026-10-11T09:52:45Z window **deviation** sender-relaunch: S12 relaunch 3/200
+- 2026-10-11T09:52:54Z window **deviation** sender-relaunch: S13 relaunch 3/200
+- 2026-10-11T09:53:03Z window **deviation** sender-relaunch: S14 relaunch 3/200
+- 2026-10-11T09:53:12Z window **deviation** sender-relaunch: S15 relaunch 3/200
+- 2026-10-11T09:53:20Z window **deviation** sender-relaunch: S16 relaunch 1/200
+- 2026-10-11T09:53:27Z window **deviation** sender-relaunch: S17 relaunch 1/200
+- 2026-10-11T09:53:34Z window **deviation** sender-relaunch: S18 relaunch 1/200
+- 2026-10-11T10:00:39Z window **deviation** rate-eval: RAMP EVAL 11:45-12:00 CEST at 1300 tx/s: sub/acc 915/911.6 tx/s, acc/sub 99.63%, rejects 0% (+3 transport), RAM min 2.34 GB, CPU avg 41.2% -> NOT clean (submitted 915 < 90% of 1300); rate stays 1300 (not clean but no overload (node-dead/stall noise): hold)
+- 2026-10-11T10:00:39Z window **deviation** sender-stall: S1 stalled: 0 ok submits in 45 s (3 sec rows), 0 accepts in 60 s, erroring nodes [], main muon-10.kaspa.blue -> SIGKILL pid -, relaunch now with fresh picks
+- 2026-10-11T10:00:39Z window **deviation** sender-stall: S2 stalled: 0 ok submits in 45 s (3 sec rows), 0 accepts in 60 s, erroring nodes [], main muon-10.kaspa.blue -> SIGKILL pid -, relaunch now with fresh picks
+- 2026-10-11T10:00:39Z window **deviation** sender-stall: S3 stalled: 0 ok submits in 45 s (3 sec rows), 0 accepts in 60 s, erroring nodes [], main vector-10.kaspa.green -> SIGKILL pid -, relaunch now with fresh picks
+- 2026-10-11T10:00:39Z window **deviation** sender-stall: S4 stalled: 0 ok submits in 45 s (3 sec rows), 0 accepts in 60 s, erroring nodes [], main boson-10.kaspa.red -> SIGKILL pid -, relaunch now with fresh picks
+- 2026-10-11T10:00:39Z window **deviation** sender-stall: S5 stalled: 0 ok submits in 45 s (3 sec rows), 0 accepts in 60 s, erroring nodes [], main vector-10.kaspa.green -> SIGKILL pid -, relaunch now with fresh picks
+- 2026-10-11T10:00:39Z window **deviation** sender-stall: S6 stalled: 0 ok submits in 45 s (3 sec rows), 0 accepts in 60 s, erroring nodes [], main neutrino-10.kaspa.stream -> SIGKILL pid -, relaunch now with fresh picks
+- 2026-10-11T10:00:39Z window **node-dead** vector-10.kaspa.green: 3 strikes in 10 min (S7 main: no accepts in 60 s); new picks avoid it
+- 2026-10-11T10:00:39Z window **deviation** sender-stall: S7 stalled: 0 ok submits in 45 s (3 sec rows), 0 accepts in 60 s, erroring nodes [], main vector-10.kaspa.green -> SIGKILL pid -, relaunch now with fresh picks
+- 2026-10-11T10:00:39Z window **deviation** sender-stall: S8 stalled: 0 ok submits in 45 s (3 sec rows), 0 accepts in 60 s, erroring nodes [], main electron-10.kaspa.blue -> SIGKILL pid -, relaunch now with fresh picks
+- 2026-10-11T10:00:39Z window **deviation** sender-stall: S9 stalled: 0 ok submits in 45 s (3 sec rows), 0 accepts in 60 s, erroring nodes [], main neutrino-10.kaspa.stream -> SIGKILL pid -, relaunch now with fresh picks
+- 2026-10-11T10:00:39Z window **deviation** sender-stall: S10 stalled: 0 ok submits in 45 s (3 sec rows), 0 accepts in 60 s, erroring nodes [], main vector-10.kaspa.green -> SIGKILL pid -, relaunch now with fresh picks
+- 2026-10-11T10:00:39Z window **deviation** sender-stall: S11 stalled: 0 ok submits in 45 s (3 sec rows), 0 accepts in 60 s, erroring nodes [], main vector-10.kaspa.green -> SIGKILL pid -, relaunch now with fresh picks
+- 2026-10-11T10:00:39Z window **deviation** sender-stall: S12 stalled: 0 ok submits in 45 s (3 sec rows), 0 accepts in 60 s, erroring nodes [], main vector-10.kaspa.green -> SIGKILL pid -, relaunch now with fresh picks
+- 2026-10-11T10:00:39Z window **node-dead** neutrino-10.kaspa.stream: 3 strikes in 10 min (S13 main: no accepts in 60 s); new picks avoid it
+- 2026-10-11T10:00:39Z window **deviation** sender-stall: S13 stalled: 0 ok submits in 45 s (3 sec rows), 0 accepts in 60 s, erroring nodes [], main neutrino-10.kaspa.stream -> SIGKILL pid -, relaunch now with fresh picks
+- 2026-10-11T10:00:39Z window **deviation** sender-stall: S14 stalled: 0 ok submits in 45 s (3 sec rows), 0 accepts in 60 s, erroring nodes [], main neutrino-10.kaspa.stream -> SIGKILL pid -, relaunch now with fresh picks
+- 2026-10-11T10:00:39Z window **deviation** sender-stall: S15 stalled: 0 ok submits in 45 s (3 sec rows), 0 accepts in 60 s, erroring nodes [], main electron-10.kaspa.blue -> SIGKILL pid -, relaunch now with fresh picks
+- 2026-10-11T10:00:39Z window **node-dead** electron-10.kaspa.blue: 3 strikes in 10 min (S16 main: no accepts in 60 s); new picks avoid it
+- 2026-10-11T10:00:39Z window **deviation** sender-stall: S16 stalled: 0 ok submits in 45 s (3 sec rows), 0 accepts in 60 s, erroring nodes [], main electron-10.kaspa.blue -> SIGKILL pid -, relaunch now with fresh picks
+- 2026-10-11T10:00:39Z window **deviation** sender-stall: S17 stalled: 0 ok submits in 45 s (3 sec rows), 0 accepts in 60 s, erroring nodes [], main vector-10.kaspa.green -> SIGKILL pid -, relaunch now with fresh picks
+- 2026-10-11T10:00:39Z window **deviation** sender-stall: S18 stalled: 0 ok submits in 45 s (3 sec rows), 0 accepts in 60 s, erroring nodes [], main electron-10.kaspa.blue -> SIGKILL pid -, relaunch now with fresh picks
+- 2026-10-11T10:00:41Z window **deviation** sender-relaunch: S1 relaunch 4/200
+- 2026-10-11T10:00:44Z window **deviation** sender-relaunch: S2 relaunch 4/200
+- 2026-10-11T10:00:47Z window **deviation** sender-relaunch: S3 relaunch 4/200
+- 2026-10-11T10:00:50Z window **deviation** sender-relaunch: S4 relaunch 4/200
+- 2026-10-11T10:00:53Z window **deviation** sender-relaunch: S5 relaunch 4/200
+- 2026-10-11T10:00:56Z window **deviation** sender-relaunch: S6 relaunch 4/200
+- 2026-10-11T10:00:59Z window **deviation** sender-relaunch: S7 relaunch 4/200
+- 2026-10-11T10:01:02Z window **deviation** sender-relaunch: S8 relaunch 4/200
+- 2026-10-11T10:01:05Z window **deviation** sender-relaunch: S9 relaunch 5/200
+- 2026-10-11T10:01:08Z window **deviation** sender-relaunch: S10 relaunch 4/200
+- 2026-10-11T10:01:11Z window **deviation** sender-relaunch: S11 relaunch 4/200
+- 2026-10-11T10:01:14Z window **deviation** sender-relaunch: S12 relaunch 4/200
+- 2026-10-11T10:01:17Z window **deviation** sender-relaunch: S13 relaunch 4/200
+- 2026-10-11T10:01:20Z window **deviation** sender-relaunch: S14 relaunch 4/200
+- 2026-10-11T10:01:23Z window **deviation** sender-relaunch: S15 relaunch 4/200
+- 2026-10-11T10:01:26Z window **deviation** sender-relaunch: S16 relaunch 2/200
+- 2026-10-11T10:01:29Z window **deviation** sender-relaunch: S17 relaunch 2/200
+- 2026-10-11T10:01:32Z window **deviation** sender-relaunch: S18 relaunch 2/200
+- 2026-10-11T10:04:23Z window **deviation** sender-stall: S1 stalled: 0 ok submits in 45 s (44 sec rows), 1135 accepts in 60 s, erroring nodes [], main boson-10.kaspa.red -> SIGKILL pid -, relaunch now with fresh picks
+- 2026-10-11T10:04:23Z window **deviation** sender-stall: S2 stalled: 0 ok submits in 45 s (44 sec rows), 1110 accepts in 60 s, erroring nodes [], main muon-10.kaspa.blue -> SIGKILL pid -, relaunch now with fresh picks
+- 2026-10-11T10:04:23Z window **deviation** sender-stall: S3 stalled: 0 ok submits in 45 s (44 sec rows), 1157 accepts in 60 s, erroring nodes [], main neutrino-10.kaspa.stream -> SIGKILL pid -, relaunch now with fresh picks
+- 2026-10-11T10:04:23Z window **deviation** sender-stall: S4 stalled: 0 ok submits in 45 s (44 sec rows), 1141 accepts in 60 s, erroring nodes [], main neutrino-10.kaspa.stream -> SIGKILL pid -, relaunch now with fresh picks
+- 2026-10-11T10:04:23Z window **deviation** sender-stall: S5 stalled: 0 ok submits in 45 s (44 sec rows), 1148 accepts in 60 s, erroring nodes [], main boson-10.kaspa.red -> SIGKILL pid -, relaunch now with fresh picks
+- 2026-10-11T10:04:23Z window **deviation** sender-stall: S6 stalled: 0 ok submits in 45 s (44 sec rows), 1118 accepts in 60 s, erroring nodes [], main muon-10.kaspa.blue -> SIGKILL pid -, relaunch now with fresh picks
+- 2026-10-11T10:04:23Z window **deviation** sender-stall: S7 stalled: 0 ok submits in 45 s (44 sec rows), 1154 accepts in 60 s, erroring nodes [], main neutrino-10.kaspa.stream -> SIGKILL pid -, relaunch now with fresh picks
+- 2026-10-11T10:04:23Z window **deviation** sender-stall: S8 stalled: 0 ok submits in 45 s (44 sec rows), 1153 accepts in 60 s, erroring nodes [], main neutrino-10.kaspa.stream -> SIGKILL pid -, relaunch now with fresh picks
+- 2026-10-11T10:04:23Z window **deviation** sender-stall: S9 stalled: 0 ok submits in 45 s (44 sec rows), 1154 accepts in 60 s, erroring nodes [], main boson-10.kaspa.red -> SIGKILL pid -, relaunch now with fresh picks
+- 2026-10-11T10:04:23Z window **deviation** sender-stall: S10 stalled: 0 ok submits in 45 s (44 sec rows), 1100 accepts in 60 s, erroring nodes [], main muon-10.kaspa.blue -> SIGKILL pid -, relaunch now with fresh picks
+- 2026-10-11T10:04:23Z window **deviation** sender-stall: S11 stalled: 0 ok submits in 45 s (44 sec rows), 1147 accepts in 60 s, erroring nodes [], main electron-10.kaspa.blue -> SIGKILL pid -, relaunch now with fresh picks
+- 2026-10-11T10:04:23Z window **deviation** sender-stall: S12 stalled: 0 ok submits in 45 s (44 sec rows), 1141 accepts in 60 s, erroring nodes [], main electron-10.kaspa.blue -> SIGKILL pid -, relaunch now with fresh picks
+- 2026-10-11T10:04:23Z window **deviation** sender-stall: S13 stalled: 0 ok submits in 45 s (44 sec rows), 1154 accepts in 60 s, erroring nodes [], main boson-10.kaspa.red -> SIGKILL pid -, relaunch now with fresh picks
+- 2026-10-11T10:04:23Z window **deviation** sender-stall: S14 stalled: 0 ok submits in 45 s (44 sec rows), 1099 accepts in 60 s, erroring nodes [], main muon-10.kaspa.blue -> SIGKILL pid -, relaunch now with fresh picks
+- 2026-10-11T10:04:23Z window **deviation** sender-stall: S15 stalled: 0 ok submits in 45 s (44 sec rows), 1159 accepts in 60 s, erroring nodes [], main electron-10.kaspa.blue -> SIGKILL pid -, relaunch now with fresh picks
+- 2026-10-11T10:04:23Z window **deviation** sender-stall: S16 stalled: 0 ok submits in 45 s (44 sec rows), 1153 accepts in 60 s, erroring nodes [], main electron-10.kaspa.blue -> SIGKILL pid -, relaunch now with fresh picks
+- 2026-10-11T10:04:23Z window **deviation** sender-stall: S17 stalled: 0 ok submits in 45 s (44 sec rows), 1146 accepts in 60 s, erroring nodes [], main boson-10.kaspa.red -> SIGKILL pid -, relaunch now with fresh picks
+- 2026-10-11T10:04:23Z window **deviation** sender-stall: S18 stalled: 0 ok submits in 45 s (44 sec rows), 1104 accepts in 60 s, erroring nodes [], main muon-10.kaspa.blue -> SIGKILL pid -, relaunch now with fresh picks
+- 2026-10-11T10:04:24Z window **deviation** sender-relaunch: S1 relaunch 5/200
+- 2026-10-11T10:04:27Z window **deviation** sender-relaunch: S2 relaunch 5/200
+- 2026-10-11T10:04:30Z window **deviation** sender-relaunch: S3 relaunch 5/200
+- 2026-10-11T10:04:33Z window **deviation** sender-relaunch: S4 relaunch 5/200
+- 2026-10-11T10:04:36Z window **deviation** sender-relaunch: S5 relaunch 5/200
+- 2026-10-11T10:04:39Z window **deviation** sender-relaunch: S6 relaunch 5/200
+- 2026-10-11T10:04:42Z window **deviation** sender-relaunch: S7 relaunch 5/200
+- 2026-10-11T10:04:45Z window **deviation** sender-relaunch: S8 relaunch 5/200
+- 2026-10-11T10:04:48Z window **deviation** sender-relaunch: S9 relaunch 6/200
+- 2026-10-11T10:04:51Z window **deviation** sender-relaunch: S10 relaunch 5/200
+- 2026-10-11T10:04:54Z window **deviation** sender-relaunch: S11 relaunch 5/200
+- 2026-10-11T10:04:57Z window **deviation** sender-relaunch: S12 relaunch 5/200
+- 2026-10-11T10:05:00Z window **deviation** sender-relaunch: S13 relaunch 5/200
+- 2026-10-11T10:05:03Z window **deviation** sender-relaunch: S14 relaunch 5/200
+- 2026-10-11T10:05:07Z window **deviation** sender-relaunch: S15 relaunch 5/200
+- 2026-10-11T10:05:10Z window **deviation** sender-relaunch: S16 relaunch 3/200
+- 2026-10-11T10:05:13Z window **deviation** sender-relaunch: S17 relaunch 3/200
+- 2026-10-11T10:05:16Z window **deviation** sender-relaunch: S18 relaunch 3/200
+- 2026-10-11T10:14:52Z window **deviation** rate-eval: RAMP EVAL 11:59-12:14 CEST at 1300 tx/s: sub/acc 168.9/168.1 tx/s, acc/sub 99.48%, rejects 0% (+0 transport), RAM min 2.21 GB, CPU avg 42.2% -> NOT clean (3 node-dead events; submitted 168.9 < 90% of 1300); rate stays 1300 (not clean but no overload (node-dead/stall noise): hold)
+- 2026-10-11T10:29:54Z window **deviation** rate-eval: RAMP EVAL 12:14-12:29 CEST at 1300 tx/s: sub/acc 209/209 tx/s, acc/sub 100%, rejects 0% (+0 transport), RAM min 1.78 GB, CPU avg 42.6% -> NOT clean (submitted 209 < 90% of 1300); rate stays 1300 (not clean but no overload (node-dead/stall noise): hold)
+- 2026-10-11T10:30:09Z window **deviation** sender-relaunch: S17 relaunch 4/200
+- 2026-10-11T10:31:09Z window **deviation** fix: re-eval of the 12:14-12:29 CEST window: the 12:29 eval read only part of the sender files (non-integer read offset in tailLines, fixed 12:33 CEST; the 11:15/11:44/12:14/12:29 evals undercounted submitted)
+- 2026-10-11T10:31:10Z window **deviation** rate-change: RAMP EVAL 12:14-12:29 CEST at 1300 tx/s: sub/acc 1291.9/1291.5 tx/s, acc/sub 99.97%, rejects 0% (+0 transport), RAM min 1.78 GB, CPU avg 42.6% -> clean; rate 1300 -> 1430
+- 2026-10-11T10:31:10Z window **deviation** fee-change: fee-change 400/600 -> 560/840 (stp 11:49 CEST: +40% at next climb; above GO cap 600, deviation); cap 840, node-quote-skip stays 400
+- 2026-10-11T10:31:10Z window **deviation** fee-change 400/600 -> 560/840 (stp 11:49 CEST: +40% at next climb; above GO cap 600, deviation); cap 840, node-quote-skip stays 400
+- 2026-10-11T10:38:32Z window **deviation** sender-relaunch: S4 relaunch 6/200
+- 2026-10-11T10:38:35Z window **deviation** sender-relaunch: S12 relaunch 6/200
+- 2026-10-11T10:44:18Z window **deviation** sender-relaunch: S17 relaunch 5/200
+- 2026-10-11T10:44:56Z window **deviation** rate-eval: RAMP EVAL 12:29-12:44 CEST at 1430 tx/s: sub/acc 1389.1/1388.4 tx/s, acc/sub 99.95%, rejects 0% (+436 transport), RAM min 1.1 GB, CPU avg 48% -> NOT clean (box RAM min 1.1 GB < 1.5); rate stays 1430 (not clean but no overload (node-dead/stall noise): hold)
+- 2026-10-11T10:47:47Z window **deviation** sender launch held, RAM 1474 MB
+- 2026-10-11T10:47:48Z window **deviation** sender-relaunch: S6 relaunch 6/200
+- 2026-10-11T10:47:51Z window **deviation** sender-relaunch: S9 relaunch 7/200
+- 2026-10-11T10:48:09Z window **deviation** pulse-monitor: pulse-method monitoring started 12:48 CEST (10:48Z); earlier minutes of the run come from the post-END chain count
+- 2026-10-11T10:49:09Z window **deviation** sender-relaunch: S3 relaunch 6/200
+- 2026-10-11T10:49:12Z window **deviation** sender-relaunch: S8 relaunch 6/200
+- 2026-10-11T10:49:15Z window **deviation** sender-relaunch: S17 relaunch 6/200
+- 2026-10-11T10:50:14Z window **deviation** sender-relaunch: S5 relaunch 6/200
+- 2026-10-11T10:50:17Z window **deviation** sender-relaunch: S2 relaunch 6/200
+- 2026-10-11T10:50:27Z window **deviation** sender-relaunch: S6 relaunch 7/200
+- 2026-10-11T10:50:30Z window **deviation** sender-relaunch: S10 relaunch 6/200
+- 2026-10-11T10:50:33Z window **deviation** sender-relaunch: S13 relaunch 6/200
+- 2026-10-11T10:50:36Z window **deviation** sender-relaunch: S14 relaunch 6/200
+- 2026-10-11T10:50:39Z window **deviation** sender-relaunch: S17 relaunch 7/200
+- 2026-10-11T10:51:00Z window **deviation** after-run plan amended by stp 10:51Z: go/AFTER-RUN.md (GO-BOT locked)
+- 2026-10-11T10:51:00Z window **deviation** sender-relaunch: S12 relaunch 7/200
+- 2026-10-11T10:53:05Z window **deviation** sender-relaunch: S8 relaunch 7/200
+- 2026-10-11T10:53:08Z window **deviation** sender launch held, RAM 1424 MB
+- 2026-10-11T10:53:10Z window **deviation** sender-relaunch: S12 relaunch 8/200
+- 2026-10-11T10:53:15Z window **deviation** sender-relaunch: S14 relaunch 7/200
+- 2026-10-11T10:53:21Z window **deviation** sender-relaunch: S15 relaunch 6/200
+- 2026-10-11T10:54:50Z window **deviation** sender-relaunch: S8 relaunch 8/200
+- 2026-10-11T10:55:01Z window **deviation** sender-relaunch: S15 relaunch 7/200
+- 2026-10-11T10:55:04Z window **deviation** sender-relaunch: S11 relaunch 6/200
+- 2026-10-11T10:55:11Z window **deviation** sender-relaunch: S16 relaunch 4/200
+- 2026-10-11T10:55:19Z window **deviation** sender-relaunch: S5 relaunch 7/200
+- 2026-10-11T10:55:22Z window **deviation** sender-relaunch: S10 relaunch 7/200
+- 2026-10-11T10:55:25Z window **deviation** sender-relaunch: S1 relaunch 6/200
+- 2026-10-11T10:55:29Z window **deviation** sender-relaunch: S3 relaunch 7/200
+- 2026-10-11T10:55:32Z window **deviation** sender-relaunch: S12 relaunch 9/200
+- 2026-10-11T10:55:35Z window **deviation** sender-relaunch: S14 relaunch 8/200
+- 2026-10-11T10:56:05Z window **deviation** sender-relaunch: S11 relaunch 7/200
+- 2026-10-11T10:57:11Z window **deviation** sender-relaunch: S7 relaunch 6/200
+- 2026-10-11T10:57:23Z window **deviation** sender-relaunch: S5 relaunch 8/200
+- 2026-10-11T10:57:26Z window **deviation** sender-relaunch: S15 relaunch 8/200
+- 2026-10-11T10:57:29Z window **deviation** sender-relaunch: S16 relaunch 5/200
+- 2026-10-11T10:57:32Z window **deviation** sender-relaunch: S18 relaunch 4/200
+- 2026-10-11T10:58:12Z window **deviation** sender-relaunch: S7 relaunch 7/200
+- 2026-10-11T10:59:53Z window **deviation** rate-eval: RAMP EVAL 12:44-12:59 CEST at 1430 tx/s: sub/acc 1346.8/1348.8 tx/s, acc/sub 100%, rejects 0% (+209 transport), RAM min 1.01 GB, CPU avg 54.8% -> NOT clean (box RAM min 1.01 GB < 1.5); rate stays 1430 (not clean but no overload (node-dead/stall noise): hold)
+- 2026-10-11T11:07:33Z window **deviation** day-watch: S17 degraded again (avg ~41 sub/s vs 79.4 target, zeros in last ~60s, RSS spikes to ~771 MB, lat_max ~3.2 s, lanes_nocoin 8) -> SIGKILL pid - + storm relaunch with fresh pub picks; MemAvailable 1540->2268 MB; rate hold 1430: None
+- 2026-10-11T11:07:34Z window **deviation** sender-relaunch: S17 relaunch 8/200
+- 2026-10-11T11:23:39Z window **deviation** pubMode: n2 not synced, utxoindex off, sink lag 886.6 s > 60; senders continue on public nodes
+- 2026-10-11T11:23:40Z window **deviation** rate-eval: RAMP EVAL 13:08-13:23 CEST at 1430 tx/s: sub/acc 21.3/21.1 tx/s, acc/sub 99.43%, rejects 0% (+0 transport), RAM min 1.35 GB, CPU avg 45.9% -> NOT clean (submitted 21.3 < 90% of 1430; box RAM min 1.35 GB < 1.5); rate stays 1430 (not clean but no overload (node-dead/stall noise): hold)
+- 2026-10-11T11:23:40Z window **deviation** sender-stall: S1 stalled: 0 ok submits in 45 s (1 sec rows), 0 accepts in 60 s, erroring nodes [], main boson-10.kaspa.red -> SIGKILL pid -, relaunch now with fresh picks
+- 2026-10-11T11:23:40Z window **deviation** sender-stall: S2 stalled: 0 ok submits in 45 s (1 sec rows), 0 accepts in 60 s, erroring nodes [], main vector-10.kaspa.green -> SIGKILL pid -, relaunch now with fresh picks
+- 2026-10-11T11:23:40Z window **deviation** sender-stall: S3 stalled: 0 ok submits in 45 s (1 sec rows), 0 accepts in 60 s, erroring nodes [], main muon-10.kaspa.blue -> SIGKILL pid -, relaunch now with fresh picks
+- 2026-10-11T11:23:40Z window **deviation** sender-stall: S4 stalled: 0 ok submits in 45 s (1 sec rows), 0 accepts in 60 s, erroring nodes [], main boson-10.kaspa.red -> SIGKILL pid -, relaunch now with fresh picks
+- 2026-10-11T11:23:40Z window **node-dead** boson-10.kaspa.red: 3 strikes in 10 min (S5 main: no accepts in 60 s); new picks avoid it
+- 2026-10-11T11:23:40Z window **deviation** sender-stall: S5 stalled: 0 ok submits in 45 s (1 sec rows), 0 accepts in 60 s, erroring nodes [], main boson-10.kaspa.red -> SIGKILL pid -, relaunch now with fresh picks
+- 2026-10-11T11:23:40Z window **deviation** sender-stall: S6 stalled: 0 ok submits in 45 s (1 sec rows), 0 accepts in 60 s, erroring nodes [], main boson-10.kaspa.red -> SIGKILL pid -, relaunch now with fresh picks
+- 2026-10-11T11:23:40Z window **deviation** sender-stall: S7 stalled: 0 ok submits in 45 s (1 sec rows), 0 accepts in 60 s, erroring nodes [], main boson-10.kaspa.red -> SIGKILL pid -, relaunch now with fresh picks
+- 2026-10-11T11:23:40Z window **deviation** sender-stall: S8 stalled: 0 ok submits in 45 s (2 sec rows), 0 accepts in 60 s, erroring nodes [], main vector-10.kaspa.green -> SIGKILL pid -, relaunch now with fresh picks
+- 2026-10-11T11:23:40Z window **deviation** sender-stall: S9 stalled: 0 ok submits in 45 s (2 sec rows), 0 accepts in 60 s, erroring nodes [], main neutrino-10.kaspa.stream -> SIGKILL pid -, relaunch now with fresh picks
+- 2026-10-11T11:23:40Z window **deviation** sender-stall: S10 stalled: 0 ok submits in 45 s (1 sec rows), 0 accepts in 60 s, erroring nodes [], main muon-10.kaspa.blue -> SIGKILL pid -, relaunch now with fresh picks
+- 2026-10-11T11:23:40Z window **deviation** sender-stall: S11 stalled: 0 ok submits in 45 s (1 sec rows), 0 accepts in 60 s, erroring nodes [], main neutrino-10.kaspa.stream -> SIGKILL pid -, relaunch now with fresh picks
+- 2026-10-11T11:23:40Z window **deviation** sender-stall: S12 stalled: 0 ok submits in 45 s (1 sec rows), 0 accepts in 60 s, erroring nodes [], main electron-10.kaspa.blue -> SIGKILL pid -, relaunch now with fresh picks
+- 2026-10-11T11:23:40Z window **deviation** sender-stall: S13 stalled: 0 ok submits in 45 s (1 sec rows), 0 accepts in 60 s, erroring nodes [], main electron-10.kaspa.blue -> SIGKILL pid -, relaunch now with fresh picks
+- 2026-10-11T11:23:40Z window **node-dead** muon-10.kaspa.blue: 3 strikes in 10 min (S14 main: no accepts in 60 s); new picks avoid it
+- 2026-10-11T11:23:40Z window **deviation** sender-stall: S14 stalled: 0 ok submits in 45 s (1 sec rows), 0 accepts in 60 s, erroring nodes [], main muon-10.kaspa.blue -> SIGKILL pid -, relaunch now with fresh picks
+- 2026-10-11T11:23:40Z window **node-dead** neutrino-10.kaspa.stream: 3 strikes in 10 min (S15 main: no accepts in 60 s); new picks avoid it
+- 2026-10-11T11:23:40Z window **deviation** sender-stall: S15 stalled: 0 ok submits in 45 s (1 sec rows), 0 accepts in 60 s, erroring nodes [], main neutrino-10.kaspa.stream -> SIGKILL pid -, relaunch now with fresh picks
+- 2026-10-11T11:23:40Z window **node-dead** vector-10.kaspa.green: 3 strikes in 10 min (S16 main: no accepts in 60 s); new picks avoid it
+- 2026-10-11T11:23:40Z window **deviation** sender-stall: S16 stalled: 0 ok submits in 45 s (1 sec rows), 0 accepts in 60 s, erroring nodes [], main vector-10.kaspa.green -> SIGKILL pid -, relaunch now with fresh picks
+- 2026-10-11T11:23:40Z window **deviation** sender-stall: S17 stalled: 0 ok submits in 45 s (0 sec rows), 0 accepts in 60 s, erroring nodes [], main - -> SIGKILL pid -, relaunch now with fresh picks
+- 2026-10-11T11:23:40Z window **node-dead** electron-10.kaspa.blue: 3 strikes in 10 min (S18 main: no accepts in 60 s); new picks avoid it
+- 2026-10-11T11:23:40Z window **deviation** sender-stall: S18 stalled: 0 ok submits in 45 s (1 sec rows), 0 accepts in 60 s, erroring nodes [], main electron-10.kaspa.blue -> SIGKILL pid -, relaunch now with fresh picks
+- 2026-10-11T11:23:41Z window **deviation** sender-relaunch: S1 relaunch 7/200
+- 2026-10-11T11:23:44Z window **deviation** sender-relaunch: S2 relaunch 7/200
+- 2026-10-11T11:23:47Z window **deviation** sender-relaunch: S3 relaunch 8/200
+- 2026-10-11T11:23:51Z window **deviation** sender-relaunch: S4 relaunch 7/200
+- 2026-10-11T11:23:54Z window **deviation** sender-relaunch: S5 relaunch 9/200
+- 2026-10-11T11:23:57Z window **deviation** sender-relaunch: S6 relaunch 8/200
+- 2026-10-11T11:24:00Z window **deviation** sender-relaunch: S7 relaunch 8/200
+- 2026-10-11T11:24:03Z window **deviation** sender-relaunch: S8 relaunch 9/200
+- 2026-10-11T11:24:06Z window **deviation** sender-relaunch: S9 relaunch 8/200
+- 2026-10-11T11:24:09Z window **deviation** sender-relaunch: S10 relaunch 8/200
+- 2026-10-11T11:24:12Z window **deviation** sender-relaunch: S11 relaunch 8/200
+- 2026-10-11T11:24:15Z window **deviation** sender-relaunch: S12 relaunch 10/200
+- 2026-10-11T11:24:18Z window **deviation** sender-relaunch: S13 relaunch 7/200
+- 2026-10-11T11:24:21Z window **deviation** sender-relaunch: S14 relaunch 9/200
+- 2026-10-11T11:24:24Z window **deviation** sender-relaunch: S15 relaunch 9/200
+- 2026-10-11T11:24:27Z window **deviation** sender-relaunch: S16 relaunch 6/200
+- 2026-10-11T11:24:30Z window **deviation** sender-relaunch: S17 relaunch 9/200
+- 2026-10-11T11:24:33Z window **deviation** sender-relaunch: S18 relaunch 5/200
+- 2026-10-11T11:25:29Z window **node-restart** kaspad pid changed (n2 restarted on the same flags by its guard), uptime 1 s
+- 2026-10-11T11:25:51Z window **node-restart** GO freeze: DAA stuck 593826615 since ~13:08 CEST, sink lag ~986s; restarted n2 same flags via start-n2.sh pid - (old 2857338); miner was already OFF
+- 2026-10-11T11:29:53Z window **deviation** rate-eval: RAMP EVAL 13:14-13:29 CEST at 1430 tx/s: sub/acc 543.8/540.8 tx/s, acc/sub 99.43%, rejects 0% (+0 transport), RAM min 1.38 GB, CPU avg 56.4% -> NOT clean (5 node-dead events; submitted 543.8 < 90% of 1430; box RAM min 1.38 GB < 1.5); rate stays 1430 (not clean but no overload (node-dead/stall noise): hold)
+- 2026-10-11T11:33:34Z window **deviation** sender-stall: S14 stalled: 0 ok submits in 45 s (44 sec rows), 1 accepts in 60 s, erroring nodes [], main neutrino-10.kaspa.stream -> SIGKILL pid -, relaunch now with fresh picks
+- 2026-10-11T11:33:35Z window **deviation** sender-relaunch: S14 relaunch 10/200
+- 2026-10-11T11:44:55Z window **deviation** rate-change: RAMP EVAL 13:29-13:44 CEST at 1430 tx/s: sub/acc 1361.7/1361.2 tx/s, acc/sub 99.96%, rejects 0% (+0 transport), RAM min 1.83 GB, CPU avg 56.6% -> clean; rate 1430 -> 1573
+- 2026-10-11T11:59:52Z window **deviation** rate-eval: RAMP EVAL 13:44-13:59 CEST at 1573 tx/s: sub/acc 1459.7/1459.2 tx/s, acc/sub 99.97%, rejects 0% (+0 transport), RAM min 1.39 GB, CPU avg 61.6% -> NOT clean (box RAM min 1.39 GB < 1.5); rate stays 1573 (not clean but no overload (node-dead/stall noise): hold)
+- 2026-10-11T12:02:27Z window **deviation** sender-relaunch: S8 relaunch 10/200
+- 2026-10-11T12:04:05Z window **deviation** sender-relaunch: S9 relaunch 9/200
+- 2026-10-11T12:06:26Z window **deviation** sender-relaunch: S1 relaunch 8/200
+- 2026-10-11T12:06:32Z window **deviation** sender-relaunch: S2 relaunch 8/200
+- 2026-10-11T12:06:38Z window **deviation** sender-relaunch: S3 relaunch 9/200
+- 2026-10-11T12:06:44Z window **deviation** sender-relaunch: S4 relaunch 8/200
+- 2026-10-11T12:06:50Z window **deviation** sender-relaunch: S5 relaunch 10/200
+- 2026-10-11T12:06:56Z window **deviation** sender-relaunch: S6 relaunch 9/200
+- 2026-10-11T12:07:02Z window **deviation** sender-relaunch: S7 relaunch 9/200
+- 2026-10-11T12:07:07Z window **deviation** sender-relaunch: S8 relaunch 11/200
+- 2026-10-11T12:07:10Z window **deviation** sender-relaunch: S17 relaunch 10/200
+- 2026-10-11T12:07:13Z window **deviation** sender-relaunch: S9 relaunch 10/200
+- 2026-10-11T12:07:19Z window **deviation** sender-relaunch: S10 relaunch 9/200
+- 2026-10-11T12:07:26Z window **deviation** sender-relaunch: S11 relaunch 9/200
+- 2026-10-11T12:07:32Z window **deviation** sender-relaunch: S12 relaunch 11/200
+- 2026-10-11T12:07:32Z day-watch soft-degrade kill S17 pid - (avg ~37 sub/s vs 87.4 target, rss ~776 MB, lanes_nocoin 9, MemAvailable dipped ~1.24 GB); storm relaunched 10/200 fresh picks electron/vector/muon/boson pid -; MemAvailable ~2.4 GB post; rate hold 1573; no stop **deviation** day-watch: None
+- 2026-10-11T12:07:38Z window **deviation** sender-relaunch: S13 relaunch 8/200
+- 2026-10-11T12:07:44Z window **deviation** sender-relaunch: S14 relaunch 11/200
+- 2026-10-11T12:07:50Z window **deviation** sender-relaunch: S15 relaunch 10/200
+- 2026-10-11T12:07:56Z window **deviation** sender-relaunch: S16 relaunch 7/200
+- 2026-10-11T12:08:08Z window **deviation** sender-relaunch: S18 relaunch 6/200
+- 2026-10-11T12:08:11Z window **deviation** sender-relaunch: S17 relaunch 11/200
+- 2026-10-11T12:08:40Z window **deviation** fee-change: fee x2 to 1120/1680 by stp 12:05Z (deviation: above GO cap 600); cap 1680, node-quote-skip 400 -> 1680 so our own fee does not make senders sit out; fired 2026-10-11T12:08:40.013Z; reason (stp): covenant activity growing on Kaspa Stream, more competition for block space (stp's observation from the dashboard, not our measurement)
+- 2026-10-11T12:08:40Z window **deviation** fee x2 to 1120/1680 by stp 12:05Z (deviation: above GO cap 600); cap 1680, node-quote-skip 400 -> 1680 so our own fee does not make senders sit out; fired 2026-10-11T12:08:40.013Z; reason (stp): covenant activity growing on Kaspa Stream, more competition for block space (stp's observation from the dashboard, not our measurement)
+- 2026-10-11T12:08:40Z window **deviation** rate held high to END by stp 12:06Z; Build same (deviation: no -5% on unclean/overload windows; only coins running out may lower; floor = current level 1573)
+- 2026-10-11T12:14:23Z window **deviation** END extended +1h to 13:30Z by stp 12:13Z, same fees and pace (1120/1680, rate held high, no cuts); miner off, loggers and chain count shift +1 h (count 13:30-15:30Z covers 06:30-13:30Z)
+- 2026-10-11T12:14:53Z window **deviation** rate-eval: RAMP EVAL 13:59-14:14 CEST at 1573 tx/s: sub/acc 1425.1/1422 tx/s, acc/sub 99.79%, rejects 0% (+3 transport), RAM min 1.24 GB, CPU avg 62.1% -> NOT clean (box RAM min 1.24 GB < 1.5); rate stays 1573 (not clean but no overload (node-dead/stall noise): hold)
+- 2026-10-11T12:29:56Z window **deviation** rate-change: RAMP EVAL 14:14-14:29 CEST at 1573 tx/s: sub/acc 1438.8/1438.4 tx/s, acc/sub 99.97%, rejects 0% (+2 transport), RAM min 1.51 GB, CPU avg 59.1% -> clean; rate 1573 -> 1730
+- 2026-10-11T12:33:01Z END **deviation** HALT by stp 12:32Z, run ended early vs extended END 13:30Z. Effective END = halt 12:33:01Z (14:33:01 CEST): HALT flag, watchdog, scheduler, senders to 0, +10 s SIGKILL senders and miner (stop.sh 12:33:01-12:33:14Z); n2 and read-only loggers stay up
+- 2026-10-11T12:36:20Z END **deviation** pulse-monitor: pulse-method monitoring stopped after the halt minute 12:33Z
 
-**Every network count includes TN10 base load of about 56 tx/s** (figure from Kaspa Pulse).
+## Notes on the method
 
-| UTC minute | CEST | n2 accepted tx/s | public node tx/s | diff (tx) | blue blocks | our blocks | our hashrate | note |
-|---|---|---:|---:|---:|---:|---:|---|---|
-| 2026-10-11T12:23Z | 14:23 | 2506.8 | 2506.8 | 0 | 588 | 209 | 5.87 Mhash/s |  |
-| 2026-10-11T12:24Z | 14:24 | 2781.2 | 2781.2 | 0 | 596 | 187 | 5.80 Mhash/s |  |
-| 2026-10-11T12:25Z | 14:25 | 2776.8 | 2776.8 | 0 | 593 | 197 | 5.86 Mhash/s |  |
-| 2026-10-11T12:26Z | 14:26 | 2685.0 | 2685.0 | 0 | 594 | 188 | 5.78 Mhash/s |  |
-| 2026-10-11T12:27Z | 14:27 | 2854.7 | 2854.7 | 0 | 574 | 176 | 5.77 Mhash/s |  |
-
-## n2 (bot's private reader node) and the box
-
-| What | Value |
-|---|---|
-| n2 synced / UTXO index | True / False |
-| n2 sink age (lag) | 0.2 s |
-| n2 virtual DAA score | 593,875,249 |
-| Miner processes | 1 |
-| Lane tips at last sender boots | 172,891 tKAS in 3,600 lanes (read from a public UTXO index; no wallet buffer needed) |
-| Disk free / RAM available | 24 GB / 2,259 MB |
-
-## Rate checks (every 15 min over the full last 15 min: +10% if clean; until 11:28 CEST -10% if not; from 11:28 CEST floor 1,100 and -5% only on real overload, else hold)
-
-| Eval (CEST) | Level | Submitted tx/s | Accepted tx/s | Rejects % | RAM min GB | CPU avg % | Clean | Next |
-|---|---:|---:|---:|---:|---:|---:|---|---:|
-| 09:45 | 919 | 587.9 | 587.1 | 0.00 | 2.98 | 48.0 | no: 2 node-dead events; submitted 587.9 < 90% of 919 | 835 |
-| 10:00 | 835 | 833.5 | 834.1 | 0.00 | 2.48 | 48.5 | yes | 919 |
-| 10:15 | 919 | 900.0 | 898.8 | 0.00 | 2.56 | 37.2 | yes | 1,011 |
-| 10:30 | 1,011 | 1,009.5 | 1,009.6 | 0.00 | 2.46 | 39.8 | yes | 1,112 |
-| 10:45 | 1,112 | 1,100.8 | 1,100.6 | 0.00 | 2.32 | 40.0 | yes | 1,223 |
-| 11:00 | 1,223 | 884.1 | 882.1 | 0.00 | 2.21 | 40.4 | no: 4 node-dead events; submitted 884.1 < 90% of 1223 | 1,112 |
-| 11:15 | 1,112 | 0.0 | 0.0 | 0.00 | 3.05 | 42.3 | no: accepted -% of submitted < 99%; p90 - s > 10; submitted 0 < 90% of 1112 | 1,011 |
-| 11:44 | 1,300 | 187.3 | 186.9 | 0.00 | 2.44 | 40.2 | no: submitted 187.3 < 90% of 1300 | 1,300 |
-| 12:00 | 1,300 | 915.0 | 911.6 | 0.00 | 2.34 | 41.2 | no: submitted 915 < 90% of 1300 | 1,300 |
-| 12:14 | 1,300 | 168.9 | 168.1 | 0.00 | 2.21 | 42.2 | no: 3 node-dead events; submitted 168.9 < 90% of 1300 | 1,300 |
-| 12:29 | 1,300 | 209.0 | 209.0 | 0.00 | 1.78 | 42.6 | no: submitted 209 < 90% of 1300 | 1,300 |
-| 12:29 | 1,300 | 1,291.9 | 1,291.5 | 0.00 | 1.78 | 42.6 | yes | 1,430 |
-| 12:44 | 1,430 | 1,389.1 | 1,388.4 | 0.00 | 1.10 | 48.0 | no: box RAM min 1.1 GB < 1.5 | 1,430 |
-| 12:59 | 1,430 | 1,346.8 | 1,348.8 | 0.00 | 1.01 | 54.8 | no: box RAM min 1.01 GB < 1.5 | 1,430 |
-| 13:23 | 1,430 | 21.3 | 21.1 | 0.00 | 1.35 | 45.9 | no: submitted 21.3 < 90% of 1430; box RAM min 1.35 GB < 1.5 | 1,430 |
-| 13:29 | 1,430 | 543.8 | 540.8 | 0.00 | 1.38 | 56.4 | no: 5 node-dead events; submitted 543.8 < 90% of 1430; box RAM min 1.38 GB < 1.5 | 1,430 |
-| 13:44 | 1,430 | 1,361.7 | 1,361.2 | 0.00 | 1.83 | 56.6 | yes | 1,573 |
-| 13:59 | 1,573 | 1,459.7 | 1,459.2 | 0.00 | 1.39 | 61.6 | no: box RAM min 1.39 GB < 1.5 | 1,573 |
-| 14:14 | 1,573 | 1,425.1 | 1,422.0 | 0.00 | 1.24 | 62.1 | no: box RAM min 1.24 GB < 1.5 | 1,573 |
-| 14:29 | 1,573 | 1,438.8 | 1,438.4 | 0.00 | 1.51 | 59.1 | yes | 1,730 |
-
-## Last events
-
-| CEST | Event | Step | Detail |
-|---|---|---|---|
-| 14:07:56 | sender-relaunch | window | S16 relaunch 7/200 |
-| 14:07:56 | sender-start | window | S16 mode=pub |
-| 14:08:08 | sender-relaunch | window | S18 relaunch 6/200 |
-| 14:08:08 | sender-start | window | S18 mode=pub |
-| 14:08:11 | sender-relaunch | window | S17 relaunch 11/200 |
-| 14:08:11 | sender-start | window | S17 mode=pub |
-| 14:08:40 | fee-change | - | fee x2 to 1120/1680 by stp 12:05Z (deviation: above GO cap 600); cap 1680, node-quote-skip 400 -> 1680 so our own fee does not make senders sit out; fired 2026- |
-| 14:08:40 | deviation | - | fee x2 to 1120/1680 by stp 12:05Z (deviation: above GO cap 600); cap 1680, node-quote-skip 400 -> 1680 so our own fee does not make senders sit out; fired 2026- |
-| 14:08:40 | deviation | - | rate held high to END by stp 12:06Z; Build same (deviation: no -5% on unclean/overload windows; only coins running out may lower; floor = current level 1573) |
-| 14:14:23 | deviation | - | END extended +1h to 13:30Z by stp 12:13Z, same fees and pace (1120/1680, rate held high, no cuts); miner off, loggers and chain count shift +1 h (count 13:30-15 |
-| 14:14:53 | rate-eval | window | RAMP EVAL 13:59-14:14 CEST at 1573 tx/s: sub/acc 1425.1/1422 tx/s, acc/sub 99.79%, rejects 0% (+3 transport), RAM min 1.24 GB, CPU avg 62.1% -> NOT clean (box R |
-| 14:29:56 | rate-change | window | RAMP EVAL 14:14-14:29 CEST at 1573 tx/s: sub/acc 1438.8/1438.4 tx/s, acc/sub 99.97%, rejects 0% (+2 transport), RAM min 1.51 GB, CPU avg 59.1% -> clean; rate 15 |
-
-How to read: *Now* answers "is the bot sending what the plan says?"; *Public nodes* shows which node rejects or errors; *Rate steps* shows each 15-minute check (clean = at least 99% of submitted accepted, p90 at most 10 s, no node-dead event, submitted at least 90% of target, rejects under 2%, box RAM at least 1.5 GB, CPU under 95%). Label: no-signature hop, anyone-can-spend, not realistic payments. Final per-second files land here after END.
+- `sent` = submit calls; `submit_ok` = taken into n2's mempool; a failed submit is a reject. `node_accepted` = own transactions seen accepted on n2's virtual chain.
+- `target_tx_s` in sec/minute is the rate the scheduler gave the senders that second (0 while the node-dead rule or a sit-out holds); in steps.csv it is the plan's bot rate for the row.
+- `network_unique_accepted` is from n2's virtual chain, each id once, all senders. It is a check against Build's count, never a sum.
+- `kaspad_cpu_pct` is percent of one core. NTP offsets use the HTTP Date method (UDP 123 is blocked from the box).
+- `order.csv`: per sender, a transaction counts as reordered when it was seen accepted in a later accept batch than one the same sender submitted after it (same-batch ties are not reordering). `confirm.csv`: submit-ok to accept; fee tier 400 or 600 sompi/gram.
+- Bot senders send no-signature hops (anyone-can-spend), not realistic payments.

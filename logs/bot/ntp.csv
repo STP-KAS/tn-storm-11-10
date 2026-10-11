@@ -1,0 +1,5 @@
+utc,side,when,offset_ms,source
+2026-10-11T12:37:27Z,bot,end,-11.9,http-date www.cloudflare.com (median of 5)
+2026-10-11T12:37:22Z,bot,end,-22.8,http-date www.google.com (median of 5)
+2026-10-11T06:50:10Z,bot,start,-37.9,http-date www.cloudflare.com (median of 5)
+2026-10-11T06:50:05Z,bot,start,-41.6,http-date www.google.com (median of 5)

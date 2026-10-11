@@ -1,0 +1,507 @@
+utc,side,step,event,detail
+2026-10-11T07:00:00Z,bot,G1,gate,G1 fail synced true utxoindex false lag 0.4
+2026-10-11T07:19:00Z,bot,G1,sender-start,S1 mode=pub
+2026-10-11T07:19:03Z,bot,G1,sender-start,S2 mode=pub
+2026-10-11T07:19:06Z,bot,G1,sender-start,S3 mode=pub
+2026-10-11T07:19:09Z,bot,G1,sender-start,S4 mode=pub
+2026-10-11T07:19:12Z,bot,G1,sender-start,S5 mode=pub
+2026-10-11T07:19:15Z,bot,G1,sender-start,S6 mode=pub
+2026-10-11T07:19:18Z,bot,G1,sender-start,S7 mode=pub
+2026-10-11T07:19:21Z,bot,G1,sender-start,S8 mode=pub
+2026-10-11T07:19:24Z,bot,G1,sender-start,S9 mode=pub
+2026-10-11T07:19:27Z,bot,G1,sender-start,S10 mode=pub
+2026-10-11T07:19:30Z,bot,G1,sender-start,S11 mode=pub
+2026-10-11T07:19:33Z,bot,G1,sender-start,S12 mode=pub
+2026-10-11T07:19:36Z,bot,G1,sender-start,S13 mode=pub
+2026-10-11T07:19:39Z,bot,G1,sender-start,S14 mode=pub
+2026-10-11T07:19:42Z,bot,G1,sender-start,S15 mode=pub
+2026-10-11T07:20:00Z,bot,,gate,G2 fail synced true utxoindex false lag 0.5
+2026-10-11T07:20:00Z,bot,,deviation,build-confirmed: at G2
+2026-10-11T07:20:00Z,bot,,deviation,build-confirmed: BUILD-OK
+2026-10-11T07:20:00Z,bot,,miner-on,"07:20 UTC start, n2 synced"
+2026-10-11T07:30:00Z,bot,window,step-start,window bot max
+2026-10-11T07:30:00Z,bot,window,deviation,Build ready file (FOR-TN10-OPS-ready-1110.txt) not passed to the bot by START 09:30 CEST; bot does not wait (GO-BOT)
+2026-10-11T07:31:42Z,bot,window,disk-guard,box disk 18.8 GB free (< 20)
+2026-10-11T07:31:42Z,bot,window,deviation,"box disk 18.8 GB free (< 20): senders pause at 8 GB; n2 disk guard STOP at 5 GB, halt at 3 GB; pub submit fallback below 10 GB"
+2026-10-11T07:43:11Z,bot,window,deviation,"sender-stall: S1 stalled: 0 ok submits in 45 s (1 sec rows), 0 accepts in 60 s, erroring nodes [], main neutrino-10.kaspa.stream -> SIGKILL pid -, relaunch now with fresh picks"
+2026-10-11T07:43:11Z,bot,window,deviation,"sender-stall: S2 stalled: 0 ok submits in 45 s (2 sec rows), 0 accepts in 60 s, erroring nodes [], main vector-10.kaspa.green -> SIGKILL pid -, relaunch now with fresh picks"
+2026-10-11T07:43:11Z,bot,window,deviation,"sender-stall: S3 stalled: 0 ok submits in 45 s (2 sec rows), 0 accepts in 60 s, erroring nodes [], main boson-10.kaspa.red -> SIGKILL pid -, relaunch now with fresh picks"
+2026-10-11T07:43:11Z,bot,window,deviation,"sender-stall: S4 stalled: 0 ok submits in 45 s (2 sec rows), 0 accepts in 60 s, erroring nodes [], main muon-10.kaspa.blue -> SIGKILL pid -, relaunch now with fresh picks"
+2026-10-11T07:43:11Z,bot,window,deviation,"sender-stall: S5 stalled: 0 ok submits in 45 s (2 sec rows), 0 accepts in 60 s, erroring nodes [], main vector-10.kaspa.green -> SIGKILL pid -, relaunch now with fresh picks"
+2026-10-11T07:43:11Z,bot,window,node-dead,vector-10.kaspa.green: 3 strikes in 10 min (S6 main: no accepts in 60 s); new picks avoid it
+2026-10-11T07:43:11Z,bot,window,deviation,"sender-stall: S6 stalled: 0 ok submits in 45 s (2 sec rows), 0 accepts in 60 s, erroring nodes [], main vector-10.kaspa.green -> SIGKILL pid -, relaunch now with fresh picks"
+2026-10-11T07:43:11Z,bot,window,deviation,"sender-stall: S7 stalled: 0 ok submits in 45 s (2 sec rows), 0 accepts in 60 s, erroring nodes [], main vector-10.kaspa.green -> SIGKILL pid -, relaunch now with fresh picks"
+2026-10-11T07:43:11Z,bot,window,deviation,"sender-stall: S8 stalled: 0 ok submits in 45 s (2 sec rows), 0 accepts in 60 s, erroring nodes [], main electron-10.kaspa.blue -> SIGKILL pid -, relaunch now with fresh picks"
+2026-10-11T07:43:11Z,bot,window,deviation,"sender-stall: S9 stalled: 0 ok submits in 45 s (2 sec rows), 0 accepts in 60 s, erroring nodes [], main muon-10.kaspa.blue -> SIGKILL pid -, relaunch now with fresh picks"
+2026-10-11T07:43:11Z,bot,window,deviation,"sender-stall: S10 stalled: 0 ok submits in 45 s (2 sec rows), 0 accepts in 60 s, erroring nodes [], main vector-10.kaspa.green -> SIGKILL pid -, relaunch now with fresh picks"
+2026-10-11T07:43:11Z,bot,window,deviation,"sender-stall: S11 stalled: 0 ok submits in 45 s (2 sec rows), 0 accepts in 60 s, erroring nodes [], main boson-10.kaspa.red -> SIGKILL pid -, relaunch now with fresh picks"
+2026-10-11T07:43:11Z,bot,window,deviation,"sender-stall: S12 stalled: 0 ok submits in 45 s (3 sec rows), 0 accepts in 60 s, erroring nodes [], main neutrino-10.kaspa.stream -> SIGKILL pid -, relaunch now with fresh picks"
+2026-10-11T07:43:11Z,bot,window,deviation,"sender-stall: S13 stalled: 0 ok submits in 45 s (3 sec rows), 0 accepts in 60 s, erroring nodes [], main electron-10.kaspa.blue -> SIGKILL pid -, relaunch now with fresh picks"
+2026-10-11T07:43:11Z,bot,window,deviation,"sender-stall: S14 stalled: 0 ok submits in 45 s (2 sec rows), 0 accepts in 60 s, erroring nodes [], main vector-10.kaspa.green -> SIGKILL pid -, relaunch now with fresh picks"
+2026-10-11T07:43:11Z,bot,window,node-dead,electron-10.kaspa.blue: 3 strikes in 10 min (S15 main: no accepts in 60 s); new picks avoid it
+2026-10-11T07:43:11Z,bot,window,deviation,"sender-stall: S15 stalled: 0 ok submits in 45 s (2 sec rows), 0 accepts in 60 s, erroring nodes [], main electron-10.kaspa.blue -> SIGKILL pid -, relaunch now with fresh picks"
+2026-10-11T07:43:12Z,bot,window,deviation,sender-relaunch: S1 relaunch 1/200
+2026-10-11T07:43:12Z,bot,window,sender-start,S1 mode=pub
+2026-10-11T07:43:15Z,bot,window,deviation,sender-relaunch: S2 relaunch 1/200
+2026-10-11T07:43:15Z,bot,window,sender-start,S2 mode=pub
+2026-10-11T07:43:18Z,bot,window,deviation,sender-relaunch: S3 relaunch 1/200
+2026-10-11T07:43:18Z,bot,window,sender-start,S3 mode=pub
+2026-10-11T07:43:21Z,bot,window,deviation,sender-relaunch: S4 relaunch 1/200
+2026-10-11T07:43:21Z,bot,window,sender-start,S4 mode=pub
+2026-10-11T07:43:24Z,bot,window,deviation,sender-relaunch: S5 relaunch 1/200
+2026-10-11T07:43:24Z,bot,window,sender-start,S5 mode=pub
+2026-10-11T07:43:27Z,bot,window,deviation,sender-relaunch: S6 relaunch 1/200
+2026-10-11T07:43:27Z,bot,window,sender-start,S6 mode=pub
+2026-10-11T07:43:30Z,bot,window,deviation,sender-relaunch: S7 relaunch 1/200
+2026-10-11T07:43:30Z,bot,window,sender-start,S7 mode=pub
+2026-10-11T07:43:33Z,bot,window,deviation,sender-relaunch: S8 relaunch 1/200
+2026-10-11T07:43:33Z,bot,window,sender-start,S8 mode=pub
+2026-10-11T07:43:36Z,bot,window,deviation,sender-relaunch: S9 relaunch 1/200
+2026-10-11T07:43:36Z,bot,window,sender-start,S9 mode=pub
+2026-10-11T07:43:39Z,bot,window,deviation,sender-relaunch: S10 relaunch 1/200
+2026-10-11T07:43:39Z,bot,window,sender-start,S10 mode=pub
+2026-10-11T07:43:42Z,bot,window,deviation,sender-relaunch: S11 relaunch 1/200
+2026-10-11T07:43:42Z,bot,window,sender-start,S11 mode=pub
+2026-10-11T07:43:45Z,bot,window,deviation,sender-relaunch: S12 relaunch 1/200
+2026-10-11T07:43:45Z,bot,window,sender-start,S12 mode=pub
+2026-10-11T07:43:48Z,bot,window,deviation,sender-relaunch: S13 relaunch 1/200
+2026-10-11T07:43:48Z,bot,window,sender-start,S13 mode=pub
+2026-10-11T07:43:51Z,bot,window,deviation,sender-relaunch: S14 relaunch 1/200
+2026-10-11T07:43:51Z,bot,window,sender-start,S14 mode=pub
+2026-10-11T07:43:54Z,bot,window,deviation,sender-relaunch: S15 relaunch 1/200
+2026-10-11T07:43:54Z,bot,window,sender-start,S15 mode=pub
+2026-10-11T07:45:04Z,bot,window,deviation,"rate-change: RAMP EVAL 09:30-09:45 CEST at 919 tx/s: sub/acc 587.9/587.1 tx/s, acc/sub 99.86%, rejects 0% (+0 transport), RAM min 2.98 GB, CPU avg 48% -> NOT clean (2 node-dead events; submitted 587.9 < 90% of 919); rate 919 -> 835"
+2026-10-11T08:00:00Z,bot,window,deviation,"rate-change: RAMP EVAL 09:45-10:00 CEST at 835 tx/s: sub/acc 833.5/834.1 tx/s, acc/sub 100%, rejects 0% (+0 transport), RAM min 2.48 GB, CPU avg 48.5% -> clean; rate 835 -> 919"
+2026-10-11T08:15:00Z,bot,window,deviation,"rate-change: RAMP EVAL 10:00-10:15 CEST at 919 tx/s: sub/acc 900/898.8 tx/s, acc/sub 99.87%, rejects 0% (+0 transport), RAM min 2.56 GB, CPU avg 37.2% -> clean; rate 919 -> 1011"
+2026-10-11T08:28:55Z,bot,window,deviation,day-watch: 10:28 CEST check: healthy; target 1011; live sub/acc ~1010/1005; 15 senders; miner 1; disk 34G; MemAvail ~2.5G; no fix
+2026-10-11T08:30:01Z,bot,window,deviation,"rate-change: RAMP EVAL 10:15-10:30 CEST at 1011 tx/s: sub/acc 1009.5/1009.6 tx/s, acc/sub 100%, rejects 0% (+2 transport), RAM min 2.46 GB, CPU avg 39.8% -> clean; rate 1011 -> 1112"
+2026-10-11T08:45:01Z,bot,window,deviation,"rate-change: RAMP EVAL 10:30-10:45 CEST at 1112 tx/s: sub/acc 1100.8/1100.6 tx/s, acc/sub 99.98%, rejects 0% (+4 transport), RAM min 2.32 GB, CPU avg 40% -> clean; rate 1112 -> 1223"
+2026-10-11T08:49:33Z,bot,window,deviation,"sender-stall: S1 stalled: 0 ok submits in 45 s (1 sec rows), 0 accepts in 60 s, erroring nodes [], main boson-10.kaspa.red -> SIGKILL pid -, relaunch now with fresh picks"
+2026-10-11T08:49:33Z,bot,window,deviation,"sender-stall: S2 stalled: 0 ok submits in 45 s (2 sec rows), 0 accepts in 60 s, erroring nodes [], main neutrino-10.kaspa.stream -> SIGKILL pid -, relaunch now with fresh picks"
+2026-10-11T08:49:33Z,bot,window,deviation,"sender-stall: S3 stalled: 0 ok submits in 45 s (1 sec rows), 0 accepts in 60 s, erroring nodes [], main muon-10.kaspa.blue -> SIGKILL pid -, relaunch now with fresh picks"
+2026-10-11T08:49:33Z,bot,window,deviation,"sender-stall: S4 stalled: 0 ok submits in 45 s (2 sec rows), 0 accepts in 60 s, erroring nodes [], main electron-10.kaspa.blue -> SIGKILL pid -, relaunch now with fresh picks"
+2026-10-11T08:49:33Z,bot,window,deviation,"sender-stall: S5 stalled: 0 ok submits in 45 s (1 sec rows), 0 accepts in 60 s, erroring nodes [], main muon-10.kaspa.blue -> SIGKILL pid -, relaunch now with fresh picks"
+2026-10-11T08:49:33Z,bot,window,deviation,"sender-stall: S6 stalled: 0 ok submits in 45 s (1 sec rows), 0 accepts in 60 s, erroring nodes [], main neutrino-10.kaspa.stream -> SIGKILL pid -, relaunch now with fresh picks"
+2026-10-11T08:49:33Z,bot,window,deviation,"sender-stall: S7 stalled: 0 ok submits in 45 s (1 sec rows), 0 accepts in 60 s, erroring nodes [], main boson-10.kaspa.red -> SIGKILL pid -, relaunch now with fresh picks"
+2026-10-11T08:49:33Z,bot,window,deviation,"sender-stall: S8 stalled: 0 ok submits in 45 s (2 sec rows), 0 accepts in 60 s, erroring nodes [], main electron-10.kaspa.blue -> SIGKILL pid -, relaunch now with fresh picks"
+2026-10-11T08:49:33Z,bot,window,node-dead,neutrino-10.kaspa.stream: 3 strikes in 10 min (S9 main: no accepts in 60 s); new picks avoid it
+2026-10-11T08:49:33Z,bot,window,deviation,"sender-stall: S9 stalled: 0 ok submits in 45 s (1 sec rows), 0 accepts in 60 s, erroring nodes [], main neutrino-10.kaspa.stream -> SIGKILL pid -, relaunch now with fresh picks"
+2026-10-11T08:49:33Z,bot,window,node-dead,muon-10.kaspa.blue: 3 strikes in 10 min (S10 main: no accepts in 60 s); new picks avoid it
+2026-10-11T08:49:33Z,bot,window,deviation,"sender-stall: S10 stalled: 0 ok submits in 45 s (2 sec rows), 0 accepts in 60 s, erroring nodes [], main muon-10.kaspa.blue -> SIGKILL pid -, relaunch now with fresh picks"
+2026-10-11T08:49:33Z,bot,window,node-dead,boson-10.kaspa.red: 3 strikes in 10 min (S11 main: no accepts in 60 s); new picks avoid it
+2026-10-11T08:49:33Z,bot,window,deviation,"sender-stall: S11 stalled: 0 ok submits in 45 s (2 sec rows), 0 accepts in 60 s, erroring nodes [], main boson-10.kaspa.red -> SIGKILL pid -, relaunch now with fresh picks"
+2026-10-11T08:49:33Z,bot,window,node-dead,electron-10.kaspa.blue: 3 strikes in 10 min (S12 main: no accepts in 60 s); new picks avoid it
+2026-10-11T08:49:33Z,bot,window,deviation,"sender-stall: S12 stalled: 0 ok submits in 45 s (1 sec rows), 0 accepts in 60 s, erroring nodes [], main electron-10.kaspa.blue -> SIGKILL pid -, relaunch now with fresh picks"
+2026-10-11T08:49:33Z,bot,window,deviation,"sender-stall: S13 stalled: 0 ok submits in 45 s (1 sec rows), 0 accepts in 60 s, erroring nodes [], main neutrino-10.kaspa.stream -> SIGKILL pid -, relaunch now with fresh picks"
+2026-10-11T08:49:33Z,bot,window,deviation,"sender-stall: S14 stalled: 0 ok submits in 45 s (1 sec rows), 0 accepts in 60 s, erroring nodes [], main neutrino-10.kaspa.stream -> SIGKILL pid -, relaunch now with fresh picks"
+2026-10-11T08:49:33Z,bot,window,deviation,"sender-stall: S15 stalled: 0 ok submits in 45 s (2 sec rows), 0 accepts in 60 s, erroring nodes [], main muon-10.kaspa.blue -> SIGKILL pid -, relaunch now with fresh picks"
+2026-10-11T08:49:34Z,bot,window,deviation,sender-relaunch: S1 relaunch 2/200
+2026-10-11T08:49:34Z,bot,window,sender-start,S1 mode=pub
+2026-10-11T08:49:37Z,bot,window,deviation,sender-relaunch: S2 relaunch 2/200
+2026-10-11T08:49:37Z,bot,window,sender-start,S2 mode=pub
+2026-10-11T08:49:40Z,bot,window,deviation,sender-relaunch: S3 relaunch 2/200
+2026-10-11T08:49:40Z,bot,window,sender-start,S3 mode=pub
+2026-10-11T08:49:43Z,bot,window,deviation,sender-relaunch: S4 relaunch 2/200
+2026-10-11T08:49:43Z,bot,window,sender-start,S4 mode=pub
+2026-10-11T08:49:46Z,bot,window,deviation,sender-relaunch: S5 relaunch 2/200
+2026-10-11T08:49:46Z,bot,window,sender-start,S5 mode=pub
+2026-10-11T08:49:49Z,bot,window,deviation,sender-relaunch: S6 relaunch 2/200
+2026-10-11T08:49:49Z,bot,window,sender-start,S6 mode=pub
+2026-10-11T08:49:52Z,bot,window,deviation,sender-relaunch: S7 relaunch 2/200
+2026-10-11T08:49:52Z,bot,window,sender-start,S7 mode=pub
+2026-10-11T08:49:55Z,bot,window,deviation,sender-relaunch: S8 relaunch 2/200
+2026-10-11T08:49:55Z,bot,window,sender-start,S8 mode=pub
+2026-10-11T08:49:58Z,bot,window,deviation,sender-relaunch: S9 relaunch 2/200
+2026-10-11T08:49:58Z,bot,window,sender-start,S9 mode=pub
+2026-10-11T08:50:01Z,bot,window,deviation,sender-relaunch: S10 relaunch 2/200
+2026-10-11T08:50:01Z,bot,window,sender-start,S10 mode=pub
+2026-10-11T08:50:04Z,bot,window,deviation,sender-relaunch: S11 relaunch 2/200
+2026-10-11T08:50:04Z,bot,window,sender-start,S11 mode=pub
+2026-10-11T08:50:07Z,bot,window,deviation,sender-relaunch: S12 relaunch 2/200
+2026-10-11T08:50:07Z,bot,window,sender-start,S12 mode=pub
+2026-10-11T08:50:10Z,bot,window,deviation,sender-relaunch: S13 relaunch 2/200
+2026-10-11T08:50:10Z,bot,window,sender-start,S13 mode=pub
+2026-10-11T08:50:13Z,bot,window,deviation,sender-relaunch: S14 relaunch 2/200
+2026-10-11T08:50:13Z,bot,window,sender-start,S14 mode=pub
+2026-10-11T08:50:16Z,bot,window,deviation,sender-relaunch: S15 relaunch 2/200
+2026-10-11T08:50:16Z,bot,window,sender-start,S15 mode=pub
+2026-10-11T08:51:45Z,bot,window,deviation,day-watch: mass stall all 15 senders at 10:49:33 CEST; scheduler auto SIGKILL+relaunch 2/200 with fresh picks + public-node stall-strike avoid (muon/boson/electron); all 15 up by 10:50:16; live ~1200/1223; no manual fix
+2026-10-11T09:00:01Z,bot,window,deviation,"rate-change: RAMP EVAL 10:45-11:00 CEST at 1223 tx/s: sub/acc 884.1/882.1 tx/s, acc/sub 99.77%, rejects 0% (+2 transport), RAM min 2.21 GB, CPU avg 40.4% -> NOT clean (4 node-dead events; submitted 884.1 < 90% of 1223); rate 1223 -> 1112"
+2026-10-11T09:15:01Z,bot,window,deviation,"rate-change: RAMP EVAL 11:00-11:15 CEST at 1112 tx/s: sub/acc 0/0 tx/s, acc/sub -%, rejects 0% (+0 transport), RAM min 3.05 GB, CPU avg 42.3% -> NOT clean (accepted -% of submitted < 99%; p90 - s > 10; submitted 0 < 90% of 1112); rate 1112 -> 1011"
+2026-10-11T09:29:52Z,bot,window,deviation,"rate-change: stp 11:28 CEST: increase effort: rate 1011 -> 1300 tx/s; new rule: floor 1,100, +10% per clean 15 min up to 2400, -5% only on real overload (acc < 95% of sub or rejects >= 2%), else hold; next eval in 15 min"
+2026-10-11T09:30:17Z,bot,window,deviation,"stp 11:28 increase effort: senders 15 -> 16 (GO-BOT said max 15 for box RAM; extra senders launch only while MemAvailable >= 2.5 GB, never under 1.5 GB)"
+2026-10-11T09:30:17Z,bot,window,sender-start,S16 mode=pub
+2026-10-11T09:30:42Z,bot,window,deviation,"stp 11:28 increase effort: senders 15 -> 16 (GO-BOT said max 15 for box RAM; extra senders launch only while MemAvailable >= 2.5 GB, never under 1.5 GB)"
+2026-10-11T09:31:07Z,bot,window,deviation,"stp 11:28 increase effort: senders 15 -> 16 (GO-BOT said max 15 for box RAM; extra senders launch only while MemAvailable >= 2.5 GB, never under 1.5 GB)"
+2026-10-11T09:31:58Z,bot,window,deviation,"stp 11:28 increase effort: senders 16 -> 17 (GO-BOT said max 15 for box RAM; extra senders launch only while MemAvailable >= 2.5 GB, never under 1.5 GB)"
+2026-10-11T09:31:58Z,bot,window,sender-start,S17 mode=pub
+2026-10-11T09:33:38Z,bot,window,deviation,"stp 11:28 increase effort: senders 17 -> 18 (GO-BOT said max 15 for box RAM; extra senders launch only while MemAvailable >= 2.5 GB, never under 1.5 GB)"
+2026-10-11T09:33:38Z,bot,window,sender-start,S18 mode=pub
+2026-10-11T09:44:52Z,bot,window,deviation,"rate-eval: RAMP EVAL 11:29-11:44 CEST at 1300 tx/s: sub/acc 187.3/186.9 tx/s, acc/sub 99.81%, rejects 0% (+0 transport), RAM min 2.44 GB, CPU avg 40.2% -> NOT clean (submitted 187.3 < 90% of 1300); rate stays 1300 (not clean but no overload (node-dead/stall noise): hold)"
+2026-10-11T09:48:24Z,bot,window,deviation,"sender-stall: S9 stalled: 0 ok submits in 45 s (44 sec rows), 2 accepts in 60 s, erroring nodes [], main vector-10.kaspa.green -> SIGKILL pid -, relaunch now with fresh picks"
+2026-10-11T09:48:25Z,bot,window,deviation,sender-relaunch: S9 relaunch 3/200
+2026-10-11T09:48:25Z,bot,window,sender-start,S9 mode=pub
+2026-10-11T09:50:52Z,bot,window,deviation,fee-armed: stp 11:49 CEST: 400/600 -> 560/840 at next rate climb
+2026-10-11T09:50:52Z,bot,window,deviation,"stp 11:28 increase effort: senders 15 -> 18 (GO-BOT said max 15 for box RAM; extra senders launch only while MemAvailable >= 2.5 GB, never under 1.5 GB)"
+2026-10-11T09:51:10Z,bot,window,deviation,sender-relaunch: S1 relaunch 3/200
+2026-10-11T09:51:10Z,bot,window,sender-start,S1 mode=pub
+2026-10-11T09:51:19Z,bot,window,deviation,sender-relaunch: S2 relaunch 3/200
+2026-10-11T09:51:19Z,bot,window,sender-start,S2 mode=pub
+2026-10-11T09:51:26Z,bot,window,deviation,sender-relaunch: S3 relaunch 3/200
+2026-10-11T09:51:26Z,bot,window,sender-start,S3 mode=pub
+2026-10-11T09:51:33Z,bot,window,deviation,sender-relaunch: S4 relaunch 3/200
+2026-10-11T09:51:33Z,bot,window,sender-start,S4 mode=pub
+2026-10-11T09:51:42Z,bot,window,deviation,sender-relaunch: S5 relaunch 3/200
+2026-10-11T09:51:42Z,bot,window,sender-start,S5 mode=pub
+2026-10-11T09:51:51Z,bot,window,deviation,sender-relaunch: S6 relaunch 3/200
+2026-10-11T09:51:51Z,bot,window,sender-start,S6 mode=pub
+2026-10-11T09:52:00Z,bot,window,deviation,sender-relaunch: S7 relaunch 3/200
+2026-10-11T09:52:00Z,bot,window,sender-start,S7 mode=pub
+2026-10-11T09:52:09Z,bot,window,deviation,sender-relaunch: S8 relaunch 3/200
+2026-10-11T09:52:09Z,bot,window,sender-start,S8 mode=pub
+2026-10-11T09:52:18Z,bot,window,deviation,sender-relaunch: S9 relaunch 4/200
+2026-10-11T09:52:18Z,bot,window,sender-start,S9 mode=pub
+2026-10-11T09:52:27Z,bot,window,deviation,sender-relaunch: S10 relaunch 3/200
+2026-10-11T09:52:27Z,bot,window,sender-start,S10 mode=pub
+2026-10-11T09:52:36Z,bot,window,deviation,sender-relaunch: S11 relaunch 3/200
+2026-10-11T09:52:36Z,bot,window,sender-start,S11 mode=pub
+2026-10-11T09:52:45Z,bot,window,deviation,sender-relaunch: S12 relaunch 3/200
+2026-10-11T09:52:45Z,bot,window,sender-start,S12 mode=pub
+2026-10-11T09:52:54Z,bot,window,deviation,sender-relaunch: S13 relaunch 3/200
+2026-10-11T09:52:54Z,bot,window,sender-start,S13 mode=pub
+2026-10-11T09:53:03Z,bot,window,deviation,sender-relaunch: S14 relaunch 3/200
+2026-10-11T09:53:03Z,bot,window,sender-start,S14 mode=pub
+2026-10-11T09:53:12Z,bot,window,deviation,sender-relaunch: S15 relaunch 3/200
+2026-10-11T09:53:12Z,bot,window,sender-start,S15 mode=pub
+2026-10-11T09:53:20Z,bot,window,deviation,sender-relaunch: S16 relaunch 1/200
+2026-10-11T09:53:20Z,bot,window,sender-start,S16 mode=pub
+2026-10-11T09:53:27Z,bot,window,deviation,sender-relaunch: S17 relaunch 1/200
+2026-10-11T09:53:27Z,bot,window,sender-start,S17 mode=pub
+2026-10-11T09:53:34Z,bot,window,deviation,sender-relaunch: S18 relaunch 1/200
+2026-10-11T09:53:34Z,bot,window,sender-start,S18 mode=pub
+2026-10-11T10:00:39Z,bot,window,deviation,"rate-eval: RAMP EVAL 11:45-12:00 CEST at 1300 tx/s: sub/acc 915/911.6 tx/s, acc/sub 99.63%, rejects 0% (+3 transport), RAM min 2.34 GB, CPU avg 41.2% -> NOT clean (submitted 915 < 90% of 1300); rate stays 1300 (not clean but no overload (node-dead/stall noise): hold)"
+2026-10-11T10:00:39Z,bot,window,deviation,"sender-stall: S1 stalled: 0 ok submits in 45 s (3 sec rows), 0 accepts in 60 s, erroring nodes [], main muon-10.kaspa.blue -> SIGKILL pid -, relaunch now with fresh picks"
+2026-10-11T10:00:39Z,bot,window,deviation,"sender-stall: S2 stalled: 0 ok submits in 45 s (3 sec rows), 0 accepts in 60 s, erroring nodes [], main muon-10.kaspa.blue -> SIGKILL pid -, relaunch now with fresh picks"
+2026-10-11T10:00:39Z,bot,window,deviation,"sender-stall: S3 stalled: 0 ok submits in 45 s (3 sec rows), 0 accepts in 60 s, erroring nodes [], main vector-10.kaspa.green -> SIGKILL pid -, relaunch now with fresh picks"
+2026-10-11T10:00:39Z,bot,window,deviation,"sender-stall: S4 stalled: 0 ok submits in 45 s (3 sec rows), 0 accepts in 60 s, erroring nodes [], main boson-10.kaspa.red -> SIGKILL pid -, relaunch now with fresh picks"
+2026-10-11T10:00:39Z,bot,window,deviation,"sender-stall: S5 stalled: 0 ok submits in 45 s (3 sec rows), 0 accepts in 60 s, erroring nodes [], main vector-10.kaspa.green -> SIGKILL pid -, relaunch now with fresh picks"
+2026-10-11T10:00:39Z,bot,window,deviation,"sender-stall: S6 stalled: 0 ok submits in 45 s (3 sec rows), 0 accepts in 60 s, erroring nodes [], main neutrino-10.kaspa.stream -> SIGKILL pid -, relaunch now with fresh picks"
+2026-10-11T10:00:39Z,bot,window,node-dead,vector-10.kaspa.green: 3 strikes in 10 min (S7 main: no accepts in 60 s); new picks avoid it
+2026-10-11T10:00:39Z,bot,window,deviation,"sender-stall: S7 stalled: 0 ok submits in 45 s (3 sec rows), 0 accepts in 60 s, erroring nodes [], main vector-10.kaspa.green -> SIGKILL pid -, relaunch now with fresh picks"
+2026-10-11T10:00:39Z,bot,window,deviation,"sender-stall: S8 stalled: 0 ok submits in 45 s (3 sec rows), 0 accepts in 60 s, erroring nodes [], main electron-10.kaspa.blue -> SIGKILL pid -, relaunch now with fresh picks"
+2026-10-11T10:00:39Z,bot,window,deviation,"sender-stall: S9 stalled: 0 ok submits in 45 s (3 sec rows), 0 accepts in 60 s, erroring nodes [], main neutrino-10.kaspa.stream -> SIGKILL pid -, relaunch now with fresh picks"
+2026-10-11T10:00:39Z,bot,window,deviation,"sender-stall: S10 stalled: 0 ok submits in 45 s (3 sec rows), 0 accepts in 60 s, erroring nodes [], main vector-10.kaspa.green -> SIGKILL pid -, relaunch now with fresh picks"
+2026-10-11T10:00:39Z,bot,window,deviation,"sender-stall: S11 stalled: 0 ok submits in 45 s (3 sec rows), 0 accepts in 60 s, erroring nodes [], main vector-10.kaspa.green -> SIGKILL pid -, relaunch now with fresh picks"
+2026-10-11T10:00:39Z,bot,window,deviation,"sender-stall: S12 stalled: 0 ok submits in 45 s (3 sec rows), 0 accepts in 60 s, erroring nodes [], main vector-10.kaspa.green -> SIGKILL pid -, relaunch now with fresh picks"
+2026-10-11T10:00:39Z,bot,window,node-dead,neutrino-10.kaspa.stream: 3 strikes in 10 min (S13 main: no accepts in 60 s); new picks avoid it
+2026-10-11T10:00:39Z,bot,window,deviation,"sender-stall: S13 stalled: 0 ok submits in 45 s (3 sec rows), 0 accepts in 60 s, erroring nodes [], main neutrino-10.kaspa.stream -> SIGKILL pid -, relaunch now with fresh picks"
+2026-10-11T10:00:39Z,bot,window,deviation,"sender-stall: S14 stalled: 0 ok submits in 45 s (3 sec rows), 0 accepts in 60 s, erroring nodes [], main neutrino-10.kaspa.stream -> SIGKILL pid -, relaunch now with fresh picks"
+2026-10-11T10:00:39Z,bot,window,deviation,"sender-stall: S15 stalled: 0 ok submits in 45 s (3 sec rows), 0 accepts in 60 s, erroring nodes [], main electron-10.kaspa.blue -> SIGKILL pid -, relaunch now with fresh picks"
+2026-10-11T10:00:39Z,bot,window,node-dead,electron-10.kaspa.blue: 3 strikes in 10 min (S16 main: no accepts in 60 s); new picks avoid it
+2026-10-11T10:00:39Z,bot,window,deviation,"sender-stall: S16 stalled: 0 ok submits in 45 s (3 sec rows), 0 accepts in 60 s, erroring nodes [], main electron-10.kaspa.blue -> SIGKILL pid -, relaunch now with fresh picks"
+2026-10-11T10:00:39Z,bot,window,deviation,"sender-stall: S17 stalled: 0 ok submits in 45 s (3 sec rows), 0 accepts in 60 s, erroring nodes [], main vector-10.kaspa.green -> SIGKILL pid -, relaunch now with fresh picks"
+2026-10-11T10:00:39Z,bot,window,deviation,"sender-stall: S18 stalled: 0 ok submits in 45 s (3 sec rows), 0 accepts in 60 s, erroring nodes [], main electron-10.kaspa.blue -> SIGKILL pid -, relaunch now with fresh picks"
+2026-10-11T10:00:41Z,bot,window,deviation,sender-relaunch: S1 relaunch 4/200
+2026-10-11T10:00:41Z,bot,window,sender-start,S1 mode=pub
+2026-10-11T10:00:44Z,bot,window,deviation,sender-relaunch: S2 relaunch 4/200
+2026-10-11T10:00:44Z,bot,window,sender-start,S2 mode=pub
+2026-10-11T10:00:47Z,bot,window,deviation,sender-relaunch: S3 relaunch 4/200
+2026-10-11T10:00:47Z,bot,window,sender-start,S3 mode=pub
+2026-10-11T10:00:50Z,bot,window,deviation,sender-relaunch: S4 relaunch 4/200
+2026-10-11T10:00:50Z,bot,window,sender-start,S4 mode=pub
+2026-10-11T10:00:53Z,bot,window,deviation,sender-relaunch: S5 relaunch 4/200
+2026-10-11T10:00:53Z,bot,window,sender-start,S5 mode=pub
+2026-10-11T10:00:56Z,bot,window,deviation,sender-relaunch: S6 relaunch 4/200
+2026-10-11T10:00:56Z,bot,window,sender-start,S6 mode=pub
+2026-10-11T10:00:59Z,bot,window,deviation,sender-relaunch: S7 relaunch 4/200
+2026-10-11T10:00:59Z,bot,window,sender-start,S7 mode=pub
+2026-10-11T10:01:02Z,bot,window,deviation,sender-relaunch: S8 relaunch 4/200
+2026-10-11T10:01:02Z,bot,window,sender-start,S8 mode=pub
+2026-10-11T10:01:05Z,bot,window,deviation,sender-relaunch: S9 relaunch 5/200
+2026-10-11T10:01:05Z,bot,window,sender-start,S9 mode=pub
+2026-10-11T10:01:08Z,bot,window,deviation,sender-relaunch: S10 relaunch 4/200
+2026-10-11T10:01:08Z,bot,window,sender-start,S10 mode=pub
+2026-10-11T10:01:11Z,bot,window,deviation,sender-relaunch: S11 relaunch 4/200
+2026-10-11T10:01:11Z,bot,window,sender-start,S11 mode=pub
+2026-10-11T10:01:14Z,bot,window,deviation,sender-relaunch: S12 relaunch 4/200
+2026-10-11T10:01:14Z,bot,window,sender-start,S12 mode=pub
+2026-10-11T10:01:17Z,bot,window,deviation,sender-relaunch: S13 relaunch 4/200
+2026-10-11T10:01:17Z,bot,window,sender-start,S13 mode=pub
+2026-10-11T10:01:20Z,bot,window,deviation,sender-relaunch: S14 relaunch 4/200
+2026-10-11T10:01:20Z,bot,window,sender-start,S14 mode=pub
+2026-10-11T10:01:23Z,bot,window,deviation,sender-relaunch: S15 relaunch 4/200
+2026-10-11T10:01:23Z,bot,window,sender-start,S15 mode=pub
+2026-10-11T10:01:26Z,bot,window,deviation,sender-relaunch: S16 relaunch 2/200
+2026-10-11T10:01:26Z,bot,window,sender-start,S16 mode=pub
+2026-10-11T10:01:29Z,bot,window,deviation,sender-relaunch: S17 relaunch 2/200
+2026-10-11T10:01:29Z,bot,window,sender-start,S17 mode=pub
+2026-10-11T10:01:32Z,bot,window,deviation,sender-relaunch: S18 relaunch 2/200
+2026-10-11T10:01:32Z,bot,window,sender-start,S18 mode=pub
+2026-10-11T10:04:23Z,bot,window,deviation,"sender-stall: S1 stalled: 0 ok submits in 45 s (44 sec rows), 1135 accepts in 60 s, erroring nodes [], main boson-10.kaspa.red -> SIGKILL pid -, relaunch now with fresh picks"
+2026-10-11T10:04:23Z,bot,window,deviation,"sender-stall: S2 stalled: 0 ok submits in 45 s (44 sec rows), 1110 accepts in 60 s, erroring nodes [], main muon-10.kaspa.blue -> SIGKILL pid -, relaunch now with fresh picks"
+2026-10-11T10:04:23Z,bot,window,deviation,"sender-stall: S3 stalled: 0 ok submits in 45 s (44 sec rows), 1157 accepts in 60 s, erroring nodes [], main neutrino-10.kaspa.stream -> SIGKILL pid -, relaunch now with fresh picks"
+2026-10-11T10:04:23Z,bot,window,deviation,"sender-stall: S4 stalled: 0 ok submits in 45 s (44 sec rows), 1141 accepts in 60 s, erroring nodes [], main neutrino-10.kaspa.stream -> SIGKILL pid -, relaunch now with fresh picks"
+2026-10-11T10:04:23Z,bot,window,deviation,"sender-stall: S5 stalled: 0 ok submits in 45 s (44 sec rows), 1148 accepts in 60 s, erroring nodes [], main boson-10.kaspa.red -> SIGKILL pid -, relaunch now with fresh picks"
+2026-10-11T10:04:23Z,bot,window,deviation,"sender-stall: S6 stalled: 0 ok submits in 45 s (44 sec rows), 1118 accepts in 60 s, erroring nodes [], main muon-10.kaspa.blue -> SIGKILL pid -, relaunch now with fresh picks"
+2026-10-11T10:04:23Z,bot,window,deviation,"sender-stall: S7 stalled: 0 ok submits in 45 s (44 sec rows), 1154 accepts in 60 s, erroring nodes [], main neutrino-10.kaspa.stream -> SIGKILL pid -, relaunch now with fresh picks"
+2026-10-11T10:04:23Z,bot,window,deviation,"sender-stall: S8 stalled: 0 ok submits in 45 s (44 sec rows), 1153 accepts in 60 s, erroring nodes [], main neutrino-10.kaspa.stream -> SIGKILL pid -, relaunch now with fresh picks"
+2026-10-11T10:04:23Z,bot,window,deviation,"sender-stall: S9 stalled: 0 ok submits in 45 s (44 sec rows), 1154 accepts in 60 s, erroring nodes [], main boson-10.kaspa.red -> SIGKILL pid -, relaunch now with fresh picks"
+2026-10-11T10:04:23Z,bot,window,deviation,"sender-stall: S10 stalled: 0 ok submits in 45 s (44 sec rows), 1100 accepts in 60 s, erroring nodes [], main muon-10.kaspa.blue -> SIGKILL pid -, relaunch now with fresh picks"
+2026-10-11T10:04:23Z,bot,window,deviation,"sender-stall: S11 stalled: 0 ok submits in 45 s (44 sec rows), 1147 accepts in 60 s, erroring nodes [], main electron-10.kaspa.blue -> SIGKILL pid -, relaunch now with fresh picks"
+2026-10-11T10:04:23Z,bot,window,deviation,"sender-stall: S12 stalled: 0 ok submits in 45 s (44 sec rows), 1141 accepts in 60 s, erroring nodes [], main electron-10.kaspa.blue -> SIGKILL pid -, relaunch now with fresh picks"
+2026-10-11T10:04:23Z,bot,window,deviation,"sender-stall: S13 stalled: 0 ok submits in 45 s (44 sec rows), 1154 accepts in 60 s, erroring nodes [], main boson-10.kaspa.red -> SIGKILL pid -, relaunch now with fresh picks"
+2026-10-11T10:04:23Z,bot,window,deviation,"sender-stall: S14 stalled: 0 ok submits in 45 s (44 sec rows), 1099 accepts in 60 s, erroring nodes [], main muon-10.kaspa.blue -> SIGKILL pid -, relaunch now with fresh picks"
+2026-10-11T10:04:23Z,bot,window,deviation,"sender-stall: S15 stalled: 0 ok submits in 45 s (44 sec rows), 1159 accepts in 60 s, erroring nodes [], main electron-10.kaspa.blue -> SIGKILL pid -, relaunch now with fresh picks"
+2026-10-11T10:04:23Z,bot,window,deviation,"sender-stall: S16 stalled: 0 ok submits in 45 s (44 sec rows), 1153 accepts in 60 s, erroring nodes [], main electron-10.kaspa.blue -> SIGKILL pid -, relaunch now with fresh picks"
+2026-10-11T10:04:23Z,bot,window,deviation,"sender-stall: S17 stalled: 0 ok submits in 45 s (44 sec rows), 1146 accepts in 60 s, erroring nodes [], main boson-10.kaspa.red -> SIGKILL pid -, relaunch now with fresh picks"
+2026-10-11T10:04:23Z,bot,window,deviation,"sender-stall: S18 stalled: 0 ok submits in 45 s (44 sec rows), 1104 accepts in 60 s, erroring nodes [], main muon-10.kaspa.blue -> SIGKILL pid -, relaunch now with fresh picks"
+2026-10-11T10:04:24Z,bot,window,deviation,sender-relaunch: S1 relaunch 5/200
+2026-10-11T10:04:24Z,bot,window,sender-start,S1 mode=pub
+2026-10-11T10:04:27Z,bot,window,deviation,sender-relaunch: S2 relaunch 5/200
+2026-10-11T10:04:27Z,bot,window,sender-start,S2 mode=pub
+2026-10-11T10:04:30Z,bot,window,deviation,sender-relaunch: S3 relaunch 5/200
+2026-10-11T10:04:30Z,bot,window,sender-start,S3 mode=pub
+2026-10-11T10:04:33Z,bot,window,deviation,sender-relaunch: S4 relaunch 5/200
+2026-10-11T10:04:33Z,bot,window,sender-start,S4 mode=pub
+2026-10-11T10:04:36Z,bot,window,deviation,sender-relaunch: S5 relaunch 5/200
+2026-10-11T10:04:36Z,bot,window,sender-start,S5 mode=pub
+2026-10-11T10:04:39Z,bot,window,deviation,sender-relaunch: S6 relaunch 5/200
+2026-10-11T10:04:39Z,bot,window,sender-start,S6 mode=pub
+2026-10-11T10:04:42Z,bot,window,deviation,sender-relaunch: S7 relaunch 5/200
+2026-10-11T10:04:42Z,bot,window,sender-start,S7 mode=pub
+2026-10-11T10:04:45Z,bot,window,deviation,sender-relaunch: S8 relaunch 5/200
+2026-10-11T10:04:45Z,bot,window,sender-start,S8 mode=pub
+2026-10-11T10:04:48Z,bot,window,deviation,sender-relaunch: S9 relaunch 6/200
+2026-10-11T10:04:48Z,bot,window,sender-start,S9 mode=pub
+2026-10-11T10:04:51Z,bot,window,deviation,sender-relaunch: S10 relaunch 5/200
+2026-10-11T10:04:51Z,bot,window,sender-start,S10 mode=pub
+2026-10-11T10:04:54Z,bot,window,deviation,sender-relaunch: S11 relaunch 5/200
+2026-10-11T10:04:54Z,bot,window,sender-start,S11 mode=pub
+2026-10-11T10:04:57Z,bot,window,deviation,sender-relaunch: S12 relaunch 5/200
+2026-10-11T10:04:57Z,bot,window,sender-start,S12 mode=pub
+2026-10-11T10:05:00Z,bot,window,deviation,sender-relaunch: S13 relaunch 5/200
+2026-10-11T10:05:00Z,bot,window,sender-start,S13 mode=pub
+2026-10-11T10:05:03Z,bot,window,deviation,sender-relaunch: S14 relaunch 5/200
+2026-10-11T10:05:03Z,bot,window,sender-start,S14 mode=pub
+2026-10-11T10:05:07Z,bot,window,deviation,sender-relaunch: S15 relaunch 5/200
+2026-10-11T10:05:07Z,bot,window,sender-start,S15 mode=pub
+2026-10-11T10:05:10Z,bot,window,deviation,sender-relaunch: S16 relaunch 3/200
+2026-10-11T10:05:10Z,bot,window,sender-start,S16 mode=pub
+2026-10-11T10:05:13Z,bot,window,deviation,sender-relaunch: S17 relaunch 3/200
+2026-10-11T10:05:13Z,bot,window,sender-start,S17 mode=pub
+2026-10-11T10:05:16Z,bot,window,deviation,sender-relaunch: S18 relaunch 3/200
+2026-10-11T10:05:16Z,bot,window,sender-start,S18 mode=pub
+2026-10-11T10:14:52Z,bot,window,deviation,"rate-eval: RAMP EVAL 11:59-12:14 CEST at 1300 tx/s: sub/acc 168.9/168.1 tx/s, acc/sub 99.48%, rejects 0% (+0 transport), RAM min 2.21 GB, CPU avg 42.2% -> NOT clean (3 node-dead events; submitted 168.9 < 90% of 1300); rate stays 1300 (not clean but no overload (node-dead/stall noise): hold)"
+2026-10-11T10:29:54Z,bot,window,deviation,"rate-eval: RAMP EVAL 12:14-12:29 CEST at 1300 tx/s: sub/acc 209/209 tx/s, acc/sub 100%, rejects 0% (+0 transport), RAM min 1.78 GB, CPU avg 42.6% -> NOT clean (submitted 209 < 90% of 1300); rate stays 1300 (not clean but no overload (node-dead/stall noise): hold)"
+2026-10-11T10:30:09Z,bot,window,deviation,sender-relaunch: S17 relaunch 4/200
+2026-10-11T10:30:09Z,bot,window,sender-start,S17 mode=pub
+2026-10-11T10:31:09Z,bot,window,deviation,"fix: re-eval of the 12:14-12:29 CEST window: the 12:29 eval read only part of the sender files (non-integer read offset in tailLines, fixed 12:33 CEST; the 11:15/11:44/12:14/12:29 evals undercounted submitted)"
+2026-10-11T10:31:10Z,bot,window,deviation,"rate-change: RAMP EVAL 12:14-12:29 CEST at 1300 tx/s: sub/acc 1291.9/1291.5 tx/s, acc/sub 99.97%, rejects 0% (+0 transport), RAM min 1.78 GB, CPU avg 42.6% -> clean; rate 1300 -> 1430"
+2026-10-11T10:31:10Z,bot,window,deviation,"fee-change: fee-change 400/600 -> 560/840 (stp 11:49 CEST: +40% at next climb; above GO cap 600, deviation); cap 840, node-quote-skip stays 400"
+2026-10-11T10:31:10Z,bot,window,deviation,"fee-change 400/600 -> 560/840 (stp 11:49 CEST: +40% at next climb; above GO cap 600, deviation); cap 840, node-quote-skip stays 400"
+2026-10-11T10:38:32Z,bot,window,deviation,sender-relaunch: S4 relaunch 6/200
+2026-10-11T10:38:32Z,bot,window,sender-start,S4 mode=pub
+2026-10-11T10:38:35Z,bot,window,deviation,sender-relaunch: S12 relaunch 6/200
+2026-10-11T10:38:35Z,bot,window,sender-start,S12 mode=pub
+2026-10-11T10:44:18Z,bot,window,deviation,sender-relaunch: S17 relaunch 5/200
+2026-10-11T10:44:18Z,bot,window,sender-start,S17 mode=pub
+2026-10-11T10:44:56Z,bot,window,deviation,"rate-eval: RAMP EVAL 12:29-12:44 CEST at 1430 tx/s: sub/acc 1389.1/1388.4 tx/s, acc/sub 99.95%, rejects 0% (+436 transport), RAM min 1.1 GB, CPU avg 48% -> NOT clean (box RAM min 1.1 GB < 1.5); rate stays 1430 (not clean but no overload (node-dead/stall noise): hold)"
+2026-10-11T10:47:47Z,bot,window,deviation,"sender launch held, RAM 1474 MB"
+2026-10-11T10:47:48Z,bot,window,deviation,sender-relaunch: S6 relaunch 6/200
+2026-10-11T10:47:48Z,bot,window,sender-start,S6 mode=pub
+2026-10-11T10:47:51Z,bot,window,deviation,sender-relaunch: S9 relaunch 7/200
+2026-10-11T10:47:51Z,bot,window,sender-start,S9 mode=pub
+2026-10-11T10:48:09Z,bot,window,deviation,pulse-monitor: pulse-method monitoring started 12:48 CEST (10:48Z); earlier minutes of the run come from the post-END chain count
+2026-10-11T10:49:09Z,bot,window,deviation,sender-relaunch: S3 relaunch 6/200
+2026-10-11T10:49:09Z,bot,window,sender-start,S3 mode=pub
+2026-10-11T10:49:12Z,bot,window,deviation,sender-relaunch: S8 relaunch 6/200
+2026-10-11T10:49:12Z,bot,window,sender-start,S8 mode=pub
+2026-10-11T10:49:15Z,bot,window,deviation,sender-relaunch: S17 relaunch 6/200
+2026-10-11T10:49:15Z,bot,window,sender-start,S17 mode=pub
+2026-10-11T10:50:14Z,bot,window,deviation,sender-relaunch: S5 relaunch 6/200
+2026-10-11T10:50:14Z,bot,window,sender-start,S5 mode=pub
+2026-10-11T10:50:17Z,bot,window,deviation,sender-relaunch: S2 relaunch 6/200
+2026-10-11T10:50:17Z,bot,window,sender-start,S2 mode=pub
+2026-10-11T10:50:27Z,bot,window,deviation,sender-relaunch: S6 relaunch 7/200
+2026-10-11T10:50:27Z,bot,window,sender-start,S6 mode=pub
+2026-10-11T10:50:30Z,bot,window,deviation,sender-relaunch: S10 relaunch 6/200
+2026-10-11T10:50:30Z,bot,window,sender-start,S10 mode=pub
+2026-10-11T10:50:33Z,bot,window,deviation,sender-relaunch: S13 relaunch 6/200
+2026-10-11T10:50:33Z,bot,window,sender-start,S13 mode=pub
+2026-10-11T10:50:36Z,bot,window,deviation,sender-relaunch: S14 relaunch 6/200
+2026-10-11T10:50:36Z,bot,window,sender-start,S14 mode=pub
+2026-10-11T10:50:39Z,bot,window,deviation,sender-relaunch: S17 relaunch 7/200
+2026-10-11T10:50:39Z,bot,window,sender-start,S17 mode=pub
+2026-10-11T10:51:00Z,bot,window,deviation,after-run plan amended by stp 10:51Z: go/AFTER-RUN.md (GO-BOT locked)
+2026-10-11T10:51:00Z,bot,window,deviation,sender-relaunch: S12 relaunch 7/200
+2026-10-11T10:51:00Z,bot,window,sender-start,S12 mode=pub
+2026-10-11T10:53:05Z,bot,window,deviation,sender-relaunch: S8 relaunch 7/200
+2026-10-11T10:53:05Z,bot,window,sender-start,S8 mode=pub
+2026-10-11T10:53:08Z,bot,window,deviation,"sender launch held, RAM 1424 MB"
+2026-10-11T10:53:10Z,bot,window,deviation,sender-relaunch: S12 relaunch 8/200
+2026-10-11T10:53:10Z,bot,window,sender-start,S12 mode=pub
+2026-10-11T10:53:15Z,bot,window,deviation,sender-relaunch: S14 relaunch 7/200
+2026-10-11T10:53:15Z,bot,window,sender-start,S14 mode=pub
+2026-10-11T10:53:21Z,bot,window,deviation,sender-relaunch: S15 relaunch 6/200
+2026-10-11T10:53:21Z,bot,window,sender-start,S15 mode=pub
+2026-10-11T10:54:50Z,bot,window,deviation,sender-relaunch: S8 relaunch 8/200
+2026-10-11T10:54:50Z,bot,window,sender-start,S8 mode=pub
+2026-10-11T10:55:01Z,bot,window,deviation,sender-relaunch: S15 relaunch 7/200
+2026-10-11T10:55:01Z,bot,window,sender-start,S15 mode=pub
+2026-10-11T10:55:04Z,bot,window,deviation,sender-relaunch: S11 relaunch 6/200
+2026-10-11T10:55:04Z,bot,window,sender-start,S11 mode=pub
+2026-10-11T10:55:11Z,bot,window,deviation,sender-relaunch: S16 relaunch 4/200
+2026-10-11T10:55:11Z,bot,window,sender-start,S16 mode=pub
+2026-10-11T10:55:19Z,bot,window,deviation,sender-relaunch: S5 relaunch 7/200
+2026-10-11T10:55:19Z,bot,window,sender-start,S5 mode=pub
+2026-10-11T10:55:22Z,bot,window,deviation,sender-relaunch: S10 relaunch 7/200
+2026-10-11T10:55:22Z,bot,window,sender-start,S10 mode=pub
+2026-10-11T10:55:25Z,bot,window,deviation,sender-relaunch: S1 relaunch 6/200
+2026-10-11T10:55:25Z,bot,window,sender-start,S1 mode=pub
+2026-10-11T10:55:29Z,bot,window,deviation,sender-relaunch: S3 relaunch 7/200
+2026-10-11T10:55:29Z,bot,window,sender-start,S3 mode=pub
+2026-10-11T10:55:32Z,bot,window,deviation,sender-relaunch: S12 relaunch 9/200
+2026-10-11T10:55:32Z,bot,window,sender-start,S12 mode=pub
+2026-10-11T10:55:35Z,bot,window,deviation,sender-relaunch: S14 relaunch 8/200
+2026-10-11T10:55:35Z,bot,window,sender-start,S14 mode=pub
+2026-10-11T10:56:05Z,bot,window,deviation,sender-relaunch: S11 relaunch 7/200
+2026-10-11T10:56:05Z,bot,window,sender-start,S11 mode=pub
+2026-10-11T10:57:11Z,bot,window,deviation,sender-relaunch: S7 relaunch 6/200
+2026-10-11T10:57:11Z,bot,window,sender-start,S7 mode=pub
+2026-10-11T10:57:23Z,bot,window,deviation,sender-relaunch: S5 relaunch 8/200
+2026-10-11T10:57:23Z,bot,window,sender-start,S5 mode=pub
+2026-10-11T10:57:26Z,bot,window,deviation,sender-relaunch: S15 relaunch 8/200
+2026-10-11T10:57:26Z,bot,window,sender-start,S15 mode=pub
+2026-10-11T10:57:29Z,bot,window,deviation,sender-relaunch: S16 relaunch 5/200
+2026-10-11T10:57:29Z,bot,window,sender-start,S16 mode=pub
+2026-10-11T10:57:32Z,bot,window,deviation,sender-relaunch: S18 relaunch 4/200
+2026-10-11T10:57:32Z,bot,window,sender-start,S18 mode=pub
+2026-10-11T10:58:12Z,bot,window,deviation,sender-relaunch: S7 relaunch 7/200
+2026-10-11T10:58:12Z,bot,window,sender-start,S7 mode=pub
+2026-10-11T10:59:53Z,bot,window,deviation,"rate-eval: RAMP EVAL 12:44-12:59 CEST at 1430 tx/s: sub/acc 1346.8/1348.8 tx/s, acc/sub 100%, rejects 0% (+209 transport), RAM min 1.01 GB, CPU avg 54.8% -> NOT clean (box RAM min 1.01 GB < 1.5); rate stays 1430 (not clean but no overload (node-dead/stall noise): hold)"
+2026-10-11T11:07:33Z,bot,window,deviation,"day-watch: S17 degraded again (avg ~41 sub/s vs 79.4 target, zeros in last ~60s, RSS spikes to ~771 MB, lat_max ~3.2 s, lanes_nocoin 8) -> SIGKILL pid - + storm relaunch with fresh pub picks; MemAvailable 1540->2268 MB; rate hold 1430: None"
+2026-10-11T11:07:34Z,bot,window,deviation,sender-relaunch: S17 relaunch 8/200
+2026-10-11T11:07:34Z,bot,window,sender-start,S17 mode=pub
+2026-10-11T11:23:39Z,bot,window,deviation,"pubMode: n2 not synced, utxoindex off, sink lag 886.6 s > 60; senders continue on public nodes"
+2026-10-11T11:23:40Z,bot,window,deviation,"rate-eval: RAMP EVAL 13:08-13:23 CEST at 1430 tx/s: sub/acc 21.3/21.1 tx/s, acc/sub 99.43%, rejects 0% (+0 transport), RAM min 1.35 GB, CPU avg 45.9% -> NOT clean (submitted 21.3 < 90% of 1430; box RAM min 1.35 GB < 1.5); rate stays 1430 (not clean but no overload (node-dead/stall noise): hold)"
+2026-10-11T11:23:40Z,bot,window,deviation,"sender-stall: S1 stalled: 0 ok submits in 45 s (1 sec rows), 0 accepts in 60 s, erroring nodes [], main boson-10.kaspa.red -> SIGKILL pid -, relaunch now with fresh picks"
+2026-10-11T11:23:40Z,bot,window,deviation,"sender-stall: S2 stalled: 0 ok submits in 45 s (1 sec rows), 0 accepts in 60 s, erroring nodes [], main vector-10.kaspa.green -> SIGKILL pid -, relaunch now with fresh picks"
+2026-10-11T11:23:40Z,bot,window,deviation,"sender-stall: S3 stalled: 0 ok submits in 45 s (1 sec rows), 0 accepts in 60 s, erroring nodes [], main muon-10.kaspa.blue -> SIGKILL pid -, relaunch now with fresh picks"
+2026-10-11T11:23:40Z,bot,window,deviation,"sender-stall: S4 stalled: 0 ok submits in 45 s (1 sec rows), 0 accepts in 60 s, erroring nodes [], main boson-10.kaspa.red -> SIGKILL pid -, relaunch now with fresh picks"
+2026-10-11T11:23:40Z,bot,window,node-dead,boson-10.kaspa.red: 3 strikes in 10 min (S5 main: no accepts in 60 s); new picks avoid it
+2026-10-11T11:23:40Z,bot,window,deviation,"sender-stall: S5 stalled: 0 ok submits in 45 s (1 sec rows), 0 accepts in 60 s, erroring nodes [], main boson-10.kaspa.red -> SIGKILL pid -, relaunch now with fresh picks"
+2026-10-11T11:23:40Z,bot,window,deviation,"sender-stall: S6 stalled: 0 ok submits in 45 s (1 sec rows), 0 accepts in 60 s, erroring nodes [], main boson-10.kaspa.red -> SIGKILL pid -, relaunch now with fresh picks"
+2026-10-11T11:23:40Z,bot,window,deviation,"sender-stall: S7 stalled: 0 ok submits in 45 s (1 sec rows), 0 accepts in 60 s, erroring nodes [], main boson-10.kaspa.red -> SIGKILL pid -, relaunch now with fresh picks"
+2026-10-11T11:23:40Z,bot,window,deviation,"sender-stall: S8 stalled: 0 ok submits in 45 s (2 sec rows), 0 accepts in 60 s, erroring nodes [], main vector-10.kaspa.green -> SIGKILL pid -, relaunch now with fresh picks"
+2026-10-11T11:23:40Z,bot,window,deviation,"sender-stall: S9 stalled: 0 ok submits in 45 s (2 sec rows), 0 accepts in 60 s, erroring nodes [], main neutrino-10.kaspa.stream -> SIGKILL pid -, relaunch now with fresh picks"
+2026-10-11T11:23:40Z,bot,window,deviation,"sender-stall: S10 stalled: 0 ok submits in 45 s (1 sec rows), 0 accepts in 60 s, erroring nodes [], main muon-10.kaspa.blue -> SIGKILL pid -, relaunch now with fresh picks"
+2026-10-11T11:23:40Z,bot,window,deviation,"sender-stall: S11 stalled: 0 ok submits in 45 s (1 sec rows), 0 accepts in 60 s, erroring nodes [], main neutrino-10.kaspa.stream -> SIGKILL pid -, relaunch now with fresh picks"
+2026-10-11T11:23:40Z,bot,window,deviation,"sender-stall: S12 stalled: 0 ok submits in 45 s (1 sec rows), 0 accepts in 60 s, erroring nodes [], main electron-10.kaspa.blue -> SIGKILL pid -, relaunch now with fresh picks"
+2026-10-11T11:23:40Z,bot,window,deviation,"sender-stall: S13 stalled: 0 ok submits in 45 s (1 sec rows), 0 accepts in 60 s, erroring nodes [], main electron-10.kaspa.blue -> SIGKILL pid -, relaunch now with fresh picks"
+2026-10-11T11:23:40Z,bot,window,node-dead,muon-10.kaspa.blue: 3 strikes in 10 min (S14 main: no accepts in 60 s); new picks avoid it
+2026-10-11T11:23:40Z,bot,window,deviation,"sender-stall: S14 stalled: 0 ok submits in 45 s (1 sec rows), 0 accepts in 60 s, erroring nodes [], main muon-10.kaspa.blue -> SIGKILL pid -, relaunch now with fresh picks"
+2026-10-11T11:23:40Z,bot,window,node-dead,neutrino-10.kaspa.stream: 3 strikes in 10 min (S15 main: no accepts in 60 s); new picks avoid it
+2026-10-11T11:23:40Z,bot,window,deviation,"sender-stall: S15 stalled: 0 ok submits in 45 s (1 sec rows), 0 accepts in 60 s, erroring nodes [], main neutrino-10.kaspa.stream -> SIGKILL pid -, relaunch now with fresh picks"
+2026-10-11T11:23:40Z,bot,window,node-dead,vector-10.kaspa.green: 3 strikes in 10 min (S16 main: no accepts in 60 s); new picks avoid it
+2026-10-11T11:23:40Z,bot,window,deviation,"sender-stall: S16 stalled: 0 ok submits in 45 s (1 sec rows), 0 accepts in 60 s, erroring nodes [], main vector-10.kaspa.green -> SIGKILL pid -, relaunch now with fresh picks"
+2026-10-11T11:23:40Z,bot,window,deviation,"sender-stall: S17 stalled: 0 ok submits in 45 s (0 sec rows), 0 accepts in 60 s, erroring nodes [], main - -> SIGKILL pid -, relaunch now with fresh picks"
+2026-10-11T11:23:40Z,bot,window,node-dead,electron-10.kaspa.blue: 3 strikes in 10 min (S18 main: no accepts in 60 s); new picks avoid it
+2026-10-11T11:23:40Z,bot,window,deviation,"sender-stall: S18 stalled: 0 ok submits in 45 s (1 sec rows), 0 accepts in 60 s, erroring nodes [], main electron-10.kaspa.blue -> SIGKILL pid -, relaunch now with fresh picks"
+2026-10-11T11:23:41Z,bot,window,deviation,sender-relaunch: S1 relaunch 7/200
+2026-10-11T11:23:41Z,bot,window,sender-start,S1 mode=pub
+2026-10-11T11:23:44Z,bot,window,deviation,sender-relaunch: S2 relaunch 7/200
+2026-10-11T11:23:44Z,bot,window,sender-start,S2 mode=pub
+2026-10-11T11:23:47Z,bot,window,deviation,sender-relaunch: S3 relaunch 8/200
+2026-10-11T11:23:47Z,bot,window,sender-start,S3 mode=pub
+2026-10-11T11:23:51Z,bot,window,deviation,sender-relaunch: S4 relaunch 7/200
+2026-10-11T11:23:51Z,bot,window,sender-start,S4 mode=pub
+2026-10-11T11:23:54Z,bot,window,deviation,sender-relaunch: S5 relaunch 9/200
+2026-10-11T11:23:54Z,bot,window,sender-start,S5 mode=pub
+2026-10-11T11:23:57Z,bot,window,deviation,sender-relaunch: S6 relaunch 8/200
+2026-10-11T11:23:57Z,bot,window,sender-start,S6 mode=pub
+2026-10-11T11:24:00Z,bot,window,deviation,sender-relaunch: S7 relaunch 8/200
+2026-10-11T11:24:00Z,bot,window,sender-start,S7 mode=pub
+2026-10-11T11:24:03Z,bot,window,deviation,sender-relaunch: S8 relaunch 9/200
+2026-10-11T11:24:03Z,bot,window,sender-start,S8 mode=pub
+2026-10-11T11:24:06Z,bot,window,deviation,sender-relaunch: S9 relaunch 8/200
+2026-10-11T11:24:06Z,bot,window,sender-start,S9 mode=pub
+2026-10-11T11:24:09Z,bot,window,deviation,sender-relaunch: S10 relaunch 8/200
+2026-10-11T11:24:09Z,bot,window,sender-start,S10 mode=pub
+2026-10-11T11:24:12Z,bot,window,deviation,sender-relaunch: S11 relaunch 8/200
+2026-10-11T11:24:12Z,bot,window,sender-start,S11 mode=pub
+2026-10-11T11:24:15Z,bot,window,deviation,sender-relaunch: S12 relaunch 10/200
+2026-10-11T11:24:15Z,bot,window,sender-start,S12 mode=pub
+2026-10-11T11:24:18Z,bot,window,deviation,sender-relaunch: S13 relaunch 7/200
+2026-10-11T11:24:18Z,bot,window,sender-start,S13 mode=pub
+2026-10-11T11:24:21Z,bot,window,deviation,sender-relaunch: S14 relaunch 9/200
+2026-10-11T11:24:21Z,bot,window,sender-start,S14 mode=pub
+2026-10-11T11:24:24Z,bot,window,deviation,sender-relaunch: S15 relaunch 9/200
+2026-10-11T11:24:24Z,bot,window,sender-start,S15 mode=pub
+2026-10-11T11:24:27Z,bot,window,deviation,sender-relaunch: S16 relaunch 6/200
+2026-10-11T11:24:27Z,bot,window,sender-start,S16 mode=pub
+2026-10-11T11:24:30Z,bot,window,deviation,sender-relaunch: S17 relaunch 9/200
+2026-10-11T11:24:30Z,bot,window,sender-start,S17 mode=pub
+2026-10-11T11:24:33Z,bot,window,deviation,sender-relaunch: S18 relaunch 5/200
+2026-10-11T11:24:33Z,bot,window,sender-start,S18 mode=pub
+2026-10-11T11:24:39Z,bot,window,miner-off,n2 not synced for 60 s
+2026-10-11T11:25:29Z,bot,window,node-restart,"kaspad pid changed (n2 restarted on the same flags by its guard), uptime 1 s"
+2026-10-11T11:25:51Z,bot,window,node-restart,"GO freeze: DAA stuck 593826615 since ~13:08 CEST, sink lag ~986s; restarted n2 same flags via start-n2.sh pid - (old 2857338); miner was already OFF"
+2026-10-11T11:26:05Z,bot,window,miner-on,n2 synced again / process relaunch
+2026-10-11T11:29:53Z,bot,window,deviation,"rate-eval: RAMP EVAL 13:14-13:29 CEST at 1430 tx/s: sub/acc 543.8/540.8 tx/s, acc/sub 99.43%, rejects 0% (+0 transport), RAM min 1.38 GB, CPU avg 56.4% -> NOT clean (5 node-dead events; submitted 543.8 < 90% of 1430; box RAM min 1.38 GB < 1.5); rate stays 1430 (not clean but no overload (node-dead/stall noise): hold)"
+2026-10-11T11:33:34Z,bot,window,deviation,"sender-stall: S14 stalled: 0 ok submits in 45 s (44 sec rows), 1 accepts in 60 s, erroring nodes [], main neutrino-10.kaspa.stream -> SIGKILL pid -, relaunch now with fresh picks"
+2026-10-11T11:33:35Z,bot,window,deviation,sender-relaunch: S14 relaunch 10/200
+2026-10-11T11:33:35Z,bot,window,sender-start,S14 mode=pub
+2026-10-11T11:44:55Z,bot,window,deviation,"rate-change: RAMP EVAL 13:29-13:44 CEST at 1430 tx/s: sub/acc 1361.7/1361.2 tx/s, acc/sub 99.96%, rejects 0% (+0 transport), RAM min 1.83 GB, CPU avg 56.6% -> clean; rate 1430 -> 1573"
+2026-10-11T11:59:52Z,bot,window,deviation,"rate-eval: RAMP EVAL 13:44-13:59 CEST at 1573 tx/s: sub/acc 1459.7/1459.2 tx/s, acc/sub 99.97%, rejects 0% (+0 transport), RAM min 1.39 GB, CPU avg 61.6% -> NOT clean (box RAM min 1.39 GB < 1.5); rate stays 1573 (not clean but no overload (node-dead/stall noise): hold)"
+2026-10-11T12:02:27Z,bot,window,deviation,sender-relaunch: S8 relaunch 10/200
+2026-10-11T12:02:27Z,bot,window,sender-start,S8 mode=pub
+2026-10-11T12:04:05Z,bot,window,deviation,sender-relaunch: S9 relaunch 9/200
+2026-10-11T12:04:05Z,bot,window,sender-start,S9 mode=pub
+2026-10-11T12:06:26Z,bot,window,deviation,sender-relaunch: S1 relaunch 8/200
+2026-10-11T12:06:26Z,bot,window,sender-start,S1 mode=pub
+2026-10-11T12:06:32Z,bot,window,deviation,sender-relaunch: S2 relaunch 8/200
+2026-10-11T12:06:32Z,bot,window,sender-start,S2 mode=pub
+2026-10-11T12:06:38Z,bot,window,deviation,sender-relaunch: S3 relaunch 9/200
+2026-10-11T12:06:38Z,bot,window,sender-start,S3 mode=pub
+2026-10-11T12:06:44Z,bot,window,deviation,sender-relaunch: S4 relaunch 8/200
+2026-10-11T12:06:44Z,bot,window,sender-start,S4 mode=pub
+2026-10-11T12:06:50Z,bot,window,deviation,sender-relaunch: S5 relaunch 10/200
+2026-10-11T12:06:50Z,bot,window,sender-start,S5 mode=pub
+2026-10-11T12:06:56Z,bot,window,deviation,sender-relaunch: S6 relaunch 9/200
+2026-10-11T12:06:56Z,bot,window,sender-start,S6 mode=pub
+2026-10-11T12:07:02Z,bot,window,deviation,sender-relaunch: S7 relaunch 9/200
+2026-10-11T12:07:02Z,bot,window,sender-start,S7 mode=pub
+2026-10-11T12:07:07Z,bot,window,deviation,sender-relaunch: S8 relaunch 11/200
+2026-10-11T12:07:07Z,bot,window,sender-start,S8 mode=pub
+2026-10-11T12:07:10Z,bot,window,deviation,sender-relaunch: S17 relaunch 10/200
+2026-10-11T12:07:10Z,bot,window,sender-start,S17 mode=pub
+2026-10-11T12:07:13Z,bot,window,deviation,sender-relaunch: S9 relaunch 10/200
+2026-10-11T12:07:13Z,bot,window,sender-start,S9 mode=pub
+2026-10-11T12:07:19Z,bot,window,deviation,sender-relaunch: S10 relaunch 9/200
+2026-10-11T12:07:19Z,bot,window,sender-start,S10 mode=pub
+2026-10-11T12:07:26Z,bot,window,deviation,sender-relaunch: S11 relaunch 9/200
+2026-10-11T12:07:26Z,bot,window,sender-start,S11 mode=pub
+2026-10-11T12:07:32Z,bot,window,deviation,sender-relaunch: S12 relaunch 11/200
+2026-10-11T12:07:32Z,bot,window,sender-start,S12 mode=pub
+2026-10-11T12:07:32Z,bot,"day-watch soft-degrade kill S17 pid - (avg ~37 sub/s vs 87.4 target, rss ~776 MB, lanes_nocoin 9, MemAvailable dipped ~1.24 GB); storm relaunched 10/200 fresh picks electron/vector/muon/boson pid -; MemAvailable ~2.4 GB post; rate hold 1573; no stop",deviation,day-watch: None
+2026-10-11T12:07:38Z,bot,window,deviation,sender-relaunch: S13 relaunch 8/200
+2026-10-11T12:07:38Z,bot,window,sender-start,S13 mode=pub
+2026-10-11T12:07:44Z,bot,window,deviation,sender-relaunch: S14 relaunch 11/200
+2026-10-11T12:07:44Z,bot,window,sender-start,S14 mode=pub
+2026-10-11T12:07:50Z,bot,window,deviation,sender-relaunch: S15 relaunch 10/200
+2026-10-11T12:07:50Z,bot,window,sender-start,S15 mode=pub
+2026-10-11T12:07:56Z,bot,window,deviation,sender-relaunch: S16 relaunch 7/200
+2026-10-11T12:07:56Z,bot,window,sender-start,S16 mode=pub
+2026-10-11T12:08:08Z,bot,window,deviation,sender-relaunch: S18 relaunch 6/200
+2026-10-11T12:08:08Z,bot,window,sender-start,S18 mode=pub
+2026-10-11T12:08:11Z,bot,window,deviation,sender-relaunch: S17 relaunch 11/200
+2026-10-11T12:08:11Z,bot,window,sender-start,S17 mode=pub
+2026-10-11T12:08:40Z,bot,window,deviation,"fee-change: fee x2 to 1120/1680 by stp 12:05Z (deviation: above GO cap 600); cap 1680, node-quote-skip 400 -> 1680 so our own fee does not make senders sit out; fired 2026-10-11T12:08:40.013Z; reason (stp): covenant activity growing on Kaspa Stream, more competition for block space (stp's observation from the dashboard, not our measurement)"
+2026-10-11T12:08:40Z,bot,window,deviation,"fee x2 to 1120/1680 by stp 12:05Z (deviation: above GO cap 600); cap 1680, node-quote-skip 400 -> 1680 so our own fee does not make senders sit out; fired 2026-10-11T12:08:40.013Z; reason (stp): covenant activity growing on Kaspa Stream, more competition for block space (stp's observation from the dashboard, not our measurement)"
+2026-10-11T12:08:40Z,bot,window,deviation,rate held high to END by stp 12:06Z; Build same (deviation: no -5% on unclean/overload windows; only coins running out may lower; floor = current level 1573)
+2026-10-11T12:14:23Z,bot,window,deviation,"END extended +1h to 13:30Z by stp 12:13Z, same fees and pace (1120/1680, rate held high, no cuts); miner off, loggers and chain count shift +1 h (count 13:30-15:30Z covers 06:30-13:30Z)"
+2026-10-11T12:14:53Z,bot,window,deviation,"rate-eval: RAMP EVAL 13:59-14:14 CEST at 1573 tx/s: sub/acc 1425.1/1422 tx/s, acc/sub 99.79%, rejects 0% (+3 transport), RAM min 1.24 GB, CPU avg 62.1% -> NOT clean (box RAM min 1.24 GB < 1.5); rate stays 1573 (not clean but no overload (node-dead/stall noise): hold)"
+2026-10-11T12:29:56Z,bot,window,deviation,"rate-change: RAMP EVAL 14:14-14:29 CEST at 1573 tx/s: sub/acc 1438.8/1438.4 tx/s, acc/sub 99.97%, rejects 0% (+2 transport), RAM min 1.51 GB, CPU avg 59.1% -> clean; rate 1573 -> 1730"
+2026-10-11T12:33:01Z,bot,END,deviation,"HALT by stp 12:32Z, run ended early vs extended END 13:30Z. Effective END = halt 12:33:01Z (14:33:01 CEST): HALT flag, watchdog, scheduler, senders to 0, +10 s SIGKILL senders and miner (stop.sh 12:33:01-12:33:14Z); n2 and read-only loggers stay up"
+2026-10-11T12:33:14Z,bot,END,sender-stop,"HALT: all senders and the miner hard-killed; nothing left running (senders 0, scheduler 0, miner 0)"
+2026-10-11T12:36:20Z,bot,END,deviation,pulse-monitor: pulse-method monitoring stopped after the halt minute 12:33Z
