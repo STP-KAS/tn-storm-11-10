@@ -11,7 +11,7 @@
 | | Brussels (CEST) | UTC |
 |---|---|---|
 | **START** | **Sun 11 Oct 2026, 09:30** | 07:30 |
-| **END** | **14:30** | 12:30 |
+| **END** | **14:30** (extended to 15:30; **halted by stp at 14:33:01**) | 12:30 (13:30; halt 12:33:01) |
 | **TARGET** | As many tx/s as possible, sustained for 5 hours | |
 
 Headline: **network unique accepted tx/s**, counted once from chain data: the peak complete minute plus the 5-hour mean and median. Kaspa Testnet-10 only; tKAS has no value.
@@ -45,17 +45,19 @@ Once stp sends a GO it is locked; sending means **be ready at 09:30 CEST**. Bot:
 
 ## Results
 
-Filled after END and the chain count.
+**Halted by stp at 14:33:01 CEST (12:33:01Z)**, before the extended END of 15:30 CEST. Stopped early by stp: taking a break, other things on the agenda. (bot and Build) Combined: [`logs/COMBINED.md`](logs/COMBINED.md) · write-up: [`logs/WRITE-UP.md`](logs/WRITE-UP.md) · bot: [`logs/bot/SUMMARY.md`](logs/bot/SUMMARY.md), workbook [`logs/bot/run-2026-10-11.xlsx`](logs/bot/run-2026-10-11.xlsx) · changes during the run: [`logs/bot/CHANGES-DURING-RUN.md`](logs/bot/CHANGES-DURING-RUN.md).
 
-**Status during the run:** 11:28 CEST: stp asked both sides to increase effort. Bot raised 1,011 -> 1,300 tx/s (new floor 1,100, senders 15 -> 18); Build is increasing as well. Details: [logs/bot/CHANGES-DURING-RUN.md](logs/bot/CHANGES-DURING-RUN.md).
+Window **07:30Z to the halt (303 minutes)**. Network counts are counted once from chain data and include about **56 tx/s of TN10 base load**.
 
-| Key number | Value |
-|---|---|
-| Network unique accepted, peak complete minute (tx/s) | pending |
-| Network unique accepted, 5-hour mean / median (tx/s) | pending |
-| Bot mean submitted / accepted (tx/s) | pending |
-| Build mean submitted / accepted (tx/s) | pending |
-| Kaspa Pulse's outside count | pending |
+| Key number | Value | Detail |
+|---|---|---|
+| Network unique accepted, peak complete minute (tx/s) | **3,583.1** (11:28Z / 13:28 CEST) | [logs/COMBINED.md](logs/COMBINED.md) |
+| Network unique accepted, median / mean (tx/s) | **3,107.1** (171 complete minutes) / **2,833.1** | [logs/COMBINED.md](logs/COMBINED.md) |
+| Bot mean submit-OK / accepted on n2 (tx/s, all 303 minutes) | 1,101.5 / 1,100.6 (steps.csv logged-second mean 1,212.97 / 1,211.87) | [logs/COMBINED.md](logs/COMBINED.md#bot-vs-build) |
+| Build mean submitted / accepted (tx/s) | pending | [logs/build/](logs/build/README.md) |
+| Kaspa Pulse's outside count | pending | |
+
+Submit-OK (taken into a node's mempool) is not the same as accepted on chain. Kaspa Testnet-10 only; tKAS has no value.
 
 Counts only: no txid, key, seed, IP, host, port or wallet address in this repo.
 
