@@ -36,7 +36,7 @@ Counted once from chain data on the bot's node n2 after the halt, before pruning
 | 11:30-12:30 | 13:30-14:30 | 3,222.7 (45) | 1,423.0 | 1,422.0 | 15 |
 | 12:30-12:33 | 14:30-14:33 | 1,751.6 (1) | 1,625.8 | 1,626.9 | 0 |
 
-Bot columns are means over the minutes that have rows (the last row uses the three full minutes 12:30-12:32Z). minute.csv has no rows for 07:39-07:42Z, 08:46-08:48Z, 09:57-09:59Z and 11:09-11:22Z (the last during n2's freeze).
+Bot columns are means over the minutes that have data rows (the last row uses the three full minutes 12:30-12:32Z). [minute.csv](bot/minute.csv) marks 07:39-07:42Z, 08:46-08:48Z, 09:57-09:59Z and 11:09-11:22Z as `node_state = gap` (see Data gaps); those minutes stay at 0 in the window totals.
 
 ## Bot vs Build
 
@@ -81,11 +81,15 @@ Its minutes differ a little from the chain count because it buckets by block tim
 
 ## Data gaps
 
-- Build: **pending** (no files in [build/](build/README.md) yet).
-- Bot minute.csv has no data for 24 minutes (07:39-07:42Z, 08:46-08:48Z, 09:57-09:59Z: box pauses; 11:09-11:22Z: n2 freeze with a box logging gap). They are now rows with `node_state = gap` and the reason; the window totals leave those minutes at 0.
-- `rejects.csv` is rebuilt from the senders' per-second reject reasons: 764 (rpc-error 670, orphan 49, already-in-mempool 45). `confirm.csv` and `order.csv` stay header-only: this run's senders logged no per-transaction submit and accept times.
-- steps.csv now carries the fee changes: `fee-1` 400/600, `fee-2` 560/840 from 12:31:10 CEST, `fee-3` 1,120/1,680 from 14:08:40 CEST (also in [CHANGES-DURING-RUN.md](bot/CHANGES-DURING-RUN.md)).
-- The bot workbook was regenerated so its events sheet carries the stop reason, like events.csv.
+Status after the bot-log fix that added `headline_strict`, gap rows, rejects and fee steps. Each note is the original gap from the first COMBINED pass, marked against what is now in the repo. Headline numbers are unchanged (peak 3,583.1, median 3,107.1, mean 2,833.1); the raw recount agrees.
+
+- Build: **still open** — **pending** (no files in [build/](build/README.md) yet).
+- Bot [minute.csv](bot/minute.csv) 24 silent minutes (07:39-07:42Z, 08:46-08:48Z, 09:57-09:59Z box pauses; 11:09-11:22Z n2 freeze with a box logging gap): **partly fixed**. Rows now exist with `node_state = gap` and the reason in `note`. Sent/accepted stay empty; window totals still leave those minutes at 0; not recoverable from box files.
+- Reject reasons: **fixed**. [rejects.csv](bot/rejects.csv) rebuilt from the senders' per-second reject reasons: 764 (rpc-error 670, orphan 49, already-in-mempool 45).
+- [confirm.csv](bot/confirm.csv) and [order.csv](bot/order.csv): **still open**. Header only; this run's senders logged no per-transaction submit and accept times.
+- Fee changes in [steps.csv](bot/steps.csv): **fixed**. Now carries `fee-1` 400/600, `fee-2` 560/840 from 12:31:10 CEST, `fee-3` 1,120/1,680 from 14:08:40 CEST (also in [CHANGES-DURING-RUN.md](bot/CHANGES-DURING-RUN.md)).
+- Headline rebuild from the repo: **fixed**. [chain-count.csv](bot/chain-count.csv) column `headline_strict = yes` marks the 171 minutes (`headline_tx_per_s`); raw recount is [chain-recount-1m.csv](bot/chain-recount-1m.csv).
+- Bot workbook stop-reason line: **fixed** (events sheet matches events.csv).
 
 <details>
 <summary><b>Certainty labels</b></summary>
