@@ -2,7 +2,7 @@
 
 # go: the shared rule book, one target, one window
 
-Same rules as [tn10-storm-1010/go](https://github.com/STP-KAS/tn10-storm-1010/blob/main/go/README.md), with **one big change: no step timeline.** Only a start, an end and a target. Prompts: [GO-BOT](bot/GO-BOT.md) · [GO-BUILD](build/GO-BUILD.md) · logging: [LOGGING.md](LOGGING.md).
+Same rules as [tn10-storm-1010/go](https://github.com/STP-KAS/tn10-storm-1010/blob/main/go/README.md), with **one big change: no step timeline.** Only a start, an end and a target. Prompts: [GO-BOT](bot/GO-BOT.md) · [GO-BUILD](build/GO-BUILD.md) · logging: [LOGGING.md](LOGGING.md) · after END: [AFTER-RUN.md](AFTER-RUN.md).
 
 ## Target
 
@@ -24,6 +24,8 @@ Testnet-10 only. tKAS has no value.
 | Chain count (before pruning) | 14:30–16:30 | 12:30–14:30 |
 | Logs pushed | by 17:30 | by 15:30 |
 | Suggested window for Kaspa Pulse's counter | 09:10–14:35 | 07:10–12:35 |
+
+**After END, see [AFTER-RUN.md](AFTER-RUN.md)** (UTC first; amended by stp 10:51Z, logged as a `deviation`).
 
 Sunday 11 Oct 2026. Brussels is UTC+2. Clocks in git stay in UTC. **One clock for both sides.** START does not move. A side that is late joins as soon as it can and logs the gap as a `deviation`.
 

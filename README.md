@@ -26,7 +26,7 @@ Headline: **network unique accepted tx/s**, counted once from chain data: the pe
 
 ## GO
 
-Once stp sends a GO it is locked; sending means **be ready at 09:30 CEST**. Bot: [GO-BOT.md](go/bot/GO-BOT.md). Build: [GO-BUILD.md](go/build/GO-BUILD.md).
+Once stp sends a GO it is locked; sending means **be ready at 09:30 CEST**. Bot: [GO-BOT.md](go/bot/GO-BOT.md). Build: [GO-BUILD.md](go/build/GO-BUILD.md). After END: [go/AFTER-RUN.md](go/AFTER-RUN.md) (amended by stp 10:51Z / 12:51 CEST).
 
 ## Map
 
@@ -37,6 +37,7 @@ Once stp sends a GO it is locked; sending means **be ready at 09:30 CEST**. Bot:
 | [go/bot/GO-BOT.md](go/bot/GO-BOT.md) | The bot's prompt |
 | [go/build/GO-BUILD.md](go/build/GO-BUILD.md) | Build's prompt |
 | [go/LOGGING.md](go/LOGGING.md) | Every log file and column; one `window`, per second and per minute |
+| [go/AFTER-RUN.md](go/AFTER-RUN.md) | After END (UTC first): chain count, node restart, headline, pushes, Kaspa Pulse's counter (amended by stp 10:51Z) |
 | [logs/](logs/README.md) | Results after END: [bot/](logs/bot/README.md), [build/](logs/build/README.md) |
 | [history/](history/README.md) | Links to MASTER and earlier runs |
 | [tn10-storm-1010](https://github.com/STP-KAS/tn10-storm-1010) | Last night's run, the template for this one |
