@@ -1,10 +1,14 @@
 > **Experimental. We are just trying this.** [Disclaimer](DISCLAIMER.md)
+>
+> **Part of [tn-master](https://github.com/STP-KAS/tn-master)**, the map of every TN10 storm. Renamed on 11 Oct 2026 from `tn-storm-11-10`; old links redirect here.
+>
+> ← previous storm: [tn10-storm-2026-10-10-public-nodes](https://github.com/STP-KAS/tn10-storm-2026-10-10-public-nodes) | latest storm →
 
-# tn-storm-11-10: one target, one window
+# tn10-storm-2026-10-11: one target, one window
 
-**History of every storm: [MASTER.md](https://github.com/STP-KAS/tn10-storm-1010/blob/main/history/MASTER.md)** (in tn10-storm-1010).
+**History of every storm: [MASTER.md](https://github.com/STP-KAS/tn-master/blob/main/history/MASTER.md)** (in tn-master).
 
-**Thank you first to Kaspa Pulse ([@gokugalax](https://x.com/gokugalax)).** He counted our chain from outside on his own nodes and shaped these runs with his questions, method and fixes: the node-dead rule and the chain count right after END. All his inputs: [tn10-storm-1010 credits/KASPA-PULSE.md](https://github.com/STP-KAS/tn10-storm-1010/blob/main/credits/KASPA-PULSE.md).
+**Thank you first to Kaspa Pulse ([@gokugalax](https://x.com/gokugalax)).** He counted our chain from outside on his own nodes and shaped these runs with his questions, method and fixes: the node-dead rule and the chain count right after END. All his inputs: [tn10-storm-2026-10-10 credits/KASPA-PULSE.md](https://github.com/STP-KAS/tn10-storm-2026-10-10/blob/main/credits/KASPA-PULSE.md).
 
 ## Start, end, target
 
@@ -18,11 +22,11 @@ Headline: **network unique accepted tx/s**, counted once from chain data: the pe
 
 ## What and why
 
-**What.** The same two sides as [tn10-storm-1010](https://github.com/STP-KAS/tn10-storm-1010), with no step timeline: both go flat out at START and stop at END.
+**What.** The same two sides as [tn10-storm-2026-10-10](https://github.com/STP-KAS/tn10-storm-2026-10-10), with no step timeline: both go flat out at START and stop at END.
 - **Bot** (TN10 ops with tn ops2, on the box): **steady** at its max sustainable rate, submitting to the five public TN10 nodes; its private node n2 does reads and its one miner.
 - **Build** (Grok Build on stp's desk): its own private, non-archival node (75% of senders) plus about 25% on the public TN10 nodes, and one miner; **monitors the network constantly**, raises or lowers, fixes problems **without stopping**.
 
-**Why.** Last night the two sides ran on different clocks, so they were never at full rate together and the best step median stayed at about 2,645 tx/s, under 3,000 ([WRITE-UP](https://github.com/STP-KAS/tn10-storm-1010/blob/main/logs/WRITE-UP.md), [COMBINED](https://github.com/STP-KAS/tn10-storm-1010/blob/main/logs/COMBINED.md)). Today: one clock, one window, one target.
+**Why.** Last night the two sides ran on different clocks, so they were never at full rate together and the best step median stayed at about 2,645 tx/s, under 3,000 ([WRITE-UP](https://github.com/STP-KAS/tn10-storm-2026-10-10/blob/main/logs/WRITE-UP.md), [COMBINED](https://github.com/STP-KAS/tn10-storm-2026-10-10/blob/main/logs/COMBINED.md)). Today: one clock, one window, one target.
 
 ## GO
 
@@ -40,8 +44,8 @@ Once stp sends a GO it is locked; sending means **be ready at 09:30 CEST**. Bot:
 | [go/AFTER-RUN.md](go/AFTER-RUN.md) | After END (UTC first): chain count, node restart, headline, pushes, Kaspa Pulse's counter (amended by stp 10:51Z) |
 | [logs/](logs/README.md) | Results after END: [bot/](logs/bot/README.md), [build/](logs/build/README.md) |
 | [history/](history/README.md) | Links to MASTER and earlier runs |
-| [tn10-storm-1010](https://github.com/STP-KAS/tn10-storm-1010) | Last night's run, the template for this one |
-| [tn10-run-2026-10-11](https://github.com/STP-KAS/tn10-run-2026-10-11) | Superseded draft (12:00 plan) |
+| [tn10-storm-2026-10-10](https://github.com/STP-KAS/tn10-storm-2026-10-10) | Last night's run, the template for this one |
+| [tn10-storm-2026-10-11-draft](https://github.com/STP-KAS/tn10-storm-2026-10-11-draft) | Superseded draft (12:00 plan) |
 
 ## Results
 

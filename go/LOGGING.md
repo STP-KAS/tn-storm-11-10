@@ -2,7 +2,7 @@
 
 # LOGGING: log everything that can be found
 
-Both sides log the same files, with the same columns, so the bot's minutes, Build's minutes and Kaspa Pulse's minutes line up row by row. Plan: [go/README.md](README.md). Prompts: [GO-BOT](bot/GO-BOT.md), [GO-BUILD](build/GO-BUILD.md). Copied from [tn10-storm-1010 LOGGING](https://github.com/STP-KAS/tn10-storm-1010/blob/main/go/LOGGING.md), with one change: **there are no steps.** The whole run is one window, logged per second and per minute.
+Both sides log the same files, with the same columns, so the bot's minutes, Build's minutes and Kaspa Pulse's minutes line up row by row. Plan: [go/README.md](README.md). Prompts: [GO-BOT](bot/GO-BOT.md), [GO-BUILD](build/GO-BUILD.md). Copied from [tn10-storm-2026-10-10 LOGGING](https://github.com/STP-KAS/tn10-storm-2026-10-10/blob/main/go/LOGGING.md), with one change: **there are no steps.** The whole run is one window, logged per second and per minute.
 
 ## Format, both sides
 

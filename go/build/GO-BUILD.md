@@ -22,7 +22,7 @@ When this file lands in your chat, that is the GO. No questions. Start your desk
 
 No steps, no ramp. **Target: as many tx/s as possible, network unique accepted, sustained for 5 hours.** START does not move. If you are late, join as soon as you can and log the gap.
 
-**Why one clock:** last night your clock (T0 15:00Z) and the bot's (T0 18:30Z) did not match, so both sides were never at full rate together and the combined peak stayed under 3,000 ([WRITE-UP](https://github.com/STP-KAS/tn10-storm-1010/blob/main/logs/WRITE-UP.md)). Today there is one clock: 09:30 to 14:30 CEST. Read your times from this file only.
+**Why one clock:** last night your clock (T0 15:00Z) and the bot's (T0 18:30Z) did not match, so both sides were never at full rate together and the combined peak stayed under 3,000 ([WRITE-UP](https://github.com/STP-KAS/tn10-storm-2026-10-10/blob/main/logs/WRITE-UP.md)). Today there is one clock: 09:30 to 14:30 CEST. Read your times from this file only.
 
 Thank you, Kaspa Pulse ([@gokugalax](https://x.com/gokugalax)). The node-dead rule and the chain count right after END are his fixes.
 
@@ -35,7 +35,7 @@ The bot is the steady base. **You are the side that pushes.** From 09:30 to 14:3
 - **Lower** when: the mempool keeps growing, accepted falls behind, lag climbs toward 60 s, rejects rise, RAM gets tight. Then try raising again after it settles.
 - **Fix without stopping:** a crashed sender, logger or the node watcher is restarted at once; a stale coin list is refreshed; a bad sender is replaced. The others keep sending while you fix.
 - Log every change as `rate-change` and every repair as `fix`, with the reason.
-- **Claim (measured on TN10):** last night you held about **1,718 tx/s** mean in your hold and **2,687** at MAX, and your desk count showed a network median of about **4,032** over 175 minutes ([logs/build](https://github.com/STP-KAS/tn10-storm-1010/tree/main/logs/build)). Start near your best clean level and climb from there.
+- **Claim (measured on TN10):** last night you held about **1,718 tx/s** mean in your hold and **2,687** at MAX, and your desk count showed a network median of about **4,032** over 175 minutes ([logs/build](https://github.com/STP-KAS/tn10-storm-2026-10-10/tree/main/logs/build)). Start near your best clean level and climb from there.
 
 ## Your desk node
 
@@ -50,7 +50,7 @@ A sender never fires at your node when: RPC fails for 5 s, the node is not synce
 
 ## 25% through the public nodes
 
-- About **25% of your senders** submit to the five public TN10 community nodes (the same five the bot uses; names in [tn10-storm-1010 GO-BOT-RUN](https://github.com/STP-KAS/tn10-storm-1010/blob/main/go/bot-run/GO-BOT-RUN.md#where-you-send)); the other 75% use your desk node. Each public sender picks four of the five at launch.
+- About **25% of your senders** submit to the five public TN10 community nodes (the same five the bot uses; names in [tn10-storm-2026-10-10 GO-BOT-RUN](https://github.com/STP-KAS/tn10-storm-2026-10-10/blob/main/go/bot-run/GO-BOT-RUN.md#where-you-send)); the other 75% use your desk node. Each public sender picks four of the five at launch.
 - Same rules as the bot on those nodes: about 20 connection or RPC errors in a row cools a node for 30 s (`node-dead` / `node-back`); a node quoting above 200 is skipped for that minute (`node-quote-skip`); a node that keeps rejecting or dropping for over 10 minutes is dropped for the hour. Log `public-nodes.csv` for your side.
 - **Do not crowd out the bot.** The bot runs 100% on these nodes and is the steady base. If the public nodes show rising rejects, errors or cooling, move your public share back to your desk node first (log `rate-change`, reason "public nodes busy") and try again after 15 clean minutes.
 - If your desk node goes node-dead, the public share keeps sending. Do not move more than 25% onto the public nodes to cover it; fix your node.
@@ -70,7 +70,7 @@ Exactly **one** miner, one thread, on your own node only, paying Build's own add
 
 ## One paste, 3 PowerShell windows
 
-If stp has to paste anything, give him **one** PowerShell block and nothing more. That block opens **3 separate PowerShell windows**, one job each, so a crash in one never takes down the others: (1) **NODE**: desk node, its watcher and the miner; (2) **SENDERS**: desk-node senders (75%) and public-node senders (25%); (3) **MONITOR**: watches, raises, lowers, restarts anything that dies, and runs the loggers. Each window has a clear title. Everything under `%USERPROFILE%\grok-build\tn-storm-11-10\`. Senders start at 07:30:00Z and stop at 12:30:00Z by the clock, whatever time it is pasted.
+If stp has to paste anything, give him **one** PowerShell block and nothing more. That block opens **3 separate PowerShell windows**, one job each, so a crash in one never takes down the others: (1) **NODE**: desk node, its watcher and the miner; (2) **SENDERS**: desk-node senders (75%) and public-node senders (25%); (3) **MONITOR**: watches, raises, lowers, restarts anything that dies, and runs the loggers. Each window has a clear title. Everything under `%USERPROFILE%\grok-build\tn10-storm-2026-10-11\`. Senders start at 07:30:00Z and stop at 12:30:00Z by the clock, whatever time it is pasted.
 
 ## Log everything
 
@@ -88,7 +88,7 @@ stp carries these to the bot. Formats: [LOGGING.md](../LOGGING.md#handoff-files-
 1. **END 14:30 CEST:** senders stop, miner off, live loggers stop. Node stays up.
 2. **COUNT (14:30–16:30 CEST, before pruning):** `chain-count.csv` per minute from 08:30 to 14:30 CEST from your node.
 3. Write `steps.csv`, `SUMMARY.md` (peak complete minute, 5-hour mean and median, what broke, what you did) and the result file.
-4. **By 17:30 CEST:** commit to `logs/build/` in **STP-KAS/tn-storm-11-10**. Counts only. No force-push, no tags, no releases. The repo is public: leak-scan first.
+4. **By 17:30 CEST:** commit to `logs/build/` in **STP-KAS/tn10-storm-2026-10-11**. Counts only. No force-push, no tags, no releases. The repo is public: leak-scan first.
 
 ## Never
 

@@ -2,7 +2,7 @@
 
 # go: the shared rule book, one target, one window
 
-Same rules as [tn10-storm-1010/go](https://github.com/STP-KAS/tn10-storm-1010/blob/main/go/README.md), with **one big change: no step timeline.** Only a start, an end and a target. Prompts: [GO-BOT](bot/GO-BOT.md) · [GO-BUILD](build/GO-BUILD.md) · logging: [LOGGING.md](LOGGING.md) · after END: [AFTER-RUN.md](AFTER-RUN.md).
+Same rules as [tn10-storm-2026-10-10/go](https://github.com/STP-KAS/tn10-storm-2026-10-10/blob/main/go/README.md), with **one big change: no step timeline.** Only a start, an end and a target. Prompts: [GO-BOT](bot/GO-BOT.md) · [GO-BUILD](build/GO-BUILD.md) · logging: [LOGGING.md](LOGGING.md) · after END: [AFTER-RUN.md](AFTER-RUN.md).
 
 ## Target
 
@@ -31,7 +31,7 @@ Sunday 11 Oct 2026. Brussels is UTC+2. Clocks in git stay in UTC. **One clock fo
 
 ## Why one clock (last night's lesson)
 
-**Claim (measured on TN10):** on 10 to 11 Oct the bot and Build ran on different clocks (bot T0 18:30Z, Build T0 15:00Z), so the two sides were never at full rate together. The best network median for a step was **2,645 tx/s** (MAX) and the 3,000 line was not met. Sources: [WRITE-UP.md](https://github.com/STP-KAS/tn10-storm-1010/blob/main/logs/WRITE-UP.md), [COMBINED.md](https://github.com/STP-KAS/tn10-storm-1010/blob/main/logs/COMBINED.md). Today both go flat out at 09:30 CEST and stay there until 14:30 CEST.
+**Claim (measured on TN10):** on 10 to 11 Oct the bot and Build ran on different clocks (bot T0 18:30Z, Build T0 15:00Z), so the two sides were never at full rate together. The best network median for a step was **2,645 tx/s** (MAX) and the 3,000 line was not met. Sources: [WRITE-UP.md](https://github.com/STP-KAS/tn10-storm-2026-10-10/blob/main/logs/WRITE-UP.md), [COMBINED.md](https://github.com/STP-KAS/tn10-storm-2026-10-10/blob/main/logs/COMBINED.md). Today both go flat out at 09:30 CEST and stay there until 14:30 CEST.
 
 ## Who does what
 

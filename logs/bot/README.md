@@ -2,7 +2,7 @@
 
 # logs/bot
 
-Pushed by **TN10 ops** after END (raw logs: same files and columns as [tn10-storm-1010 logs/bot](https://github.com/STP-KAS/tn10-storm-1010/tree/main/logs/bot), plus an xlsx). tn ops2 keeps `SUMMARY.md` live every 15 minutes during the run and writes the count. Submits: the five public TN10 nodes. Reads and miner: n2.
+Pushed by **TN10 ops** after END (raw logs: same files and columns as [tn10-storm-2026-10-10 logs/bot](https://github.com/STP-KAS/tn10-storm-2026-10-10/tree/main/logs/bot), plus an xlsx). tn ops2 keeps `SUMMARY.md` live every 15 minutes during the run and writes the count. Submits: the five public TN10 nodes. Reads and miner: n2.
 
 | File | Every | What |
 |---|---|---|

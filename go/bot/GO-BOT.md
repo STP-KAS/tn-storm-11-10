@@ -19,7 +19,7 @@ When this file lands in your chat, that is the GO. No questions. Get ready at on
 | COUNT from n2, before pruning | 14:30–16:30 | 12:30–14:30 |
 | Logs pushed to `logs/bot/` | by 17:30 | by 15:30 |
 
-No steps, no ramp. **Target: as many tx/s as possible, network unique accepted, sustained.** START does not move. Do not wait for Build: both sides start at 09:30 on this one clock. (Last night the two sides ran on different clocks and the combined peak never reached 3,000: [WRITE-UP](https://github.com/STP-KAS/tn10-storm-1010/blob/main/logs/WRITE-UP.md).)
+No steps, no ramp. **Target: as many tx/s as possible, network unique accepted, sustained.** START does not move. Do not wait for Build: both sides start at 09:30 on this one clock. (Last night the two sides ran on different clocks and the combined peak never reached 3,000: [WRITE-UP](https://github.com/STP-KAS/tn10-storm-2026-10-10/blob/main/logs/WRITE-UP.md).)
 
 Thank you, Kaspa Pulse ([@gokugalax](https://x.com/gokugalax)). The node-dead rule and the chain count right after END are his fixes.
 
@@ -27,14 +27,14 @@ Thank you, Kaspa Pulse ([@gokugalax](https://x.com/gokugalax)). The node-dead ru
 
 Run the bot's **maximum sustainable rate** and hold it flat for 5 hours. Build is the side that adapts; you are the steady base.
 
-- **Claim (measured on TN10):** last night the bot's clean max was about **919 tx/s** (MAX) and about **880 tx/s** in the hold ([bot steps.csv](https://github.com/STP-KAS/tn10-storm-1010/blob/main/logs/bot/steps.csv)). Start there.
+- **Claim (measured on TN10):** last night the bot's clean max was about **919 tx/s** (MAX) and about **880 tx/s** in the hold ([bot steps.csv](https://github.com/STP-KAS/tn10-storm-2026-10-10/blob/main/logs/bot/steps.csv)). Start there.
 - Raise only if a full 15 minutes ran clean (≥99% of submitted seen accepted, p90 submit-to-accept ≤10 s, no node-dead events). Lower if not. Log every change as `rate-change` with the reason.
 - **At most 15 senders** (box RAM limit), one scheduler, locked so a second copy cannot start. Launches staggered a few seconds apart; at most one relaunch per sender per minute; no launch while free box RAM is under 1.5 GB.
 - Shape: the no-signature hop (anyone-can-spend P2SH lanes). Label it in every report: "no-signature hop, anyone-can-spend, not realistic payments".
 
 ## Where you send
 
-- **Submit to the five public TN10 community nodes only**, as last night (names in [tn10-storm-1010 GO-BOT-RUN](https://github.com/STP-KAS/tn10-storm-1010/blob/main/go/bot-run/GO-BOT-RUN.md#where-you-send)). **Never submit to n2.** Random spread: each sender picks four of the five at launch.
+- **Submit to the five public TN10 community nodes only**, as last night (names in [tn10-storm-2026-10-10 GO-BOT-RUN](https://github.com/STP-KAS/tn10-storm-2026-10-10/blob/main/go/bot-run/GO-BOT-RUN.md#where-you-send)). **Never submit to n2.** Random spread: each sender picks four of the five at launch.
 - **Node-dead rule, per public node:** about 20 connection or RPC errors in a row cools that node for 30 s; its lanes move to the sender's other live nodes. No live node: the sender waits and counts no attempt. A failed submit is a reject, never "sent". Log `node-dead` / `node-back`.
 - **Per-node fee check:** each minute; a node quoting above 400 is skipped for that minute (`node-quote-skip`).
 - **Be a fair guest.** A node that keeps rejecting or dropping for more than 10 minutes is dropped for the hour and logged.
@@ -77,7 +77,7 @@ Only stp halts. Then: halt flag, **stop the watchdog first**, then the scheduler
 1. **END 14:30 CEST:** senders stop, miner off, live loggers stop.
 2. **COUNT (14:30–16:30 CEST, before pruning):** `chain-count.csv` per minute from 08:30 to 14:30 CEST, from n2.
 3. Headline: **peak complete minute** and **5-hour mean and median** of network unique accepted tx/s, counted once. Read Build's result file when stp passes it.
-4. **By 17:30 CEST:** TN10 ops pushes the raw logs (same files and columns as tn10-storm-1010 `logs/bot/`, plus an xlsx) to `logs/bot/` in **STP-KAS/tn-storm-11-10**, as STP-KAS. tn ops2 adds `logs/COMBINED.md` and `logs/WRITE-UP.md`. Counts only, leak-scanned. No force-push, no tags, no releases.
+4. **By 17:30 CEST:** TN10 ops pushes the raw logs (same files and columns as tn10-storm-2026-10-10 `logs/bot/`, plus an xlsx) to `logs/bot/` in **STP-KAS/tn10-storm-2026-10-11**, as STP-KAS. tn ops2 adds `logs/COMBINED.md` and `logs/WRITE-UP.md`. Counts only, leak-scanned. No force-push, no tags, no releases.
 
 ## Never
 

@@ -2,7 +2,7 @@
 
 # Combined results: TN10 storm, Sun 11 Oct 2026
 
-Back to [logs/](README.md) · story: [WRITE-UP.md](WRITE-UP.md) · bot detail: [bot/SUMMARY.md](bot/SUMMARY.md) · changes: [bot/CHANGES-DURING-RUN.md](bot/CHANGES-DURING-RUN.md) · history: [MASTER.md](https://github.com/STP-KAS/tn10-storm-1010/blob/main/history/MASTER.md)
+Back to [logs/](README.md) · story: [WRITE-UP.md](WRITE-UP.md) · bot detail: [bot/SUMMARY.md](bot/SUMMARY.md) · changes: [bot/CHANGES-DURING-RUN.md](bot/CHANGES-DURING-RUN.md) · history: [MASTER.md](https://github.com/STP-KAS/tn-master/blob/main/history/MASTER.md)
 
 **Clock.** One clock for both sides. START **07:30Z** (09:30 CEST). Planned END 12:30Z (14:30 CEST), extended by stp to 13:30Z (15:30 CEST), then **halted by stp at 12:33:01Z (14:33:01 CEST)**. Stopped early by stp: taking a break, other things on the agenda. That applies to both the bot and Build. Times are UTC first, CEST (UTC+2) in brackets.
 

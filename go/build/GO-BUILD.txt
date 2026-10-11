@@ -1,5 +1,5 @@
 GO-BUILD: TN10 storm, Sunday 11 Oct 2026, 09:30 to 14:30 CEST
-Full file: https://github.com/STP-KAS/tn-storm-11-10/blob/main/go/build/GO-BUILD.md
+Full file: https://github.com/STP-KAS/tn10-storm-2026-10-11/blob/main/go/build/GO-BUILD.md
 
 You are Grok Build on stp's Windows desk. The bot side (TN10 ops on the box) has its own file: go/bot/GO-BOT.md. Shared rules: go/README.md.
 
@@ -37,7 +37,7 @@ NODE-DEAD RULE (Kaspa Pulse)
 A sender never fires at your node when RPC fails for 5 s, the node is not synced, sink lag is over 60 s on a fresh read, or the virtual DAA score is still for 30 s. It pauses, you fix (watcher, restart, lower load), and it resumes by itself when a fresh read is healthy (node-dead, node-back). A failed submit is a reject, never "sent".
 
 25% THROUGH THE PUBLIC NODES
-- About 25% of your senders submit to the five public TN10 community nodes (the same five the bot uses; names in https://github.com/STP-KAS/tn10-storm-1010/blob/main/go/bot-run/GO-BOT-RUN.md#where-you-send). The other 75% use your desk node. Each public sender picks four of the five at launch.
+- About 25% of your senders submit to the five public TN10 community nodes (the same five the bot uses; names in https://github.com/STP-KAS/tn10-storm-2026-10-10/blob/main/go/bot-run/GO-BOT-RUN.md#where-you-send). The other 75% use your desk node. Each public sender picks four of the five at launch.
 - Same rules as the bot on those nodes: about 20 connection or RPC errors in a row cools a node for 30 s (node-dead / node-back); a node quoting above 200 is skipped for that minute (node-quote-skip); a node that keeps rejecting or dropping for over 10 minutes is dropped for the hour. Log public-nodes.csv for your side.
 - Do not crowd out the bot. The bot runs 100% on these nodes and is the steady base. If the public nodes show rising rejects, errors or cooling, move your public share back to your desk node first (log rate-change, reason "public nodes busy") and try again after 15 clean minutes.
 - If your desk node goes node-dead, the public share keeps sending. Do not move more than 25% onto the public nodes to cover it; fix your node.
@@ -70,7 +70,7 @@ AFTER END
 1. END 14:30 CEST: senders stop, miner off, live loggers stop. Node stays up.
 2. COUNT (14:30-16:30 CEST, before pruning): chain-count.csv per minute from 08:30 to 14:30 CEST from your node.
 3. Write steps.csv, SUMMARY.md (peak complete minute, 5-hour mean and median, what broke, what you did) and the result file.
-4. By 17:30 CEST commit to logs/build/ in STP-KAS/tn-storm-11-10. Counts only. No force-push, no tags, no releases. The repo is public: leak-scan first.
+4. By 17:30 CEST commit to logs/build/ in STP-KAS/tn10-storm-2026-10-11. Counts only. No force-push, no tags, no releases. The repo is public: leak-scan first.
 
 NEVER
 No IP, port, key, seed, txid, wallet address or local path in the repo. No tunnel. No second miner. No archival. No sending to the bot's node. No more than 25% of your senders on the public nodes. No firing at a dead node. No stopping before END unless stp halts.
