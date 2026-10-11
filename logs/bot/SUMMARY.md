@@ -1,6 +1,6 @@
 # Bot side, live summary (TN10 storm, Sun 11 Oct 2026, flat out 09:30-14:30 CEST)
 
-Updated **11:51:58 CEST / 09:51:58 UTC**, about every 10 minutes from G1 to END. Counts only, written on the box by `live-summary.py` (read-only, sends nothing). Column meanings: [go/LOGGING.md](../../go/LOGGING.md). Plan and times: [go/README.md](../../go/README.md).
+Updated **12:00:46 CEST / 10:00:46 UTC**, about every 10 minutes from G1 to END. Counts only, written on the box by `live-summary.py` (read-only, sends nothing). Column meanings: [go/LOGGING.md](../../go/LOGGING.md). Plan and times: [go/README.md](../../go/README.md).
 
 ## Now
 
@@ -8,14 +8,14 @@ Updated **11:51:58 CEST / 09:51:58 UTC**, about every 10 minutes from G1 to END.
 |---|---|
 | Step | **window**, until 14:30 CEST / 12:30 UTC |
 | Bot target now (ramp) | 1,300 tx/s; last clean level 1,112 |
-| Network unique accepted, last complete minute (n2 count) | 3,301.1 tx/s (11:50 CEST) |
-| Network best minute so far / mean since START | 3,421.3 (10:44 CEST) / 2,674.3 tx/s (127 valid minutes) |
-| Bot submitted, last 10 min | 1,287.4 tx/s (772,417 tx) |
-| Bot accepted on n2, last 10 min | 1,284.4 tx/s (770,630 tx) |
-| Rejects, last 10 min | 1 consensus/mempool; 3 public-node transport errors |
-| Senders writing rows | 18 (processes up: 17) |
+| Network unique accepted, last complete minute (n2 count) | 3,187.1 tx/s (11:55 CEST) |
+| Network best minute so far / mean since START | 3,421.3 (10:44 CEST) / 2,694.0 tx/s (132 valid minutes) |
+| Bot submitted, last 10 min | 708.2 tx/s (424,938 tx) |
+| Bot accepted on n2, last 10 min | 704.7 tx/s (422,796 tx) |
+| Rejects, last 10 min | 0 consensus/mempool; 0 public-node transport errors |
+| Senders writing rows | 18 (processes up: 3) |
 | Scheduler / watchdog | running / running |
-| Stall relaunches (auto) | 31 |
+| Stall relaunches (auto) | 49 |
 | HALT | no |
 
 ## Changes during the run
@@ -32,24 +32,22 @@ Updated **11:51:58 CEST / 09:51:58 UTC**, about every 10 minutes from G1 to END.
 
 | Node | Submits ok | Rejects | Errors | Down (s) |
 |---|---:|---:|---:|---:|
-| boson-10.kaspa.red | 182,300 | 0 | 0 | 0 |
-| electron-10.kaspa.blue | 191,821 | 0 | 0 | 0 |
-| muon-10.kaspa.blue | 193,010 | 0 | 1 | 0 |
-| neutrino-10.kaspa.stream | 27,436 | 0 | 0 | 0 |
-| vector-10.kaspa.green | 177,850 | 1 | 2 | 0 |
-
-Rejects by class: already_in_mempool 1, rpc 3
+| boson-10.kaspa.red | 95,403 | 0 | 0 | 0 |
+| electron-10.kaspa.blue | 84,750 | 0 | 0 | 0 |
+| muon-10.kaspa.blue | 78,612 | 0 | 0 | 0 |
+| neutrino-10.kaspa.stream | 69,938 | 0 | 0 | 0 |
+| vector-10.kaspa.green | 96,235 | 0 | 0 | 0 |
 
 ## n2 (bot's private reader node) and the box
 
 | What | Value |
 |---|---|
 | n2 synced / UTXO index | True / False |
-| n2 sink age (lag) | 0.1 s |
-| n2 virtual DAA score | 593,780,730 |
+| n2 sink age (lag) | 0.7 s |
+| n2 virtual DAA score | 593,783,317 |
 | Miner processes | 1 |
-| Lane tips at last sender boots | 176,225 tKAS in 3,600 lanes (read from a public UTXO index; no wallet buffer needed) |
-| Disk free / RAM available | 33 GB / 2,911 MB |
+| Lane tips at last sender boots | 175,896 tKAS in 3,600 lanes (read from a public UTXO index; no wallet buffer needed) |
+| Disk free / RAM available | 33 GB / 5,693 MB |
 
 ## Rate checks (every 15 min over the full last 15 min: +10% if clean; until 11:28 CEST -10% if not; from 11:28 CEST floor 1,100 and -5% only on real overload, else hold)
 
@@ -63,22 +61,23 @@ Rejects by class: already_in_mempool 1, rpc 3
 | 11:00 | 1,223 | 884.1 | 882.1 | 0.00 | 2.21 | 40.4 | no: 4 node-dead events; submitted 884.1 < 90% of 1223 | 1,112 |
 | 11:15 | 1,112 | 0.0 | 0.0 | 0.00 | 3.05 | 42.3 | no: accepted -% of submitted < 99%; p90 - s > 10; submitted 0 < 90% of 1112 | 1,011 |
 | 11:44 | 1,300 | 187.3 | 186.9 | 0.00 | 2.44 | 40.2 | no: submitted 187.3 < 90% of 1300 | 1,300 |
+| 12:00 | 1,300 | 915.0 | 911.6 | 0.00 | 2.34 | 41.2 | no: submitted 915 < 90% of 1300 | 1,300 |
 
 ## Last events
 
 | CEST | Event | Step | Detail |
 |---|---|---|---|
-| 11:51:10 | sender-relaunch | window | S1 relaunch 3/200 |
-| 11:51:10 | sender-start | window | S1 mode=pub |
-| 11:51:19 | sender-relaunch | window | S2 relaunch 3/200 |
-| 11:51:19 | sender-start | window | S2 mode=pub |
-| 11:51:26 | sender-relaunch | window | S3 relaunch 3/200 |
-| 11:51:26 | sender-start | window | S3 mode=pub |
-| 11:51:33 | sender-relaunch | window | S4 relaunch 3/200 |
-| 11:51:33 | sender-start | window | S4 mode=pub |
-| 11:51:42 | sender-relaunch | window | S5 relaunch 3/200 |
-| 11:51:42 | sender-start | window | S5 mode=pub |
-| 11:51:51 | sender-relaunch | window | S6 relaunch 3/200 |
-| 11:51:51 | sender-start | window | S6 mode=pub |
+| 12:00:39 | sender-stall | window | S14 stalled: 0 ok submits in 45 s (3 sec rows), 0 accepts in 60 s, erroring nodes [], main neutrino-10.kaspa.stream -> SIGKILL pid -, relaunch now with fr |
+| 12:00:39 | sender-stall | window | S15 stalled: 0 ok submits in 45 s (3 sec rows), 0 accepts in 60 s, erroring nodes [], main electron-10.kaspa.blue -> SIGKILL pid -, relaunch now with fres |
+| 12:00:39 | node-dead | window | electron-10.kaspa.blue: 3 strikes in 10 min (S16 main: no accepts in 60 s); new picks avoid it |
+| 12:00:39 | sender-stall | window | S16 stalled: 0 ok submits in 45 s (3 sec rows), 0 accepts in 60 s, erroring nodes [], main electron-10.kaspa.blue -> SIGKILL pid -, relaunch now with fres |
+| 12:00:39 | sender-stall | window | S17 stalled: 0 ok submits in 45 s (3 sec rows), 0 accepts in 60 s, erroring nodes [], main vector-10.kaspa.green -> SIGKILL pid -, relaunch now with fresh |
+| 12:00:39 | sender-stall | window | S18 stalled: 0 ok submits in 45 s (3 sec rows), 0 accepts in 60 s, erroring nodes [], main electron-10.kaspa.blue -> SIGKILL pid -, relaunch now with fres |
+| 12:00:41 | sender-relaunch | window | S1 relaunch 4/200 |
+| 12:00:41 | sender-start | window | S1 mode=pub |
+| 12:00:44 | sender-relaunch | window | S2 relaunch 4/200 |
+| 12:00:44 | sender-start | window | S2 mode=pub |
+| 12:00:47 | sender-relaunch | window | S3 relaunch 4/200 |
+| 12:00:47 | sender-start | window | S3 mode=pub |
 
 How to read: *Now* answers "is the bot sending what the plan says?"; *Public nodes* shows which node rejects or errors; *Rate steps* shows each 15-minute check (clean = at least 99% of submitted accepted, p90 at most 10 s, no node-dead event, submitted at least 90% of target, rejects under 2%, box RAM at least 1.5 GB, CPU under 95%). Label: no-signature hop, anyone-can-spend, not realistic payments. Final per-second files land here after END.
