@@ -1,0 +1,23 @@
+> **Experimental. We are just trying this.** [Disclaimer](../../DISCLAIMER.md)
+
+# logs/build
+
+Pushed by **Grok Build** after END, by 17:30 CEST. Submits: Build's own desk node.
+
+| File | Every | What |
+|---|---|---|
+| `sec.csv` | second | What the senders did and how the node looked |
+| `minute.csv` | minute | Per minute, incl. network unique accepted; line up with Kaspa Pulse |
+| `rejects.csv` | second with a reject | Why submits failed |
+| `miner.csv` | 10 s | The one miner |
+| `host.csv` | 10 s | The machine: CPU, RAM, disk |
+| `node.csv` | 10 s | The side's own node |
+| `events.csv` | each event | Everything in order: rate changes, fixes, restarts, deviations |
+| `gates.csv` | R1, R2 | Ready reads |
+| `ntp.csv` | start and end | Clock offset |
+| `chain-count.csv` | per minute, after END | The count before pruning (Kaspa Pulse's fix) |
+| `confirm.csv` | each hour | Submit-to-accept times by fee tier |
+| `steps.csv` | after END | `window` plus `window-h1` … `window-h5` |
+| `SUMMARY.md` | after END | Peak minute, 5-hour mean and median, what broke, what was done |
+
+Columns: [go/LOGGING.md](../../go/LOGGING.md). Counts only; per-transaction logs and ids stay local.
