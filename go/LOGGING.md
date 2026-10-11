@@ -11,7 +11,7 @@ Both sides log the same files, with the same columns, so the bot's minutes, Buil
 - `side` is `bot` or `build`. `step` is kept as a column name but has only these values: `PREP` (before START), `window` (START to END, 07:30Z–12:30Z), `COUNT` (after END).
 - An empty cell means **not measured**. Never write 0 for not measured.
 - Log the clock offset at the start and at the end (`ntp.csv`).
-- **Counts only in git.** No txid, key, seed, host IP, port or wallet address. No public node names either: use the labels `pub-1` … `pub-5`. Per-transaction logs and ids stay on the machine that made them.
+- **Counts only in git.** No txid, key, seed, host IP, port or wallet address. The public node names (`muon-10.kaspa.blue` and so on) are allowed. Per-transaction logs and ids stay on the machine that made them.
 - Logging runs from 30 minutes before START (07:00Z) to END, even when a side sends nothing. The COUNT file runs after.
 
 ## Files
@@ -109,7 +109,7 @@ Written every minute, per public node. Which public node took, refused or failed
 |---|---|---|
 | `minute_utc` | the minute | ISO UTC minute |
 | `side` | bot or build | text |
-| `node` | public node label, pub-1 … pub-5 (no host names) | text |
+| `node` | public node name, e.g. muon-10.kaspa.blue | text |
 | `submit_ok` | submits it took | tx |
 | `rejects` | submits it refused | tx |
 | `errors` | connection or RPC errors | count |
@@ -120,7 +120,7 @@ Example:
 
 ```
 minute_utc,side,node,submit_ok,rejects,errors,cooled_s,quote_skip
-2026-10-11T08:05Z,bot,pub-1,3010,0,0,0,0
+2026-10-11T08:05Z,bot,muon-10.kaspa.blue,3010,0,0,0,0
 ```
 
 ### rejects.csv
@@ -232,7 +232,7 @@ Example:
 
 ```
 utc,side,step,event,detail
-2026-10-11T08:05:30Z,bot,window,node-dead,pub-2: 20 errors in a row; cooled 30 s
+2026-10-11T08:05:30Z,bot,window,node-dead,boson-10.kaspa.red: 20 errors in a row; cooled 30 s
 ```
 
 ### steps.csv
@@ -368,9 +368,9 @@ One `events.csv` row for each:
 | `sender-relaunch` | a sender restarts | S7 relaunch 2 |
 | `sender-pause` | a sender pauses | S7 paused: no live node |
 | `sender-stop` | a sender stops | S7 stopped at END |
-| `node-dead` | node-dead rule cools a node | pub-3 20 errors |
-| `node-back` | a node is live again | pub-3 back |
-| `node-quote-skip` | a public node quotes above 400; skipped 1 minute | pub-3 quote 500 |
+| `node-dead` | node-dead rule cools a node | vector-10.kaspa.green 20 errors |
+| `node-back` | a node is live again | vector-10.kaspa.green back |
+| `node-quote-skip` | a public node quotes above 400; skipped 1 minute | vector-10.kaspa.green quote 500 |
 | `node-fallback` | Build moves senders from its desk node to the public nodes | desk node sink lag 75 s |
 | `node-lag` | read node lags (logged, not a stop for the bot) | n2 sink lag 70 s |
 | `node-restart` | a node is restarted | n2 restart: DAA still 3 min |
