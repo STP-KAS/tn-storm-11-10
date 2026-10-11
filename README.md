@@ -20,7 +20,7 @@ Headline: **network unique accepted tx/s**, counted once from chain data: the pe
 
 **What.** The same two sides as [tn10-storm-1010](https://github.com/STP-KAS/tn10-storm-1010), with no step timeline: both go flat out at START and stop at END.
 - **Bot** (TN10 ops with tn ops2, on the box): **steady** at its max sustainable rate, submitting to the five public TN10 nodes; its private node n2 does reads and its one miner.
-- **Build** (Grok Build on stp's desk): its own private, non-archival node and one miner; **monitors the network constantly**, raises or lowers, fixes problems **without stopping**.
+- **Build** (Grok Build on stp's desk): its own private, non-archival node (75% of senders) plus about 25% on the public TN10 nodes, and one miner; **monitors the network constantly**, raises or lowers, fixes problems **without stopping**.
 
 **Why.** Last night the two sides ran on different clocks, so they were never at full rate together and the best step median stayed at about 2,645 tx/s, under 3,000 ([WRITE-UP](https://github.com/STP-KAS/tn10-storm-1010/blob/main/logs/WRITE-UP.md), [COMBINED](https://github.com/STP-KAS/tn10-storm-1010/blob/main/logs/COMBINED.md)). Today: one clock, one window, one target.
 

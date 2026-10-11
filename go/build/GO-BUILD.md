@@ -48,6 +48,13 @@ The bot is the steady base. **You are the side that pushes.** From 09:30 to 14:3
 
 A sender never fires at your node when: RPC fails for 5 s, the node is not synced, sink lag is over 60 s on a fresh read, or the virtual DAA score is still for 30 s. It pauses, you fix (watcher, restart, lower load), and it resumes by itself when a fresh read is healthy (`node-dead`, `node-back`). A failed submit is a reject, never "sent".
 
+## 25% through the public nodes
+
+- About **25% of your senders** submit to the five public TN10 community nodes (the same five the bot uses; names in [tn10-storm-1010 GO-BOT-RUN](https://github.com/STP-KAS/tn10-storm-1010/blob/main/go/bot-run/GO-BOT-RUN.md#where-you-send)); the other 75% use your desk node. Each public sender picks four of the five at launch.
+- Same rules as the bot on those nodes: about 20 connection or RPC errors in a row cools a node for 30 s (`node-dead` / `node-back`); a node quoting above 200 is skipped for that minute (`node-quote-skip`); a node that keeps rejecting or dropping for over 10 minutes is dropped for the hour. Log `public-nodes.csv` for your side.
+- **Do not crowd out the bot.** The bot runs 100% on these nodes and is the steady base. If the public nodes show rising rejects, errors or cooling, move your public share back to your desk node first (log `rate-change`, reason "public nodes busy") and try again after 15 clean minutes.
+- If your desk node goes node-dead, the public share keeps sending. Do not move more than 25% onto the public nodes to cover it; fix your node.
+
 ## Fees
 
 **200** sompi/gram base, **300** tier (half the lanes each). Senders sit out while your node's normal quote is above 200 (`fee-sit-out`). If that rule would stop every sender for over 5 minutes, log `fee-rule-blocks-all` with the quote and keep sending at 200/300.
@@ -85,4 +92,4 @@ stp carries these to the bot. Formats: [LOGGING.md](../LOGGING.md#handoff-files-
 
 ## Never
 
-No IP, host, port, key, seed, txid, wallet address or local path in the repo. No tunnel. No second miner. No archival. No sending to the bot's node. No firing at a dead node. No stopping before END unless stp halts.
+No IP, host, port, key, seed, txid, wallet address or local path in the repo. No tunnel. No second miner. No archival. No sending to the bot's node. No more than 25% of your senders on the public nodes. No firing at a dead node. No stopping before END unless stp halts.

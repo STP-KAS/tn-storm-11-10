@@ -36,7 +36,7 @@ Sunday 11 Oct 2026. Brussels is UTC+2. Clocks in git stay in UTC. **One clock fo
 | Side | Who | Sends to | Node | Miner | Mode |
 |---|---|---|---|---|---|
 | Bot | **TN10 ops** (n2, miner, senders) with **tn ops2** (logging, count, write-up) | The **five public TN10 nodes only** | n2 on the box: private, pruned, reads and miner only | 1 | **Steady**: its max sustainable rate, held |
-| Build | **Grok Build** on stp's Windows desk | Its **own desk node** | Private, pruned, not archival | 1 | **Adaptive**: watch the network all the time, raise or lower, fix without stopping |
+| Build | **Grok Build** on stp's Windows desk | Its **own desk node** (75%) and the five public TN10 nodes (25%, backs off first if the bot suffers) | Private, pruned, not archival | 1 | **Adaptive**: watch the network all the time, raise or lower, fix without stopping |
 
 Never submit to the other side's node.
 

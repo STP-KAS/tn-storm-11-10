@@ -349,7 +349,7 @@ window-h1,bot,400,300,1.1,2.4,6.0
 
 Plain tables, no columns to decode. The bot's `logs/bot/SUMMARY.md` is a **live summary** during the run: every 10 minutes on the box and pushed every 15 minutes from START to END: current rate, submitted vs accepted, network unique accepted (last complete minute, best minute so far, mean so far), rejects by public node, public-node health, n2 state, coins left, disk and RAM, last events. After END the final summary replaces it.
 
-The bot's node columns are n2 (its reader). Build's node columns are its desk node, also while some senders are on the public fallback.
+The bot's node columns are n2 (its reader). Build's node columns are its desk node, plus its 25% public-node share in `public-nodes.csv`.
 
 ## Events
 
