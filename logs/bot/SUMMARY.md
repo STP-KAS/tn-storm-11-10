@@ -1,6 +1,6 @@
 # Bot side, live summary (TN10 storm, Sun 11 Oct 2026, flat out 09:30-14:30 CEST)
 
-Updated **12:33:49 CEST / 10:33:49 UTC**, about every 10 minutes from G1 to END. Counts only, written on the box by `live-summary.py` (read-only, sends nothing). Column meanings: [go/LOGGING.md](../../go/LOGGING.md). Plan and times: [go/README.md](../../go/README.md).
+Updated **12:33:58 CEST / 10:33:58 UTC**, about every 10 minutes from G1 to END. Counts only, written on the box by `live-summary.py` (read-only, sends nothing). Column meanings: [go/LOGGING.md](../../go/LOGGING.md). Plan and times: [go/README.md](../../go/README.md).
 
 ## Now
 
@@ -10,8 +10,8 @@ Updated **12:33:49 CEST / 10:33:49 UTC**, about every 10 minutes from G1 to END.
 | Bot target now (ramp) | 1,430 tx/s; last clean level 1,300 |
 | Network unique accepted, last complete minute (n2 count) | 3,287.7 tx/s (12:32 CEST) |
 | Network best minute so far / mean since START | 3,421.3 (10:44 CEST) / 2,706.4 tx/s (163 valid minutes) |
-| Bot submitted, last 10 min | 1,319.2 tx/s (791,543 tx) |
-| Bot accepted on n2, last 10 min | 1,321.0 tx/s (792,583 tx) |
+| Bot submitted, last 10 min | 1,321.0 tx/s (792,598 tx) |
+| Bot accepted on n2, last 10 min | 1,322.4 tx/s (793,421 tx) |
 | Rejects, last 10 min | 59 consensus/mempool; 51 public-node transport errors |
 | Senders writing rows | 18 (processes up: 18) |
 | Scheduler / watchdog | running / running |
@@ -25,7 +25,7 @@ Updated **12:33:49 CEST / 10:33:49 UTC**, about every 10 minutes from G1 to END.
 | 11:28 | **stp asked both sides to increase effort.** Bot raised 1,011 -> 1,300 tx/s at 11:29 (rate-change). New rate rule for the rest of the run: floor 1,100; +10% after every clean 15 min up to 2,400; a not-clean window lowers by 5% only on real overload (accepted < 95% of submitted or rejects >= 2%), otherwise the rate holds. |
 | 11:30-11:34 | Senders 15 -> 18 (staggered, each on 4 of the 5 public nodes; extra senders launch only while box RAM >= 2.5 GB, never under 1.5 GB). Deviation from GO-BOT (max 15 senders for box RAM): 'stp 11:28 increase effort'. |
 | 11:28 | Build is increasing effort as well (Build's side, see Build's logs). |
-| 11:49 | **stp: bot fee +40% at the next rate climb**, 400/600 -> 560/840 sompi/gram, cap 840 for this run (above the GO cap 600: deviation). Node-quote-skip threshold stays 400. Fired at **12:29:54 CEST** with the rate climb. |
+| 11:49 | **stp: bot fee +40% at the next rate climb**, 400/600 -> 560/840 sompi/gram, cap 840 for this run (above the GO cap 600: deviation). Node-quote-skip threshold stays 400. Fired at **12:31:10 CEST** with the rate climb 1,300 -> 1,430 (re-checked 12:14-12:29 window). |
 | 12:31 | Fix: the 15-minute rate check undercounted submitted tx (a non-integer read offset skipped sender files; the 11:15/11:44/12:14/12:29 checks read 0-209 tx/s while the bot sent ~1,060-1,300). Re-checked 12:14-12:29 with full data: 1,291.9 / 1,291.5 tx/s, 99.97%, 0 rejects -> clean -> 1,300 -> 1,430 tx/s, fees 560/840 from 12:31:10. |
 | 11:50 | stp: **Build asked to climb like the bot** (+10% per clean 15 min, -5% only on real overload, floor = its 11:50 rate) and to raise its fees +40% at its next climb (public share 200/300 -> 280/420; desk pair x1.4). Build's side, see Build's logs. |
 
@@ -33,10 +33,10 @@ Updated **12:33:49 CEST / 10:33:49 UTC**, about every 10 minutes from G1 to END.
 
 | Node | Submits ok | Rejects | Errors | Down (s) |
 |---|---:|---:|---:|---:|
-| boson-10.kaspa.red | 197,087 | 42 | 0 | 0 |
-| electron-10.kaspa.blue | 201,116 | 1 | 0 | 0 |
-| muon-10.kaspa.blue | 191,642 | 11 | 51 | 0 |
-| neutrino-10.kaspa.stream | 201,698 | 5 | 0 | 0 |
+| boson-10.kaspa.red | 197,496 | 42 | 0 | 0 |
+| electron-10.kaspa.blue | 201,414 | 1 | 0 | 0 |
+| muon-10.kaspa.blue | 191,715 | 11 | 51 | 0 |
+| neutrino-10.kaspa.stream | 201,973 | 5 | 0 | 0 |
 
 Rejects by class: already_in_mempool 27, orphan 32, rpc 51
 
@@ -45,11 +45,11 @@ Rejects by class: already_in_mempool 27, orphan 32, rpc 51
 | What | Value |
 |---|---|
 | n2 synced / UTXO index | True / False |
-| n2 sink age (lag) | 0.5 s |
-| n2 virtual DAA score | 593,805,386 |
+| n2 sink age (lag) | 0.1 s |
+| n2 virtual DAA score | 593,805,472 |
 | Miner processes | 1 |
 | Lane tips at last sender boots | 175,187 tKAS in 3,600 lanes (read from a public UTXO index; no wallet buffer needed) |
-| Disk free / RAM available | 32 GB / 2,117 MB |
+| Disk free / RAM available | 32 GB / 2,225 MB |
 
 ## Rate checks (every 15 min over the full last 15 min: +10% if clean; until 11:28 CEST -10% if not; from 11:28 CEST floor 1,100 and -5% only on real overload, else hold)
 
