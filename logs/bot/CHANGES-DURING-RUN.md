@@ -19,6 +19,6 @@ Changes made after the GO lock. Each one is also in `events.csv` (pushed after E
 | 14:05-14:08 | stp: **fee x2 to 1,120/1,680 sompi/gram** (`deviation`: above GO cap 600); cap 1,680, node-quote-skip 400 -> 1,680. Senders reloaded one at a time (6 s apart), fired **14:08:40** (12:08:40Z). Reason (stp): covenant activity growing on Kaspa Stream, more competition for block space (stp's observation from the dashboard, not our measurement). | stp, 14:05 CEST |
 | 14:08 | stp: **rate held high to END** (`deviation`): no -5% on unclean windows; only coins running out may lower. Build same. | stp, 14:06 CEST |
 | 14:14 | stp: **END extended +1 h to 13:30Z (15:30 CEST)**, same fees and pace (`deviation`). | stp, 14:13 CEST |
-| **14:33:01** | stp: **HALT** (12:33:01Z). GO-BOT HALT order: halt flag, watchdog, scheduler, senders to 0, +10 s hard-kill of every sender and the miner; nothing restarted. **Effective END = 12:33:01Z**, ended early vs the extended END 13:30Z. n2 and the read-only loggers stayed up for the final minute. | stp, 14:32 CEST |
+| **14:33:01** | stp: **HALT** (12:33:01Z). GO-BOT HALT order: halt flag, watchdog, scheduler, senders to 0, +10 s hard-kill of every sender and the miner; nothing restarted. **Effective END = 12:33:01Z**, ended early vs the extended END 13:30Z. Stopped early by stp: taking a break, other things on the agenda. (bot and Build) n2 and the read-only loggers stayed up for the final minute. | stp, 14:32 CEST |
 
 Label: no-signature hop, anyone-can-spend, not realistic payments.

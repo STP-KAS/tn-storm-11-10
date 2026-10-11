@@ -2,7 +2,7 @@
 
 Counts only. Generated on the box by repo-logs.py from the scheduler's raw logs. Columns: [go/LOGGING.md](../../go/LOGGING.md).
 
-T0 2026-10-11T07:30:00Z. **HALT by stp 12:32Z: run halted at 12:33:01Z (14:33:01 CEST), ended early vs the extended END 13:30Z.** Effective END = 12:33:01Z; the log files run to 12:34:00Z so the halt minute (12:33, partial) is included.
+T0 2026-10-11T07:30:00Z. **HALT by stp 12:32Z: run halted at 12:33:01Z (14:33:01 CEST), ended early vs the extended END 13:30Z. Stopped early by stp: taking a break, other things on the agenda.** (bot and Build) Effective END = 12:33:01Z; the log files run to 12:34:00Z so the halt minute (12:33, partial) is included.
 
 ## Headline: network unique accepted tx/s, 07:30Z to the halt (counted once)
 
