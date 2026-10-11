@@ -23,7 +23,7 @@ Counted once from chain data on the bot's node n2 after the halt, before pruning
 
 - **Complete minute** = a chain-count row that covers exactly one minute. 47 rows lump several minutes together (a boundary block missing or not on the final chain), including **n2's freeze 11:08-11:25Z** (13:08-13:25 CEST). They count in the mean, not in the peak or median. Six minutes where the count had a gap come from the live chain logger.
 - The peak minute matches the live per-minute logger exactly (3,583.1).
-- **Data gap:** the `complete_minute` flag in [bot/chain-count.csv](bot/chain-count.csv) uses a looser rule than the headline (it falls back to the live logger and marks 225 minutes in the window `yes`). The 171-minute set above comes from the stricter recount on the box, which is not in this repo. The peak, median and mean were re-checked from that recount for this page and match [bot/SUMMARY.md](bot/SUMMARY.md).
+- **Rebuild from the repo:** [bot/chain-count.csv](bot/chain-count.csv) column `headline_strict = yes` marks exactly the 171 minutes above (value in `headline_tx_per_s`); the raw recount is [bot/chain-recount-1m.csv](bot/chain-recount-1m.csv). The older `complete_minute` flag uses a looser rule (225 minutes `yes` in the window) and is not the headline rule.
 
 ## Per hour (network median of complete minutes; bot means from minute.csv)
 
@@ -82,9 +82,9 @@ Its minutes differ a little from the chain count because it buckets by block tim
 ## Data gaps
 
 - Build: **pending** (no files in [build/](build/README.md) yet).
-- Bot minute.csv has no rows for 24 minutes (07:39-07:42Z, 08:46-08:48Z, 09:57-09:59Z, 11:09-11:22Z); the window totals leave those minutes at 0.
-- `rejects.csv`, `confirm.csv` and `order.csv` have no rows, though minute.csv counts 764 rejects; reasons are not in the repo.
-- steps.csv shows fee 400/600 for every hour; the fee changes are in events.csv and [CHANGES-DURING-RUN.md](bot/CHANGES-DURING-RUN.md).
+- Bot minute.csv has no data for 24 minutes (07:39-07:42Z, 08:46-08:48Z, 09:57-09:59Z: box pauses; 11:09-11:22Z: n2 freeze with a box logging gap). They are now rows with `node_state = gap` and the reason; the window totals leave those minutes at 0.
+- `rejects.csv` is rebuilt from the senders' per-second reject reasons: 764 (rpc-error 670, orphan 49, already-in-mempool 45). `confirm.csv` and `order.csv` stay header-only: this run's senders logged no per-transaction submit and accept times.
+- steps.csv now carries the fee changes: `fee-1` 400/600, `fee-2` 560/840 from 12:31:10 CEST, `fee-3` 1,120/1,680 from 14:08:40 CEST (also in [CHANGES-DURING-RUN.md](bot/CHANGES-DURING-RUN.md)).
 - The bot workbook was regenerated so its events sheet carries the stop reason, like events.csv.
 
 <details>

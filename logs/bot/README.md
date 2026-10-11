@@ -17,8 +17,9 @@ Pushed by **TN10 ops** after END (raw logs: same files and columns as [tn10-stor
 | `events.csv` | each event | Everything in order: rate changes, fixes, restarts, deviations |
 | `gates.csv` | R1, R2 | Ready reads |
 | `ntp.csv` | start and end | Clock offset |
-| `chain-count.csv` | per minute, after END | The count before pruning (Kaspa Pulse's fix) |
-| `confirm.csv` | each hour | Submit-to-accept times by fee tier |
+| `chain-count.csv` | per minute, after END | The count before pruning (Kaspa Pulse's fix). `headline_strict = yes` = the 171 minutes behind the peak and median |
+| `confirm.csv`, `order.csv` | each hour | Submit-to-accept times and ordering. **Header only for 11 Oct:** the senders logged no per-transaction times this run. |
+| `chain-recount-1m.csv` | per recount span, after END | Raw chain recount from n2 (`span_min` > 1 = lumped minutes) |
 | `steps.csv` | after END | `window` plus `window-h1` … `window-h5` |
 | `SUMMARY.md` | after END; live every 15 min during the run | Peak minute, 5-hour mean and median, what broke, what was done |
 

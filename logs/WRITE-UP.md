@@ -46,7 +46,7 @@ Both sides went flat out at 09:30 CEST on one target: as many tx/s as possible, 
 2. **Rate check bug** (fixed 12:31): it read only part of the sender files, so four checks showed 0-209 tx/s while the bot was sending about 1,060-1,300.
 3. **n2 freeze** 13:08-13:25 CEST; restarted on the same flags. 47 lumped chain-count rows, including these minutes. The bot has no minute rows for 11:09-11:22Z, so what it sent then is not in the logs.
 4. **Box memory tight** with 18 senders (down to about 1.0 GB free); several checks failed on RAM alone and sender launches were held.
-5. **Public node errors:** 655 errors on muon-10.kaspa.blue; 701 of the 764 bot rejects fell in 10:30-11:30Z. Reject reasons are not in the repo (rejects.csv is empty).
+5. **Public node errors:** 655 errors on muon-10.kaspa.blue; 701 of the 764 bot rejects fell in 10:30-11:30Z. Reject reasons are in [bot/rejects.csv](bot/rejects.csv): rpc-error 670, orphan 49, already-in-mempool 45.
 
 ## Fees and congestion
 
@@ -60,7 +60,8 @@ Both sides went flat out at 09:30 CEST on one target: as many tx/s as possible, 
 - Count rate-check input from every sender file, every time; a partial read silently held the bot back for about an hour.
 - Mass stalls are the bot's main bottleneck now, more than rejects. Four of the five came right after a gap of 3 to 14 minutes in the bot's own logs (gaps from 09:39, 10:46, 11:57 and 13:09 CEST), so a box pause may be the cause rather than the public nodes. **Not sure / open for debate.**
 - 18 senders is about what the box's RAM can carry; more rate needs fewer, faster senders or more memory.
-- Keep `complete_minute` in chain-count.csv on the same rule as the headline, so anyone can rebuild the headline from the repo.
+- Keep the headline rule in the repo: chain-count.csv now has `headline_strict` (the 171 minutes) next to the older, looser `complete_minute`.
+- Log per-transaction submit and accept times again (confirm.csv and order.csv are empty today).
 
 ## Pass/fail
 

@@ -1,7 +1,10 @@
 step,side,start_utc,end_utc,target_tx_s,mean_sent,mean_submit_ok,mean_node_accepted,rejects,zero_seconds,fee_low,fee_high,clean,reason
-window,bot,2026-10-11T07:30:00Z,2026-10-11T12:34:00Z,1261.4,1213.73,1212.97,1211.87,764,81,400,600,,not evaluated
+window,bot,2026-10-11T07:30:00Z,2026-10-11T12:34:00Z,1261.4,1213.73,1212.97,1211.87,764,81,400,600,,"not evaluated; fees changed: 400/600 from 07:30:00Z, 560/840 from 10:31:10Z, 1120/1680 from 12:08:40Z (fee_low/fee_high = fees at the start; see fee-* rows)"
 window-h1,bot,2026-10-11T07:30:00Z,2026-10-11T08:30:00Z,921.5,910.02,909.51,908.52,3,8,400,600,,hour of the window (rate checks: rate-checks.csv)
 window-h2,bot,2026-10-11T08:30:00Z,2026-10-11T09:30:00Z,1107.6,1098.27,1097.84,1097.49,12,6,400,600,,hour of the window (rate checks: rate-checks.csv)
 window-h3,bot,2026-10-11T09:30:00Z,2026-10-11T10:30:00Z,1299.8,1263.0,1260.94,1258.07,33,56,400,600,,hour of the window (rate checks: rate-checks.csv)
-window-h4,bot,2026-10-11T10:30:00Z,2026-10-11T11:30:00Z,1427.0,1363.74,1362.8,1361.87,701,6,400,600,,hour of the window (rate checks: rate-checks.csv)
-window-h5,bot,2026-10-11T11:30:00Z,2026-10-11T12:30:00Z,1537.1,1423.0,1422.95,1422.01,15,0,400,600,,hour of the window (rate checks: rate-checks.csv)
+window-h4,bot,2026-10-11T10:30:00Z,2026-10-11T11:30:00Z,1427.0,1363.74,1362.8,1361.87,701,6,400,600,,"hour of the window (rate checks: rate-checks.csv); fees changed: 400/600 from 07:30:00Z, 560/840 from 10:31:10Z (fee_low/fee_high = fees at the start; see fee-* rows)"
+window-h5,bot,2026-10-11T11:30:00Z,2026-10-11T12:30:00Z,1537.1,1423.0,1422.95,1422.01,15,0,560,840,,"hour of the window (rate checks: rate-checks.csv); fees changed: 560/840 from 10:31:10Z, 1120/1680 from 12:08:40Z (fee_low/fee_high = fees at the start; see fee-* rows)"
+fee-1,bot,2026-10-11T07:30:00Z,2026-10-11T10:31:10Z,1109.7,1092.54,1091.55,1090.09,56,70,400,600,,fees from GO-BOT (400/600)
+fee-2,bot,2026-10-11T10:31:10Z,2026-10-11T12:08:40Z,1470.7,1391.7,1391.15,1389.97,704,6,560,840,,"stp 11:49 CEST: fee +40%, fired 12:31:10 CEST with the rate climb (deviation: above GO cap 600)"
+fee-3,bot,2026-10-11T12:08:40Z,2026-10-11T12:34:00Z,1593.1,1443.7,1443.81,1445.43,4,5,1120,1680,,"stp 14:05 CEST: fee x2, fired 14:08:40 CEST (deviation: above GO cap 600); END = halt 12:33:01Z, files run to 12:34Z"
