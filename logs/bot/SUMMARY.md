@@ -1,21 +1,21 @@
 # Bot side, live summary (TN10 storm, Sun 11 Oct 2026, flat out 09:30-14:30 CEST)
 
-Updated **13:30:19 CEST / 11:30:19 UTC**, about every 10 minutes from G1 to END. Counts only, written on the box by `live-summary.py` (read-only, sends nothing). Column meanings: [go/LOGGING.md](../../go/LOGGING.md). Plan and times: [go/README.md](../../go/README.md).
+Updated **13:45:07 CEST / 11:45:07 UTC**, about every 10 minutes from G1 to END. Counts only, written on the box by `live-summary.py` (read-only, sends nothing). Column meanings: [go/LOGGING.md](../../go/LOGGING.md). Plan and times: [go/README.md](../../go/README.md).
 
 ## Now
 
 | What | Value |
 |---|---|
 | Step | **window**, until 14:30 CEST / 12:30 UTC |
-| Bot target now (ramp) | 1,430 tx/s; last clean level 1,300 |
-| Network unique accepted, last complete minute (n2 count) | 3,423.1 tx/s (13:29 CEST) |
-| Network best minute so far / mean since START | 3,583.1 (13:28 CEST) / 2,818.4 tx/s (200 valid minutes) |
-| Bot submitted, last 10 min | 876.3 tx/s (525,807 tx) |
-| Bot accepted on n2, last 10 min | 871.8 tx/s (523,108 tx) |
+| Bot target now (ramp) | 1,573 tx/s; last clean level 1,430 |
+| Network unique accepted, last complete minute (n2 count) | 3,396.6 tx/s (13:44 CEST) |
+| Network best minute so far / mean since START | 3,583.1 (13:28 CEST) / 2,860.3 tx/s (215 valid minutes) |
+| Bot submitted, last 10 min | 1,363.5 tx/s (818,108 tx) |
+| Bot accepted on n2, last 10 min | 1,363.4 tx/s (818,048 tx) |
 | Rejects, last 10 min | 0 consensus/mempool; 0 public-node transport errors |
 | Senders writing rows | 18 (processes up: 18) |
 | Scheduler / watchdog | running / running |
-| Stall relaunches (auto) | 85 |
+| Stall relaunches (auto) | 86 |
 | HALT | no |
 
 ## Changes during the run
@@ -33,11 +33,10 @@ Updated **13:30:19 CEST / 11:30:19 UTC**, about every 10 minutes from G1 to END.
 
 | Node | Submits ok | Rejects | Errors | Down (s) |
 |---|---:|---:|---:|---:|
-| boson-10.kaspa.red | 0 | 0 | 0 | 0 |
-| electron-10.kaspa.blue | 131,108 | 0 | 0 | 0 |
-| muon-10.kaspa.blue | 130,486 | 0 | 0 | 0 |
-| neutrino-10.kaspa.stream | 131,625 | 0 | 0 | 0 |
-| vector-10.kaspa.green | 132,588 | 0 | 0 | 0 |
+| electron-10.kaspa.blue | 204,541 | 0 | 0 | 0 |
+| muon-10.kaspa.blue | 204,069 | 0 | 0 | 0 |
+| neutrino-10.kaspa.stream | 204,478 | 0 | 0 | 0 |
+| vector-10.kaspa.green | 205,020 | 0 | 0 | 0 |
 
 ## Kaspa Pulse method (live mirror)
 
@@ -47,22 +46,22 @@ Updated **13:30:19 CEST / 11:30:19 UTC**, about every 10 minutes from G1 to END.
 
 | UTC minute | CEST | n2 accepted tx/s | public node tx/s | diff (tx) | blue blocks | our blocks | our hashrate | note |
 |---|---|---:|---:|---:|---:|---:|---|---|
-| 2026-10-11T11:21Z | 13:21 | 2025.8 | 2025.8 | 0 | 490 |  |  | miner chain row missing |
-| 2026-10-11T11:22Z | 13:22 | 2028.7 | 2028.7 | 0 | 474 |  |  | miner chain row missing |
-| 2026-10-11T11:26Z | 13:26 | 2830.3 | 2830.3 | 0 | 460 | 172 | 5.58 Mhash/s |  |
-| 2026-10-11T11:23Z | 13:23 | 2039.4 | 2039.4 | 0 | 464 |  | 5.71 Mhash/s | miner chain row missing |
-| 2026-10-11T11:27Z | 13:27 | 3041.6 | 3041.6 | 0 | 515 | 207 | 5.97 Mhash/s |  |
+| 2026-10-11T11:37Z | 13:37 | 3443.2 | 3443.2 | 0 | 634 | 219 | 6.08 Mhash/s |  |
+| 2026-10-11T11:38Z | 13:38 | 3504.1 | 3504.1 | 0 | 663 | 200 | 6.05 Mhash/s |  |
+| 2026-10-11T11:39Z | 13:39 | 3411.0 | 3411.0 | 0 | 628 | 196 | 6.08 Mhash/s |  |
+| 2026-10-11T11:40Z | 13:40 | 3436.0 | 3436.0 | 0 | 660 | 232 | 6.13 Mhash/s |  |
+| 2026-10-11T11:41Z | 13:41 | 3322.8 | 3322.8 | 0 | 622 | 217 | 6.13 Mhash/s |  |
 
 ## n2 (bot's private reader node) and the box
 
 | What | Value |
 |---|---|
 | n2 synced / UTXO index | True / False |
-| n2 sink age (lag) | 0.5 s |
-| n2 virtual DAA score | 593,837,418 |
+| n2 sink age (lag) | 0.2 s |
+| n2 virtual DAA score | 593,846,998 |
 | Miner processes | 1 |
-| Lane tips at last sender boots | 173,842 tKAS in 3,600 lanes (read from a public UTXO index; no wallet buffer needed) |
-| Disk free / RAM available | 28 GB / 2,787 MB |
+| Lane tips at last sender boots | 173,827 tKAS in 3,600 lanes (read from a public UTXO index; no wallet buffer needed) |
+| Disk free / RAM available | 27 GB / 2,701 MB |
 
 ## Rate checks (every 15 min over the full last 15 min: +10% if clean; until 11:28 CEST -10% if not; from 11:28 CEST floor 1,100 and -5% only on real overload, else hold)
 
@@ -84,15 +83,12 @@ Updated **13:30:19 CEST / 11:30:19 UTC**, about every 10 minutes from G1 to END.
 | 12:59 | 1,430 | 1,346.8 | 1,348.8 | 0.00 | 1.01 | 54.8 | no: box RAM min 1.01 GB < 1.5 | 1,430 |
 | 13:23 | 1,430 | 21.3 | 21.1 | 0.00 | 1.35 | 45.9 | no: submitted 21.3 < 90% of 1430; box RAM min 1.35 GB < 1.5 | 1,430 |
 | 13:29 | 1,430 | 543.8 | 540.8 | 0.00 | 1.38 | 56.4 | no: 5 node-dead events; submitted 543.8 < 90% of 1430; box RAM min 1.38 GB < 1.5 | 1,430 |
+| 13:44 | 1,430 | 1,361.7 | 1,361.2 | 0.00 | 1.83 | 56.6 | yes | 1,573 |
 
 ## Last events
 
 | CEST | Event | Step | Detail |
 |---|---|---|---|
-| 13:24:24 | sender-start | window | S15 mode=pub |
-| 13:24:27 | sender-relaunch | window | S16 relaunch 6/200 |
-| 13:24:27 | sender-start | window | S16 mode=pub |
-| 13:24:30 | sender-relaunch | window | S17 relaunch 9/200 |
 | 13:24:30 | sender-start | window | S17 mode=pub |
 | 13:24:33 | sender-relaunch | window | S18 relaunch 5/200 |
 | 13:24:33 | sender-start | window | S18 mode=pub |
@@ -101,5 +97,9 @@ Updated **13:30:19 CEST / 11:30:19 UTC**, about every 10 minutes from G1 to END.
 | 13:25 | node-restart | window | GO freeze: DAA stuck 593826615 since ~13:08 CEST, sink lag ~986s; restarted n2 same flags via start-n2.sh pid - (old 2857338); miner was already OFF |
 | 13:26:05 | miner-on | window | n2 synced again / process relaunch |
 | 13:29:53 | rate-eval | window | RAMP EVAL 13:14-13:29 CEST at 1430 tx/s: sub/acc 543.8/540.8 tx/s, acc/sub 99.43%, rejects 0% (+0 transport), RAM min 1.38 GB, CPU avg 56.4% -> NOT clean (5 nod |
+| 13:33:34 | sender-stall | window | S14 stalled: 0 ok submits in 45 s (44 sec rows), 1 accepts in 60 s, erroring nodes [], main neutrino-10.kaspa.stream -> SIGKILL pid -, relaunch now with f |
+| 13:33:35 | sender-relaunch | window | S14 relaunch 10/200 |
+| 13:33:35 | sender-start | window | S14 mode=pub |
+| 13:44:55 | rate-change | window | RAMP EVAL 13:29-13:44 CEST at 1430 tx/s: sub/acc 1361.7/1361.2 tx/s, acc/sub 99.96%, rejects 0% (+0 transport), RAM min 1.83 GB, CPU avg 56.6% -> clean; rate 14 |
 
 How to read: *Now* answers "is the bot sending what the plan says?"; *Public nodes* shows which node rejects or errors; *Rate steps* shows each 15-minute check (clean = at least 99% of submitted accepted, p90 at most 10 s, no node-dead event, submitted at least 90% of target, rejects under 2%, box RAM at least 1.5 GB, CPU under 95%). Label: no-signature hop, anyone-can-spend, not realistic payments. Final per-second files land here after END.
