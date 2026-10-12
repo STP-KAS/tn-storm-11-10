@@ -22,3 +22,7 @@ Changes made after the GO lock. Each one is also in `events.csv` (pushed after E
 | **14:33:01** | stp: **HALT** (12:33:01Z). GO-BOT HALT order: halt flag, watchdog, scheduler, senders to 0, +10 s hard-kill of every sender and the miner; nothing restarted. **Effective END = 12:33:01Z**, ended early vs the extended END 13:30Z. Stopped early by stp: taking a break, other things on the agenda. (bot and Build) n2 and the read-only loggers stayed up for the final minute. | stp, 14:32 CEST |
 
 Label: no-signature hop, anyone-can-spend, not realistic payments.
+
+## After the run (12 Oct 2026, 08:27 CEST / 06:27 UTC)
+- Box node n2 (stopped by the disk guard at 21:37 CEST on 11 Oct) had its 88G data folder deleted by stp's decision to free disk. n2 stays off; storms use public nodes.
+- A comment posted from the STP-KAS account on kaspanet/rusty-kaspa PR #1147 (11 Oct, 19:44 UTC) was removed at stp's request. Per our rules, bots don't comment on other people's repos.
