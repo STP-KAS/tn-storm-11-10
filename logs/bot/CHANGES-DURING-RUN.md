@@ -25,4 +25,3 @@ Label: no-signature hop, anyone-can-spend, not realistic payments.
 
 ## After the run (12 Oct 2026, 08:27 CEST / 06:27 UTC)
 - Box node n2 (stopped by the disk guard at 21:37 CEST on 11 Oct) had its 88G data folder deleted by stp's decision to free disk. n2 stays off; storms use public nodes.
-- A comment posted from the STP-KAS account on kaspanet/rusty-kaspa PR #1147 (11 Oct, 19:44 UTC) was removed at stp's request. Per our rules, bots don't comment on other people's repos.
