@@ -21,7 +21,7 @@ When this file lands in your chat, that is the GO. No questions. Get ready at on
 
 No steps, no ramp. **Target: as many tx/s as possible, network unique accepted, sustained.** START does not move. Do not wait for Build: both sides start at 09:30 on this one clock. (Last night the two sides ran on different clocks and the combined peak never reached 3,000: [WRITE-UP](https://github.com/STP-KAS/tn10-storm-2026-10-10/blob/main/logs/WRITE-UP.md).)
 
-Thank you, Kaspa Pulse ([@gokugalax](https://x.com/gokugalax)). The node-dead rule and the chain count right after END are his fixes.
+Thank you, Kaspa Pulse ([@gokugalax](https://x.com/gokugalax), [kaspapulse.com](https://kaspapulse.com)). The node-dead rule and the chain count right after END are his fixes.
 
 ## Your job: steady
 

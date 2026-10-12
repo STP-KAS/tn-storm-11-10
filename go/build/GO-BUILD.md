@@ -24,7 +24,7 @@ No steps, no ramp. **Target: as many tx/s as possible, network unique accepted, 
 
 **Why one clock:** last night your clock (T0 15:00Z) and the bot's (T0 18:30Z) did not match, so both sides were never at full rate together and the combined peak stayed under 3,000 ([WRITE-UP](https://github.com/STP-KAS/tn10-storm-2026-10-10/blob/main/logs/WRITE-UP.md)). Today there is one clock: 09:30 to 14:30 CEST. Read your times from this file only.
 
-Thank you, Kaspa Pulse ([@gokugalax](https://x.com/gokugalax)). The node-dead rule and the chain count right after END are his fixes.
+Thank you, Kaspa Pulse ([@gokugalax](https://x.com/gokugalax), [kaspapulse.com](https://kaspapulse.com)). The node-dead rule and the chain count right after END are his fixes.
 
 ## Your job: monitor and adapt, without stopping
 
