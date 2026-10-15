@@ -40,7 +40,7 @@ Bot columns are means over the minutes that have data rows (the last row uses th
 
 ## Ours vs Kaspa Pulse
 
-| 11 Oct | Ours (n2, by n2 receive time) | Kaspa Pulse (two nodes, by block time) |
+| 11 Oct | Ours (n2, by n2 receive time) | Independent counts by Kaspa Pulse (two external nodes, by block time) |
 |---|---|---|
 | Window | 07:30-12:33Z (303 min) | 07:30-12:30Z (300 full min) |
 | Peak minute | 3,583.1 (11:28Z) | 3,646 (11:28Z) |
@@ -48,7 +48,7 @@ Bot columns are means over the minutes that have data rows (the last row uses th
 | Mean | 2,833.1 | 2,844 |
 | Accepted | 51.5 million (303 min) | 51.2 million (300 min) |
 
-Note: the medians are over different minute sets (our 171 strict single minutes skip the lumped dip minutes; his 300 include them). Minute by minute: [credits/kaspa-pulse/2026-10-11/pulse-vs-ours-1110.csv](../credits/kaspa-pulse/2026-10-11/pulse-vs-ours-1110.csv). Credit: Kaspa Pulse ([@gokugalax](https://x.com/gokugalax), [kaspapulse.com](https://kaspapulse.com)).
+Note: the medians are over different minute sets (our 171 strict single minutes skip the lumped dip minutes; his 300 include them). Minute by minute: [credits/kaspa-pulse/2026-10-11/pulse-vs-ours-1110.csv](../credits/kaspa-pulse/2026-10-11/pulse-vs-ours-1110.csv). Independent counts by Kaspa Pulse ([@gokugalax](https://x.com/gokugalax), [kaspapulse.com](https://kaspapulse.com)): accepted in block counts on two external nodes.
 
 ## Bot vs Build
 
@@ -93,7 +93,7 @@ Its minutes differ a little from the chain count because it buckets by block tim
 
 ## Dips: two shapes (from our logs)
 
-The dips in this run come in two shapes, and they need different fixes. Credit for the analysis: Kaspa Pulse ([@gokugalax](https://x.com/gokugalax), [kaspapulse.com](https://kaspapulse.com)), from his independent count of 11 Oct. He found that every larger dip lines up with our mining address going to zero blocks, with the block rate dropping to about 7.5-8 blocks per second and blocks carrying fewer transactions (07:38, 08:45, 09:56 and 11:08-11:25Z), and that 09:15-09:29Z is a different kind of dip: blocks kept coming at about 10.5 per second and only the transactions dropped, to about 1,650 tx/s, which points to the sender side. Below is what our own logs show. All times UTC (CEST = UTC+2).
+The dips in this run come in two shapes, and they need different fixes. Independent counts by Kaspa Pulse ([@gokugalax](https://x.com/gokugalax), [kaspapulse.com](https://kaspapulse.com)): accepted in block counts on two external nodes. The two-shapes reading (miner-out vs sender-side) is our analysis of those counts and our logs. Below is what our own logs show. All times UTC (CEST = UTC+2).
 
 | Shape | What our logs show | Cause | Source |
 |---|---|---|---|
@@ -102,7 +102,7 @@ The dips in this run come in two shapes, and they need different fixes. Credit f
 
 **How to tell them apart:** watch block rate and tx per block separately, not only tx/s. Shape A: block rate falls. Shape B: block rate holds, tx per block falls. Advice for developers: [tn-master ADVICE-TO-DEVELOPERS item 17](https://github.com/STP-KAS/tn-master/blob/main/ADVICE-TO-DEVELOPERS.md).
 
-**Our log check of his dips.**
+**Our log check of the dips.**
 - 07:38, 08:45, 09:56Z: our box paused (minute.csv gap rows 07:39-07:42Z, 08:46-08:48Z, 09:57-09:59Z); the bot's miner runs on that box, so it stopped.
 - 11:08-11:25Z: our node n2 froze; the miner mines on n2, so it stopped.
 - 09:15-09:29Z: the bot's own senders were steady (about 1,011 tx/s, 0 rejects, no stall relaunch), so the sender-side drop was mostly not the bot. Build's logs are pending; which sender is still open.
