@@ -8,7 +8,7 @@
 
 **History of every storm: [MASTER.md](https://github.com/STP-KAS/tn-master/blob/main/history/MASTER.md)** (in tn-master).
 
-**Thank you first to Kaspa Pulse ([@gokugalax](https://x.com/gokugalax), [kaspapulse.com](https://kaspapulse.com)).** He counted our chain from outside on his own nodes and shaped these runs with his questions, method and fixes: the node-dead rule and the chain count right after END. All his inputs: [tn10-storm-2026-10-10 credits/KASPA-PULSE.md](https://github.com/STP-KAS/tn10-storm-2026-10-10/blob/main/credits/KASPA-PULSE.md).
+**Thank you first to Kaspa Pulse ([@gokugalax](https://x.com/gokugalax), [kaspapulse.com](https://kaspapulse.com)).** Independent counts by Kaspa Pulse: accepted in block counts on two external nodes. He counted our chain from outside and shaped these runs with his questions, method and fixes: the node-dead rule and the chain count right after END. All his inputs: [tn10-storm-2026-10-10 credits/KASPA-PULSE.md](https://github.com/STP-KAS/tn10-storm-2026-10-10/blob/main/credits/KASPA-PULSE.md).
 
 ## Start, end, target
 
@@ -59,9 +59,9 @@ Window **07:30Z to the halt (303 minutes)**. Network counts are counted once fro
 | Network unique accepted, median / mean (tx/s) | **3,107.1** (171 complete minutes) / **2,833.1** | [logs/COMBINED.md](logs/COMBINED.md) |
 | Bot mean submit-OK / accepted on n2 (tx/s, all 303 minutes) | 1,101.5 / 1,100.6 (steps.csv logged-second mean 1,212.97 / 1,211.87) | [logs/COMBINED.md](logs/COMBINED.md#bot-vs-build) |
 | Build mean submitted / accepted (tx/s) | pending | [logs/build/](logs/build/README.md) |
-| Kaspa Pulse's outside count (accepted in blocks, two independent nodes, per UTC minute, by block time; every minute confirmed by both nodes) | 07:30-12:30Z, 300 full minutes: mean **2,844**, median **3,055**, best minute **3,646** (11:28Z); **51.2 million** tx accepted; 163 minutes above 3,000 tx/s. Includes ~56 tx/s base load. | [credits/kaspa-pulse/2026-10-11/](credits/kaspa-pulse/2026-10-11/README.md) |
+| Independent counts by Kaspa Pulse ([@gokugalax](https://x.com/gokugalax), [kaspapulse.com](https://kaspapulse.com)): accepted in block counts on two external nodes | 07:30-12:30Z, 300 full minutes: mean **2,844**, median **3,055**, best minute **3,646** (11:28Z); **51.2 million** tx accepted; 163 minutes above 3,000 tx/s. Includes ~56 tx/s base load. | [credits/kaspa-pulse/2026-10-11/](credits/kaspa-pulse/2026-10-11/README.md) |
 
-**Dips have two shapes:** a big miner dropping out (block rate and throughput fall together) vs senders slowing (block rate holds, tx per block falls). Our evidence: [logs/COMBINED.md, Dips](logs/COMBINED.md#dips-two-shapes-from-our-logs). How each per-minute CSV was counted: [logs/README.md, Method per file](logs/README.md#method-per-file).
+**Dips have two shapes:** a big miner dropping out (block rate and throughput fall together) vs senders slowing (block rate holds, tx per block falls). Our evidence and analysis: [logs/COMBINED.md, Dips](logs/COMBINED.md#dips-two-shapes-from-our-logs). How each per-minute CSV was counted: [logs/README.md, Method per file](logs/README.md#method-per-file).
 
 Submit-OK (taken into a node's mempool) is not the same as accepted on chain. Kaspa Testnet-10 only; tKAS has no value.
 
